@@ -1,11 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
 import { createSupabaseAdmin } from "@/lib/supabase";
 import { PRODUCTS } from "@/lib/products";
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-03-25.dahlia",
-});
 
 interface CartItemInput {
   productId: string;
@@ -35,10 +30,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Panier vide" }, { status: 400 });
     }
 
-    // ============================================================
-    // VÉRIFICATION DES PRIX CÔTÉ SERVEUR (sécurité B2B)
-    // On ne fait jamais confiance aux prix envoyés par le client
-    // ============================================================
+    // Vérifier que Stripe est configuré
+    if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === "sk_test_...") {
+      return NextResponse.json(
+        { error: "Paiement non encore configuré. Contactez-nous pour finaliser votre commande." },
+        { status: 503 }
+      );
+    }
+
+    // Import dynamique de Stripe (seulement quand nécessaire)
+    const Stripe = (await import("stripe")).default;
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: "2026-03-25.dahlia",
+    });
 
     // Charger les prix contractuels si l'utilisateur est identifié
     let contractPriceMap: Record<string, number> = {};
@@ -55,9 +59,8 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Construire les line items avec prix VÉRIFIÉS serveur
+    // Construire les line items avec prix vérifiés côté serveur
     const lineItems = items.map((item: CartItemInput) => {
-      // Trouver le produit et la variante dans notre catalogue
       const product = PRODUCTS.find((p) => p.id === item.productId);
       const variant = product?.variants.find((v) => v.id === item.variantId);
 
@@ -65,22 +68,18 @@ export async function POST(req: NextRequest) {
         throw new Error(`Produit introuvable: ${item.productId}`);
       }
 
-      // Prix résolu : contractuel si disponible, sinon catalogue
       const verifiedPrice = contractPriceMap[item.variantId] ?? variant.price;
 
       return {
         price_data: {
           currency: "eur",
-          product_data: {
-            name: `${product.name} — ${variant.name}`,
-          },
+          product_data: { name: `${product.name} — ${variant.name}` },
           unit_amount: verifiedPrice,
         },
         quantity: item.quantity,
       };
     });
 
-    // Créer la session Stripe Checkout
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
@@ -99,13 +98,6 @@ export async function POST(req: NextRequest) {
         phone: customerInfo.phone,
         company: customerInfo.company ?? "",
         notes: customerInfo.notes ?? "",
-        had_contract_prices: Object.keys(contractPriceMap).length > 0 ? "true" : "false",
-      },
-      payment_intent_data: {
-        metadata: {
-          customer_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
-          customer_email: customerInfo.email,
-        },
       },
     });
 

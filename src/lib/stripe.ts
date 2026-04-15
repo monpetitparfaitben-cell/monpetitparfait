@@ -1,16 +1,9 @@
-import Stripe from "stripe";
-
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-03-25.dahlia",
-});
+// Stripe est initialisé uniquement à la demande (import dynamique dans les routes)
+// Ce fichier contient uniquement les utilitaires de formatage
 
 export function formatPrice(amount: number): string {
   return new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
   }).format(amount / 100);
-}
-
-export function formatPriceRaw(amount: number): string {
-  return (amount / 100).toFixed(2).replace(".", ",") + " €";
 }
