@@ -1,83 +1,26 @@
 import Link from "next/link";
-import { ArrowRight, Star, Truck, Shield, Clock } from "lucide-react";
-import { getFeaturedProducts, PRODUCTS } from "@/lib/products";
+import { ArrowRight, Check } from "lucide-react";
+import { getFeaturedProducts, PRODUCTS, formatPrice } from "@/lib/products";
 import ProductCard from "@/components/store/ProductCard";
 
-const categoryCards = [
-  {
-    id: "kits",
-    emoji: "🎁",
-    title: "Nos Kits",
-    subtitle: "Tout-en-un",
-    description: "Kits café, salle de bain, entretien — tout prêt pour vos hébergements",
-    href: "/boutique?category=kits",
-    bg: "#18223b",
-    color: "white",
-  },
-  {
-    id: "ouate",
-    emoji: "🧻",
-    title: "100% Ouate",
-    subtitle: "Premium",
-    description: "Papier toilette, essuie-tout et mouchoirs certifiés FSC®",
-    href: "/boutique?category=ouate",
-    bg: "#e67e22",
-    color: "white",
-  },
-  {
-    id: "consommables",
-    emoji: "☕",
-    title: "Consommables",
-    subtitle: "Quotidien",
-    description: "Capsules café, sacs poubelle, tablettes vaisselle et éponges",
-    href: "/boutique?category=consommables",
-    bg: "#ede9e0",
-    color: "#18223b",
-  },
+const kits = [
+  { slug: "kit-welcome-cafe", label: "Kit Welcome Café", emoji: "☕", desc: "2 cafés, thé, sucres, biscuits Lotus" },
+  { slug: "kit-capsule", label: "Kit Capsule", emoji: "🫘", desc: "3 capsules café compatibles" },
+  { slug: "kit-entretien", label: "Kit Entretien", emoji: "🧹", desc: "Liquide vaisselle, éponge, sacs poubelles" },
+  { slug: "kit-salle-de-bain", label: "Kit Salle De Bain", emoji: "🧴", desc: "Savon, shampoing, trousse, pain de savon" },
 ];
 
-const features = [
-  {
-    icon: Truck,
-    title: "Livraison offerte",
-    description: "Sans minimum d'achat, partout en France",
-  },
-  {
-    icon: Clock,
-    title: "Expédition rapide",
-    description: "Commandez avant 14h, expédié le jour même",
-  },
-  {
-    icon: Shield,
-    title: "Qualité garantie",
-    description: "Produits sélectionnés pour les professionnels",
-  },
-  {
-    icon: Star,
-    title: "Sur-mesure B2B",
-    description: "Tarifs dégressifs selon les volumes commandés",
-  },
+const ouate = [
+  { slug: "essuie-tout", label: "Essuie-tout", emoji: "🧻" },
+  { slug: "papier-toilette", label: "Papier toilette", emoji: "🧻" },
+  { slug: "mouchoirs-en-papier", label: "Mouchoirs en papier", emoji: "📦" },
 ];
 
-const testimonials = [
-  {
-    name: "Marie-Claire D.",
-    role: "Gérante Airbnb, Paris",
-    text: "Les kits salle de bain sont parfaits pour mes appartements. Mes clients adorent et les commandes sont toujours livrées rapidement.",
-    rating: 5,
-  },
-  {
-    name: "Laurent B.",
-    role: "Responsable conciergerie, Lyon",
-    text: "Je gère une vingtaine de logements et Mon Petit Parfait m'a simplifié la vie. Qualité excellente, livraison fiable.",
-    rating: 5,
-  },
-  {
-    name: "Sophie M.",
-    role: "Hôtel 3★, Nice",
-    text: "Le kit welcome café est un vrai plus pour nos chambres. Les clients le mentionnent systématiquement dans leurs avis.",
-    rating: 5,
-  },
+const consommables = [
+  { slug: "sacs-poubelle", label: "Sacs poubelles", emoji: "🗑️" },
+  { slug: "tablette-vaisselle-linge", label: "Tablette vaisselle / linge", emoji: "🫧" },
+  { slug: "capsules-cafe", label: "Capsules café", emoji: "☕" },
+  { slug: "eponges", label: "Éponges", emoji: "🧽" },
 ];
 
 export default function HomePage() {
@@ -85,218 +28,248 @@ export default function HomePage() {
 
   return (
     <div style={{ backgroundColor: "#F7F5F0" }}>
+
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <section
+        className="relative overflow-hidden"
+        style={{ backgroundColor: "#18223b" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
           <div className="max-w-2xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
-              style={{ backgroundColor: "#ede9e0", color: "#18223b" }}>
-              <span>⭐</span>
-              <span>Spécialiste B2B pour l&apos;hôtellerie</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-              style={{ color: "#18223b" }}>
-              Les petits détails qui font{" "}
-              <span style={{ color: "#e67e22" }}>toute la différence</span>
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white"
+            >
+              L&apos;Essentiel<br />
+              <span style={{ color: "#e67e22" }}>au Quotidien</span>
             </h1>
-
-            <p className="text-lg md:text-xl opacity-70 mb-8 leading-relaxed"
-              style={{ color: "#18223b" }}>
-              Kits d&apos;accueil, consommables et produits essentiels pour hôtels,
-              conciergeries et hébergements professionnels. Livraison offerte, sans minimum.
+            <p className="text-white opacity-70 text-lg md:text-xl mb-10 leading-relaxed">
+              Kits d&apos;accueil et consommables pour hôtels, conciergeries<br className="hidden md:block" />
+              et hébergements professionnels.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/boutique"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: "#18223b" }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold transition-opacity hover:opacity-90"
+                style={{ backgroundColor: "#e67e22", color: "white" }}
               >
-                Découvrir la boutique
-                <ArrowRight size={18} />
+                Découvrir la gamme <ArrowRight size={18} />
               </Link>
               <Link
-                href="/boutique?category=kits"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all hover:shadow-md"
-                style={{
-                  backgroundColor: "white",
-                  color: "#18223b",
-                  border: "2px solid #ede9e0",
-                }}
+                href="/auth/register"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all"
+                style={{ backgroundColor: "rgba(255,255,255,0.1)", color: "white", border: "1.5px solid rgba(255,255,255,0.2)" }}
               >
-                Voir nos kits
+                Créer un compte professionnel
               </Link>
             </div>
-
-            {/* Stats */}
-            <div className="flex gap-8 mt-10">
-              {[
-                { value: "500+", label: "Clients professionnels" },
-                { value: "12", label: "Produits disponibles" },
-                { value: "48h", label: "Délai de livraison" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-bold" style={{ color: "#18223b" }}>
-                    {stat.value}
-                  </p>
-                  <p className="text-xs opacity-60" style={{ color: "#18223b" }}>
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-
-        {/* Décoration */}
-        <div
-          className="absolute -right-20 top-10 w-80 h-80 rounded-full opacity-20 blur-3xl"
-          style={{ backgroundColor: "#e67e22" }}
-        />
-        <div
-          className="absolute right-40 bottom-0 w-40 h-40 rounded-full opacity-10 blur-2xl"
-          style={{ backgroundColor: "#18223b" }}
-        />
+        {/* Déco */}
+        <div className="absolute right-0 top-0 h-full w-1/3 opacity-5"
+          style={{ background: "radial-gradient(circle, #e67e22 0%, transparent 70%)" }} />
       </section>
 
-      {/* ===== CATÉGORIES ===== */}
+      {/* ===== NOS KITS ===== */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {categoryCards.map((cat) => (
-            <Link key={cat.id} href={cat.href} className="group">
-              <div
-                className="rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                style={{ backgroundColor: cat.bg, color: cat.color }}
-              >
-                <div className="text-4xl mb-4">{cat.emoji}</div>
-                <div className="text-xs font-semibold uppercase tracking-widest mb-1 opacity-60">
-                  {cat.subtitle}
-                </div>
-                <h2 className="text-2xl font-bold mb-3">{cat.title}</h2>
-                <p className="text-sm opacity-80 leading-relaxed mb-6">
-                  {cat.description}
-                </p>
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  Voir les produits <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== PRODUITS VEDETTES ===== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-wider mb-2 opacity-50" style={{ color: "#18223b" }}>
-              Nos meilleurs
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "#18223b" }}>
-              Produits Populaires
-            </h2>
-          </div>
-          <Link
-            href="/boutique"
-            className="hidden md:flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-70"
-            style={{ color: "#e67e22" }}
-          >
-            Voir tout <ArrowRight size={16} />
-          </Link>
-        </div>
-
+        <h2 className="text-3xl font-bold mb-10" style={{ color: "#18223b" }}>
+          Nos kits
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-
-        <div className="mt-8 text-center md:hidden">
-          <Link
-            href="/boutique"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
-            style={{ backgroundColor: "#e67e22" }}
-          >
-            Voir tous les produits <ArrowRight size={16} />
-          </Link>
+          {kits.map((kit) => {
+            const product = PRODUCTS.find((p) => p.slug === kit.slug);
+            return (
+              <Link key={kit.slug} href={`/produit/${kit.slug}`} className="group">
+                <div
+                  className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <div
+                    className="aspect-square flex items-center justify-center text-7xl"
+                    style={{ backgroundColor: "#F7F5F0" }}
+                  >
+                    {kit.emoji}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-base mb-1" style={{ color: "#18223b" }}>
+                      {kit.label}
+                    </h3>
+                    <p className="text-xs opacity-60 mb-3" style={{ color: "#18223b" }}>
+                      {kit.desc}
+                    </p>
+                    {product && (
+                      <p className="text-xs opacity-50" style={{ color: "#18223b" }}>
+                        À partir de {formatPrice(product.price)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      {/* ===== AVANTAGES ===== */}
+      {/* ===== PRODUITS 100% OUATE ===== */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold mb-10" style={{ color: "#18223b" }}>
+          Produits 100% Ouate
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {ouate.map((item) => {
+            const product = PRODUCTS.find((p) => p.slug === item.slug);
+            return (
+              <Link key={item.slug} href={`/produit/${item.slug}`} className="group">
+                <div
+                  className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <div
+                    className="aspect-video flex items-center justify-center text-6xl"
+                    style={{ backgroundColor: "#F7F5F0" }}
+                  >
+                    {item.emoji}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-base mb-1" style={{ color: "#18223b" }}>
+                      {item.label}
+                    </h3>
+                    {product && (
+                      <p className="text-xs opacity-50 mt-1" style={{ color: "#18223b" }}>
+                        À partir de {formatPrice(product.price)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ===== NOS CONSOMMABLES ===== */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold mb-10" style={{ color: "#18223b" }}>
+          Nos consommables
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {consommables.map((item) => {
+            const product = PRODUCTS.find((p) => p.slug === item.slug);
+            return (
+              <Link key={item.slug} href={`/produit/${item.slug}`} className="group">
+                <div
+                  className="rounded-2xl p-5 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  style={{ backgroundColor: "white" }}
+                >
+                  <div className="text-4xl mb-3">{item.emoji}</div>
+                  <h3 className="font-semibold text-sm" style={{ color: "#18223b" }}>
+                    {item.label}
+                  </h3>
+                  {product && (
+                    <p className="text-xs opacity-50 mt-1" style={{ color: "#18223b" }}>
+                      Dès {formatPrice(product.price)}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ===== BIENVENUE ===== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Carte principale blanche */}
+          <div className="rounded-3xl p-8 md:p-10" style={{ backgroundColor: "white" }}>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: "#18223b" }}>
+              Bienvenue chez Mon Petit Parfait
+            </h2>
+            <p className="opacity-70 leading-relaxed mb-6" style={{ color: "#18223b" }}>
+              Nous créons des kits d&apos;accueil pensés pour les hôtels, les Airbnb et les locations saisonnières. Chaque kit est conçu pour offrir à vos voyageurs une expérience soignée, dès leur arrivée.
+            </p>
+            <h3 className="font-bold mb-4" style={{ color: "#18223b" }}>
+              Pourquoi choisir Mon Petit Parfait ?
+            </h3>
+            <ul className="space-y-3">
+              {[
+                "Des produits adaptés aux besoins des voyageurs",
+                "Qualité et praticité au rendez-vous",
+                "Souplesse : commande au pack ou à l'unité",
+                "De meilleurs avis grâce aux petits détails qui comptent",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm" style={{ color: "#18223b" }}>
+                  <Check size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#e67e22" }} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Carte sombre livraison */}
+          <div className="rounded-3xl p-8 md:p-10 flex flex-col justify-center" style={{ backgroundColor: "#18223b" }}>
+            <h3 className="text-xl font-bold text-white mb-6">Livraison et service</h3>
+            <ul className="space-y-4">
+              {[
+                { icon: "🚚", text: "Livraison offerte sans minimum d'achat" },
+                { icon: "🔒", text: "Paiement 100% sécurisé" },
+                { icon: "⚡", text: "Expédition le jour même avant 14h" },
+                { icon: "🤝", text: "Tarifs négociés pour les gros volumes" },
+              ].map((item) => (
+                <li key={item.text} className="flex items-center gap-3 text-white">
+                  <span className="text-xl">{item.icon}</span>
+                  <span className="text-sm opacity-80">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== À PROPOS ===== */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div
-            className="rounded-3xl p-8 md:p-12"
-            style={{ backgroundColor: "#18223b" }}
-          >
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold uppercase tracking-widest opacity-50 text-white mb-2">
-                Pourquoi nous choisir
-              </p>
-              <h2 className="text-3xl font-bold text-white">
-                Conçu pour les professionnels
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature) => (
-                <div key={feature.title} className="text-center">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
-                    style={{ backgroundColor: "#e67e22" }}
-                  >
-                    <feature.icon size={22} className="text-white" />
-                  </div>
-                  <h3 className="font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-white opacity-60 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TÉMOIGNAGES ===== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-sm font-medium uppercase tracking-wider mb-2 opacity-50" style={{ color: "#18223b" }}>
-            Avis clients
-          </p>
-          <h2 className="text-3xl font-bold" style={{ color: "#18223b" }}>
-            Ils nous font confiance
+          <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "#18223b" }}>
+            À propos de Mon Petit Parfait
           </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-2xl p-6"
-              style={{ backgroundColor: "white" }}
-            >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={14} fill="#e67e22" stroke="none" />
-                ))}
-              </div>
-              <p className="text-sm leading-relaxed mb-4 opacity-80" style={{ color: "#18223b" }}>
-                &ldquo;{t.text}&rdquo;
-              </p>
-              <div>
-                <p className="font-bold text-sm" style={{ color: "#18223b" }}>
-                  {t.name}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "🏠",
+                title: "La Vraie Vie",
+                text: "Nos kits sont pensés pour le quotidien réel des voyageurs. Rien de superflu, tout l'essentiel — bien présenté.",
+              },
+              {
+                icon: "⚡",
+                title: "Flexibilité",
+                text: "Commandez à l'unité ou au pack selon vos besoins. Nos gammes s'adaptent à tous les volumes, des petites structures aux grandes chaînes.",
+              },
+              {
+                icon: "🎯",
+                title: "Objectif Simple",
+                text: "Offrir à vos voyageurs une expérience mémorable dès la première seconde, grâce aux petits détails qui font la différence.",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="rounded-2xl p-8 text-center"
+                style={{ backgroundColor: "white" }}
+              >
+                <div className="text-4xl mb-4">{card.icon}</div>
+                <h3 className="font-bold text-lg mb-3" style={{ color: "#18223b" }}>
+                  {card.title}
+                </h3>
+                <p className="text-sm opacity-70 leading-relaxed" style={{ color: "#18223b" }}>
+                  {card.text}
                 </p>
-                <p className="text-xs opacity-60" style={{ color: "#18223b" }}>
-                  {t.role}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p
+            className="text-center mt-10 text-lg font-medium italic opacity-60"
+            style={{ color: "#18223b" }}
+          >
+            &ldquo;Mon Petit Parfait, c&apos;est l&apos;art de bien accueillir, tout simplement.&rdquo;
+          </p>
         </div>
       </section>
 
@@ -307,19 +280,27 @@ export default function HomePage() {
           style={{ backgroundColor: "#e67e22" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Prêt à simplifier la gestion de vos hébergements ?
+            Prêt à sublimer l&apos;accueil de vos clients ?
           </h2>
           <p className="text-white opacity-80 text-lg mb-8 max-w-xl mx-auto">
-            Commandez dès maintenant et recevez votre première livraison en 48h.
-            Livraison gratuite, sans minimum d&apos;achat.
+            Créez votre compte professionnel et découvrez vos tarifs personnalisés.
           </p>
-          <Link
-            href="/boutique"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-white transition-opacity hover:opacity-90"
-            style={{ color: "#e67e22" }}
-          >
-            Commander maintenant <ArrowRight size={18} />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/auth/register"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-white transition-opacity hover:opacity-90"
+              style={{ color: "#e67e22" }}
+            >
+              Créer mon compte <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/boutique"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all"
+              style={{ border: "2px solid rgba(255,255,255,0.5)" }}
+            >
+              Voir la boutique
+            </Link>
+          </div>
         </div>
       </section>
     </div>
