@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { ShoppingCart, Menu, X, User, LogOut, ChevronDown } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
@@ -62,9 +63,14 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-              <span className="text-xl font-bold tracking-tight" style={{ color: "#18223b" }}>
-                mon petit <span style={{ color: "#e67e22" }}>parfait</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Mon Petit Parfait"
+                width={48}
+                height={48}
+                className="object-contain"
+                priority
+              />
             </Link>
 
             {/* Nav desktop */}

@@ -1,6 +1,6 @@
 import { Product } from "@/types";
 
-const WP = "https://monpetitparfait.fr/wp-content/uploads/2026/01";
+const IMG = "/images/products";
 
 export const PRODUCTS: Product[] = [
   // ===== KITS =====
@@ -14,8 +14,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "welcome",
     images: [
-      `${WP}/HD_8-scaled.jpg`,
-      `${WP}/HD_5-scaled.jpg`,
+      `${IMG}/HD_8-scaled.jpg`,
+      `${IMG}/HD_5-scaled.jpg`,
     ],
     variants: [
       { id: "kit-welcome-100", name: "100 kits", price: 14900, stock: 100, sku: "KIT-WELCOME-100" },
@@ -39,9 +39,9 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "capsules",
     images: [
-      `${WP}/HD_6-scaled.jpg`,
-      `${WP}/HD_4-scaled.jpg`,
-      `${WP}/HD_3-scaled.jpg`,
+      `${IMG}/HD_6-scaled.jpg`,
+      `${IMG}/HD_4-scaled.jpg`,
+      `${IMG}/HD_3-scaled.jpg`,
     ],
     variants: [
       { id: "kit-cap-100", name: "100 kits", price: 8900, stock: 150, sku: "KIT-CAP-100" },
@@ -65,8 +65,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "entretien",
     images: [
-      `${WP}/HD_9-scaled.jpg`,
-      `${WP}/HD_7-scaled.jpg`,
+      `${IMG}/HD_9-scaled.jpg`,
+      `${IMG}/HD_7-scaled.jpg`,
     ],
     variants: [
       { id: "kit-ent-50", name: "50 kits", price: 6250, stock: 150, sku: "KIT-ENT-50" },
@@ -90,9 +90,9 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "salle-de-bain",
     images: [
-      `${WP}/carre_12-scaled.jpg`,
-      `${WP}/HD_2-scaled.jpg`,
-      `${WP}/HD_1-scaled.jpg`,
+      `${IMG}/carre_12-scaled.jpg`,
+      `${IMG}/HD_carre12-scaled.jpg`,
+      `${IMG}/HD_carre11-scaled.jpg`,
     ],
     variants: [
       { id: "kit-sdb-50", name: "50 kits", price: 6000, stock: 100, sku: "KIT-SDB-50" },
@@ -117,7 +117,10 @@ export const PRODUCTS: Product[] = [
     short_description: "100% ouate de cellulose, ultra-absorbant, certifié FSC®",
     category: "ouate",
     subcategory: "essuie-tout",
-    images: [],
+    images: [
+      `${IMG}/HD_carre5-scaled.jpg`,
+      `${IMG}/HD_carre6-scaled.jpg`,
+    ],
     variants: [
       { id: "et-6", name: "6 rouleaux", price: 590, stock: 500, sku: "OUA-ET-6" },
       { id: "et-12", name: "12 rouleaux", price: 1090, stock: 300, sku: "OUA-ET-12" },
@@ -138,7 +141,10 @@ export const PRODUCTS: Product[] = [
     short_description: "3 épaisseurs, 100% ouate de cellulose vierge, certifié FSC®",
     category: "ouate",
     subcategory: "papier-toilette",
-    images: [],
+    images: [
+      `${IMG}/HD_carre3-scaled.jpg`,
+      `${IMG}/HD_carre4-scaled.jpg`,
+    ],
     variants: [
       { id: "pt-12", name: "12 rouleaux", price: 690, stock: 500, sku: "OUA-PT-12" },
       { id: "pt-24", name: "24 rouleaux", price: 1290, stock: 300, sku: "OUA-PT-24" },
@@ -160,7 +166,10 @@ export const PRODUCTS: Product[] = [
     short_description: "3 épaisseurs extra-doux, boîtes de 80 mouchoirs",
     category: "ouate",
     subcategory: "mouchoirs",
-    images: [],
+    images: [
+      `${IMG}/HD_carre7-scaled.jpg`,
+      `${IMG}/HD_carre8-scaled.jpg`,
+    ],
     variants: [
       { id: "mou-6", name: "6 boîtes", price: 490, stock: 300, sku: "OUA-MOU-6" },
       { id: "mou-12", name: "12 boîtes", price: 890, stock: 200, sku: "OUA-MOU-12" },
@@ -183,7 +192,10 @@ export const PRODUCTS: Product[] = [
     short_description: "Résistants aux déchirures, plusieurs tailles disponibles",
     category: "consommables",
     subcategory: "sacs-poubelle",
-    images: [],
+    images: [
+      `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png`,
+      `${IMG}/PHOTO-2026-02-03-09-37-47.jpg`,
+    ],
     variants: [
       { id: "sp-10l-50", name: "10L — 50 sacs", price: 390, stock: 500, sku: "CON-SP-10-50" },
       { id: "sp-30l-50", name: "30L — 50 sacs", price: 590, stock: 400, sku: "CON-SP-30-50" },
@@ -205,7 +217,10 @@ export const PRODUCTS: Product[] = [
     short_description: "Tout-en-un, action dégraissante, tous appareils compatibles",
     category: "consommables",
     subcategory: "tablettes",
-    images: [],
+    images: [
+      `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png`,
+      `${IMG}/PHOTO-2026-02-03-09-51-51.jpg`,
+    ],
     variants: [
       { id: "tab-25", name: "25 tablettes", price: 490, stock: 300, sku: "CON-TAB-25" },
       { id: "tab-50", name: "50 tablettes", price: 890, stock: 200, sku: "CON-TAB-50" },
@@ -226,7 +241,10 @@ export const PRODUCTS: Product[] = [
     short_description: "Capsules compatibles, intensités variées",
     category: "consommables",
     subcategory: "capsules",
-    images: [],
+    images: [
+      `${IMG}/PHOTO-2026-02-03-11-23-06-removebg-preview.png`,
+      `${IMG}/PHOTO-2026-02-03-11-23-06.jpg`,
+    ],
     variants: [
       { id: "cap-10", name: "10 capsules", price: 390, stock: 500, sku: "CON-CAP-10" },
       { id: "cap-30", name: "30 capsules", price: 990, stock: 300, sku: "CON-CAP-30" },
@@ -248,7 +266,10 @@ export const PRODUCTS: Product[] = [
     short_description: "Double face doux/grattant, résistantes et durables",
     category: "consommables",
     subcategory: "eponges",
-    images: [],
+    images: [
+      `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
+      `${IMG}/HD_carre9-scaled.jpg`,
+    ],
     variants: [
       { id: "epo-5", name: "5 éponges", price: 290, stock: 400, sku: "CON-EPO-5" },
       { id: "epo-10", name: "10 éponges", price: 490, stock: 300, sku: "CON-EPO-10" },
