@@ -9,7 +9,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-welcome-cafe",
     name: "Kit Welcome",
     description:
-      "La touche qui transforme un simple séjour en belle expérience. Un petit geste peut créer une grande différence. Avec notre Kit Gourmand Mon Petit Parfait, vous offrez à vos voyageurs une attention délicate qui marque les esprits dès leur arrivée. C'est ce détail inattendu qui crée un effet de surprise et donne immédiatement le sentiment d'être attendu.",
+      "La touche qui transforme un simple séjour en belle expérience.\n\nUn petit geste peut créer une grande différence. Avec notre Kit Gourmand Mon Petit Parfait, vous offrez à vos voyageurs une attention délicate qui marque les esprits dès leur arrivée. C'est ce détail inattendu qui crée un effet de surprise et donne immédiatement le sentiment d'être attendu.\n\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être disposés dans votre logement. Aucune préparation nécessaire.\n\nUn petit plus simple… qui laisse un grand souvenir.",
     short_description: "2 sachets café soluble, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
     category: "kits",
     subcategory: "welcome",
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-capsule",
     name: "Kit Capsule",
     description:
-      "Après un trajet parfois long, quoi de plus agréable qu'un café prêt à déguster ? Avec notre Kit Capsules de Café Mon Petit Parfait, vous offrez à vos voyageurs une attention simple mais particulièrement appréciée. Ce kit comprend une sélection de 3 capsules de café prêtes à l'emploi, compatibles avec les machines standards.",
+      "Le petit geste qui fait toujours plaisir.\n\nAprès un trajet parfois long, quoi de plus agréable qu'un café prêt à déguster ? Avec notre Kit Capsules de Café Mon Petit Parfait, vous offrez à vos voyageurs une attention simple mais particulièrement appréciée. Un détail qui crée immédiatement une sensation d'accueil chaleureux et attentionné.\n\nCe kit comprend une sélection de 3 capsules de café prêtes à l'emploi, compatibles avec les machines standards. Il permet à vos hôtes de profiter d'un moment de détente dès leur arrivée ou au réveil, sans avoir à courir au supermarché.\n\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être installés dans votre cuisine. Aucune organisation supplémentaire.",
     short_description: "3 capsules de café compatibles, prêtes à l'emploi",
     category: "kits",
     subcategory: "capsules",
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-entretien",
     name: "Kit Entretien",
     description:
-      "Un logement impeccable rassure immédiatement vos voyageurs. Avec notre Kit Entretien Mon Petit Parfait, vous garantissez praticité et confort dès le premier jour. Pensé pour les locations courte durée, ce kit regroupe les essentiels : liquide vaisselle, éponge, sac poubelle petit format, sac poubelle grand format.",
+      "La propreté comme signature de votre accueil.\n\nUn logement impeccable rassure immédiatement les voyageurs. Ce kit garantit praticité et confort dès le premier jour. Pensé pour les locations courte durée, il regroupe les essentiels pour maintenir un espace propre et agréable tout au long du séjour. Il permet aux hôtes de se sentir autonomes et à l'aise, comme chez eux.\n\nUn environnement bien entretenu contribue directement à une expérience positive et à des avis favorables.\n\nPréparés avec soin, conditionnés et livrés prêts à être déposés dans la cuisine ou l'espace ménage. Aucune préparation supplémentaire requise.",
     short_description: "Liquide vaisselle, éponge, sacs poubelles petit et grand format",
     category: "kits",
     subcategory: "entretien",
@@ -85,7 +85,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-salle-de-bain",
     name: "Kit Salle De Bain",
     description:
-      "Un voyageur remarque toujours la salle de bain en premier. Propreté, praticité, petites attentions… Ce sont ces détails qui rassurent et marquent les esprits. Avec notre Kit Salle de Bains Mon Petit Parfait, vous assurez à vos hôtes un accueil soigné, professionnel et confortable dès leur arrivée. Contenu : savon 30ml, shampoing 30ml, vanity kit (accessoires essentiels), savonnette pour les mains.",
+      "Un kit essentiel, simple et efficace.\n\nPensé spécialement pour les locations courte durée, ce kit contient tout le nécessaire pour que vos voyageurs se sentent immédiatement à l'aise dès leur arrivée. Chaque élément est sélectionné pour répondre aux besoins réels d'un séjour, qu'il soit court ou prolongé.\n\nUn voyageur remarque toujours la salle de bain en premier. Propreté, praticité, petites attentions… Ce sont ces détails qui rassurent et marquent les esprits.\n\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être déposés dans votre salle de bain. Aucune préparation supplémentaire n'est nécessaire.",
     short_description: "Savon 30ml, shampoing 30ml, vanity kit, savonnette — prêt à déposer",
     category: "kits",
     subcategory: "salle-de-bain",
