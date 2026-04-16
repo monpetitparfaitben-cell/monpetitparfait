@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { Product } from "@/types";
 import { formatPrice } from "@/lib/products";
@@ -53,11 +54,21 @@ export default function ProductCard({ product }: ProductCardProps) {
               🤝 Mon prix
             </span>
           )}
-          <div className="text-6xl select-none">
-            {product.category === "kits" && "🎁"}
-            {product.category === "ouate" && "🧻"}
-            {product.category === "consommables" && "☕"}
-          </div>
+          {product.images && product.images[0] ? (
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            />
+          ) : (
+            <div className="text-6xl select-none">
+              {product.category === "kits" && "🎁"}
+              {product.category === "ouate" && "🧻"}
+              {product.category === "consommables" && "☕"}
+            </div>
+          )}
 
           {/* Quick add (visible seulement si connecté) */}
           {user && (

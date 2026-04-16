@@ -2,6 +2,7 @@
 
 import { useState, use } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ChevronRight,
@@ -40,6 +41,7 @@ export default function ProductPage({ params }: PageProps) {
   );
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   // Prix résolu pour la variante sélectionnée
   const contractPrice = getContractPrice(selectedVariant.id);
@@ -64,6 +66,8 @@ export default function ProductPage({ params }: PageProps) {
 
   const categoryEmoji =
     product.category === "kits" ? "🎁" : product.category === "ouate" ? "🧻" : "☕";
+
+  const images = product.images && product.images.length > 0 ? product.images : null;
 
   return (
     <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
@@ -93,25 +97,44 @@ export default function ProductPage({ params }: PageProps) {
           {/* Image */}
           <div>
             <div
-              className="rounded-3xl aspect-square flex items-center justify-center"
+              className="rounded-3xl aspect-square relative overflow-hidden flex items-center justify-center"
               style={{ backgroundColor: "#ede9e0" }}
             >
-              <span className="text-[10rem] select-none">{categoryEmoji}</span>
+              {images ? (
+                <Image
+                  src={images[selectedImageIdx]}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              ) : (
+                <span className="text-[10rem] select-none">{categoryEmoji}</span>
+              )}
             </div>
-            <div className="flex gap-3 mt-4">
-              {[0, 1, 2].map((i) => (
-                <button
-                  key={i}
-                  className="w-16 h-16 rounded-xl flex items-center justify-center text-3xl"
-                  style={{
-                    backgroundColor: i === 0 ? "#18223b" : "white",
-                    border: `2px solid ${i === 0 ? "#18223b" : "#ede9e0"}`,
-                  }}
-                >
-                  {categoryEmoji}
-                </button>
-              ))}
-            </div>
+            {images && images.length > 1 && (
+              <div className="flex gap-3 mt-4">
+                {images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelectedImageIdx(i)}
+                    className="w-16 h-16 rounded-xl relative overflow-hidden flex-shrink-0"
+                    style={{
+                      border: `2px solid ${i === selectedImageIdx ? "#18223b" : "#ede9e0"}`,
+                    }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${product.name} ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Infos produit */}
