@@ -307,7 +307,7 @@ export default function AdminPage() {
                         <Cell key={i} fill={entry.color} />
                       ))}
                     </Pie>
-                    <Tooltip formatter={(v: number) => [`${v} cmd`, ""]} />
+                    <Tooltip formatter={(v) => [`${v} cmd`, ""]} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="space-y-1.5 mt-3">
