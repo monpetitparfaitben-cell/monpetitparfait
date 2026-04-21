@@ -37,7 +37,7 @@ export default function Header() {
   const handleSignOut = async () => {
     await signOut();
     setUserMenuOpen(false);
-    router.push("/");
+    window.location.href = "/";
   };
 
   const displayName = profile?.first_name
