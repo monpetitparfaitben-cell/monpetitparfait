@@ -1,8 +1,8 @@
 import { Resend } from "resend";
 
-// Initialisation paresseuse : évite l'erreur au build si RESEND_API_KEY est absent
+// Fallback "re_placeholder" évite l'erreur au build — l'appel réel est protégé côté route
 function getResend() {
-  return new Resend(process.env.RESEND_API_KEY);
+  return new Resend(process.env.RESEND_API_KEY ?? "re_placeholder");
 }
 
 const FROM = "Mon Petit Parfait <contact@monpetitparfait.fr>";
