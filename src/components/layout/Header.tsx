@@ -46,11 +46,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Bandeau livraison */}
-      <div className="text-center py-2 text-xs font-medium tracking-wide" style={{ backgroundColor: "#18223b", color: "white" }}>
-        🚚 Livraison offerte sans minimum d&apos;achat · Commande avant 14h = expédié le jour même
-      </div>
-
       <header
         className="sticky top-0 z-40 transition-all duration-300"
         style={{
@@ -140,14 +135,6 @@ export default function Header() {
                         style={{ color: "#18223b" }}
                       >
                         📦 Mes commandes
-                      </Link>
-                      <Link
-                        href="/compte/mon-contrat"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors hover:opacity-70"
-                        style={{ color: "#18223b" }}
-                      >
-                        🤝 Mon contrat & prix
                       </Link>
                       <hr className="my-1" style={{ borderColor: "#ede9e0" }} />
                       <button
