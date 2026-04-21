@@ -1,6 +1,9 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialisation paresseuse : évite l'erreur au build si RESEND_API_KEY est absent
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const FROM = "Mon Petit Parfait <contact@monpetitparfait.fr>";
 
@@ -114,7 +117,7 @@ export async function sendOrderConfirmation(params: {
 </body>
 </html>`;
 
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: `✅ Commande confirmée #${ref} — Mon Petit Parfait`,
@@ -178,7 +181,7 @@ export async function sendWelcomeEmail(params: {
 </body>
 </html>`;
 
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: "Bienvenue chez Mon Petit Parfait 🎉",
@@ -293,7 +296,7 @@ export async function sendNewOrderAlert(params: {
 </body>
 </html>`;
 
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: `🎉 Nouvelle commande #${ref} de ${company}`,
