@@ -111,7 +111,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { href: "/livraisons-retours", label: "Livraisons & Retours" },
-                { href: "/conditions-generales", label: "Conditions Générales" },
+                { href: "/cgv", label: "Conditions Générales de Vente" },
                 { href: "/mentions-legales", label: "Mentions Légales" },
                 { href: "/contact", label: "Nous Contacter" },
               ].map((link) => (

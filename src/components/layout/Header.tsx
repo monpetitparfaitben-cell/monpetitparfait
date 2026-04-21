@@ -2,36 +2,81 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ShoppingCart, Menu, X, User, LogOut, ChevronDown } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
-const navLinks = [
-  { href: "/boutique?category=kits", label: "Kits" },
-  { href: "/boutique?category=ouate", label: "100% Ouate" },
-  { href: "/boutique?category=consommables", label: "Consommables" },
-  { href: "/boutique", label: "Tout voir" },
+// ── Structure du mega-menu ─────────────────────────────────────
+const MENU_DATA = [
+  {
+    id: "kits",
+    label: "Kits",
+    href: "/boutique?category=kits",
+    subcategories: [
+      { label: "Kit Salle de Bains", href: "/boutique?subcategory=Kit+Salle+de+Bains" },
+      { label: "Kit Capsule Café",   href: "/boutique?subcategory=Kit+Capsule+Café" },
+      { label: "Kit Gourmand",        href: "/boutique?subcategory=Kit+Gourmand" },
+      { label: "Kit Entretien",       href: "/boutique?subcategory=Kit+Entretien" },
+    ],
+  },
+  {
+    id: "ouate",
+    label: "100% Ouate",
+    href: "/boutique?category=ouate",
+    subcategories: [
+      { label: "Essuie-tout",     href: "/boutique?subcategory=Essuie-tout" },
+      { label: "Papier toilette", href: "/boutique?subcategory=Papier+toilette" },
+    ],
+  },
+  {
+    id: "consommables",
+    label: "Consommables",
+    href: "/boutique?category=consommables",
+    subcategories: [
+      { label: "Sac poubelle",  href: "/boutique?subcategory=Sac+poubelle" },
+      { label: "Tablette",      href: "/boutique?subcategory=Tablette" },
+      { label: "Pastille",      href: "/boutique?subcategory=Pastille" },
+      { label: "Capsule café",  href: "/boutique?subcategory=Capsule+café" },
+      { label: "Éponge",        href: "/boutique?subcategory=Éponge" },
+    ],
+  },
 ];
 
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen]       = useState(false);
+  const [mobileOpen, setMobileOpen]   = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled]       = useState(false);
+
+  const menuRef    = useRef<HTMLDivElement>(null);
+  const userRef    = useRef<HTMLDivElement>(null);
+
   const { toggleCart, getItemCount } = useCartStore();
-  const { user, profile, signOut } = useAuth();
-  const router = useRouter();
+  const { user, profile, signOut }   = useAuth();
+  const router    = useRouter();
   const itemCount = getItemCount();
 
+  // Scroll shadow
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Rehydrate cart
+  useEffect(() => { useCartStore.persist.rehydrate(); }, []);
+
+  // Close menus on outside click
   useEffect(() => {
-    useCartStore.persist.rehydrate();
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
+      if (userRef.current && !userRef.current.contains(e.target as Node)) setUserMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const handleSignOut = async () => {
@@ -68,21 +113,99 @@ export default function Header() {
               />
             </Link>
 
-            {/* Nav desktop */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium transition-colors hover:opacity-60"
+            {/* ── Nav desktop ── */}
+            <nav className="hidden md:flex items-center gap-6">
+
+              {/* Mega-menu PRODUITS */}
+              <div ref={menuRef} className="relative">
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-60"
                   style={{ color: "#18223b" }}
                 >
-                  {link.label}
-                </Link>
-              ))}
+                  Produits
+                  <ChevronDown
+                    size={14}
+                    className="transition-transform duration-200"
+                    style={{ transform: menuOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                  />
+                </button>
+
+                {menuOpen && (
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3 rounded-2xl shadow-2xl overflow-hidden z-50"
+                    style={{
+                      backgroundColor: "white",
+                      border: "1px solid #ede9e0",
+                      width: "640px",
+                    }}
+                  >
+                    {/* 3 colonnes */}
+                    <div className="grid grid-cols-3 gap-0">
+                      {MENU_DATA.map((cat, i) => (
+                        <div
+                          key={cat.id}
+                          className="p-5"
+                          style={{
+                            borderRight: i < 2 ? "1px solid #ede9e0" : "none",
+                          }}
+                        >
+                          {/* Titre catégorie */}
+                          <Link
+                            href={cat.href}
+                            onClick={() => setMenuOpen(false)}
+                            className="block text-xs font-bold uppercase tracking-widest mb-3 hover:opacity-70 transition-opacity"
+                            style={{ color: "#e67e22" }}
+                          >
+                            {cat.label}
+                          </Link>
+                          {/* Sous-catégories */}
+                          <ul className="space-y-2">
+                            {cat.subcategories.map((sub) => (
+                              <li key={sub.href}>
+                                <Link
+                                  href={sub.href}
+                                  onClick={() => setMenuOpen(false)}
+                                  className="block text-sm font-medium transition-colors hover:opacity-60 py-0.5"
+                                  style={{ color: "#18223b" }}
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Footer du menu */}
+                    <div
+                      className="px-5 py-3 flex items-center justify-end"
+                      style={{ borderTop: "1px solid #ede9e0", backgroundColor: "#F7F5F0" }}
+                    >
+                      <Link
+                        href="/boutique"
+                        onClick={() => setMenuOpen(false)}
+                        className="text-xs font-semibold hover:opacity-70 transition-opacity"
+                        style={{ color: "#18223b" }}
+                      >
+                        Voir tout le catalogue →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Lien tout voir */}
+              <Link
+                href="/boutique"
+                className="text-sm font-medium transition-colors hover:opacity-60"
+                style={{ color: "#18223b" }}
+              >
+                Tout voir
+              </Link>
             </nav>
 
-            {/* Actions desktop */}
+            {/* ── Actions desktop ── */}
             <div className="hidden md:flex items-center gap-2">
               {/* Panier */}
               <button
@@ -104,7 +227,7 @@ export default function Header() {
 
               {/* Compte */}
               {user ? (
-                <div className="relative">
+                <div ref={userRef} className="relative">
                   <button
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
@@ -120,25 +243,20 @@ export default function Header() {
                       className="absolute right-0 top-full mt-2 w-48 rounded-2xl shadow-xl py-2 z-50"
                       style={{ backgroundColor: "white", border: "1px solid #ede9e0" }}
                     >
-                      <Link
-                        href="/compte"
-                        onClick={() => setUserMenuOpen(false)}
+                      <Link href="/compte" onClick={() => setUserMenuOpen(false)}
                         className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors hover:opacity-70"
                         style={{ color: "#18223b" }}
                       >
                         <User size={14} /> Mon compte
                       </Link>
-                      <Link
-                        href="/compte/commandes"
-                        onClick={() => setUserMenuOpen(false)}
+                      <Link href="/compte/commandes" onClick={() => setUserMenuOpen(false)}
                         className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors hover:opacity-70"
                         style={{ color: "#18223b" }}
                       >
                         📦 Mes commandes
                       </Link>
                       <hr className="my-1" style={{ borderColor: "#ede9e0" }} />
-                      <button
-                        onClick={handleSignOut}
+                      <button onClick={handleSignOut}
                         className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium w-full text-left transition-colors hover:opacity-70"
                         style={{ color: "#18223b" }}
                       >
@@ -148,8 +266,7 @@ export default function Header() {
                   )}
                 </div>
               ) : (
-                <Link
-                  href="/auth/login"
+                <Link href="/auth/login"
                   className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
                   style={{ backgroundColor: "#18223b", color: "white" }}
                 >
@@ -158,7 +275,7 @@ export default function Header() {
               )}
             </div>
 
-            {/* Mobile */}
+            {/* ── Mobile ── */}
             <div className="flex md:hidden items-center gap-2">
               <button onClick={toggleCart} className="relative p-2" style={{ color: "#18223b" }}>
                 <ShoppingCart size={22} />
@@ -175,25 +292,59 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Menu mobile */}
+        {/* ── Menu mobile ── */}
         {mobileOpen && (
-          <div className="md:hidden border-t px-4 py-4 space-y-2" style={{ borderColor: "#ede9e0", backgroundColor: "#F7F5F0" }}>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                className="block py-2 text-sm font-medium" style={{ color: "#18223b" }}>
-                {link.label}
-              </Link>
+          <div className="md:hidden border-t px-4 py-4 space-y-1" style={{ borderColor: "#ede9e0", backgroundColor: "#F7F5F0" }}>
+            {MENU_DATA.map((cat) => (
+              <div key={cat.id}>
+                {/* Catégorie */}
+                <button
+                  onClick={() => setMobileExpanded(mobileExpanded === cat.id ? null : cat.id)}
+                  className="w-full flex items-center justify-between py-3 text-sm font-bold"
+                  style={{ color: "#18223b" }}
+                >
+                  {cat.label}
+                  <ChevronDown
+                    size={14}
+                    style={{ transform: mobileExpanded === cat.id ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+                  />
+                </button>
+                {/* Sous-catégories */}
+                {mobileExpanded === cat.id && (
+                  <div className="pl-4 pb-2 space-y-1">
+                    {cat.subcategories.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-2 text-sm font-medium opacity-70"
+                        style={{ color: "#18223b" }}
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
+            <hr style={{ borderColor: "#ede9e0" }} />
+            <Link href="/boutique" onClick={() => setMobileOpen(false)}
+              className="block py-2 text-sm font-medium" style={{ color: "#18223b" }}>
+              Tout le catalogue
+            </Link>
             <hr style={{ borderColor: "#ede9e0" }} />
             {user ? (
               <>
-                <Link href="/compte" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 py-2 text-sm font-medium" style={{ color: "#18223b" }}>
+                <Link href="/compte" onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 py-2 text-sm font-medium" style={{ color: "#18223b" }}>
                   <User size={15} /> {displayName}
                 </Link>
-                <Link href="/compte/commandes" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium opacity-70" style={{ color: "#18223b" }}>
+                <Link href="/compte/commandes" onClick={() => setMobileOpen(false)}
+                  className="block py-2 text-sm font-medium opacity-70" style={{ color: "#18223b" }}>
                   📦 Mes commandes
                 </Link>
-                <button onClick={handleSignOut} className="flex items-center gap-2 py-2 text-sm font-medium opacity-60" style={{ color: "#18223b" }}>
+                <button onClick={handleSignOut}
+                  className="flex items-center gap-2 py-2 text-sm font-medium opacity-60" style={{ color: "#18223b" }}>
                   <LogOut size={14} /> Se déconnecter
                 </button>
               </>
