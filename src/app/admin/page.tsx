@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend
+  ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line
 } from "recharts";
 import { formatPrice, PRODUCTS } from "@/lib/products";
 import { useAuth } from "@/contexts/AuthContext";
@@ -307,7 +307,7 @@ export default function AdminPage() {
                         <Cell key={i} fill={entry.color} />
                       ))}
                     </Pie>
-                    <Tooltip formatter={(v) => [`${v} cmd`, ""]} />
+                    <Tooltip formatter={(v) => [`${String(v)} cmd`, ""]} />
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="space-y-1.5 mt-3">
@@ -338,7 +338,7 @@ export default function AdminPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0ede8" vertical={false} />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#18223b", opacity: 0.5 }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: "#18223b", opacity: 0.4 }} axisLine={false} tickLine={false} allowDecimals={false} width={24} />
-                <Tooltip formatter={(v: number) => [`${v} commandes`, ""]} />
+                <Tooltip formatter={(v) => [`${String(v)} commandes`, ""]} />
                 <Line type="monotone" dataKey="commandes" stroke="#18223b" strokeWidth={2.5} dot={{ fill: "#18223b", r: 4 }} activeDot={{ r: 6, fill: "#e67e22" }} />
               </LineChart>
             </ResponsiveContainer>
