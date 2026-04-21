@@ -11,7 +11,7 @@ import {
   MapPin,
   Truck,
   Clock,
-  CheckCircle2,
+  CheckCircle,
   XCircle,
 } from "lucide-react";
 import { formatPrice } from "@/lib/products";
@@ -62,7 +62,7 @@ const STATUS_CONFIG = {
     icon: Clock,
     step: 1,
   },
-  paid: { label: "Payée", color: "#1a7a4a", bg: "#d4edda", icon: CheckCircle2, step: 2 },
+  paid: { label: "Payée", color: "#1a7a4a", bg: "#d4edda", icon: CheckCircle, step: 2 },
   processing: {
     label: "En préparation",
     color: "#856404",
@@ -81,7 +81,7 @@ const STATUS_CONFIG = {
     label: "Livrée",
     color: "#1a7a4a",
     bg: "#d4edda",
-    icon: CheckCircle2,
+    icon: CheckCircle,
     step: 5,
   },
   cancelled: {
