@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Trash2, Plus, Minus, ArrowLeft, ArrowRight, ShoppingBag } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
+import { useAuth } from "@/contexts/AuthContext";
 import { formatPrice } from "@/lib/products";
 
 export default function PanierPage() {
   const { items, removeItem, updateQuantity, clearCart, getSubtotal } = useCartStore();
+  const { user, getContractPrice } = useAuth();
   const subtotal = getSubtotal();
 
   if (items.length === 0) {
@@ -57,74 +60,104 @@ export default function PanierPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
           <div className="lg:col-span-2 space-y-4">
-            {items.map((item) => (
-              <div
-                key={`${item.product.id}-${item.variant.id}`}
-                className="flex gap-4 p-6 rounded-2xl"
-                style={{ backgroundColor: "white" }}
-              >
-                {/* Image */}
+            {items.map((item) => {
+              const contractPrice = getContractPrice(item.variant.id);
+              const catalogPrice = item.variant.price;
+              const hasContractPrice = contractPrice !== null;
+              const displayPrice = hasContractPrice ? contractPrice : catalogPrice;
+              const hasImage = item.product.images && item.product.images.length > 0;
+
+              return (
                 <div
-                  className="w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0 text-3xl"
-                  style={{ backgroundColor: "#F7F5F0" }}
+                  key={`${item.product.id}-${item.variant.id}`}
+                  className="flex gap-4 p-6 rounded-2xl"
+                  style={{ backgroundColor: "white" }}
                 >
-                  {item.product.category === "kits" ? "🎁" : item.product.category === "ouate" ? "🧻" : "☕"}
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold mb-1" style={{ color: "#18223b" }}>
-                    {item.product.name}
-                  </h3>
-                  <p className="text-sm opacity-60 mb-3" style={{ color: "#18223b" }}>
-                    {item.variant.name}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    {/* Quantité */}
-                    <div
-                      className="flex items-center gap-3 px-3 py-2 rounded-xl"
-                      style={{ backgroundColor: "#F7F5F0" }}
-                    >
-                      <button
-                        onClick={() =>
-                          updateQuantity(item.product.id, item.variant.id, item.quantity - 1)
-                        }
-                        style={{ color: "#18223b" }}
-                        aria-label="Diminuer"
-                      >
-                        <Minus size={14} />
-                      </button>
-                      <span className="font-bold w-5 text-center text-sm" style={{ color: "#18223b" }}>
-                        {item.quantity}
+                  {/* Image */}
+                  <div
+                    className="w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
+                    style={{ backgroundColor: "#F7F5F0" }}
+                  >
+                    {hasImage ? (
+                      <Image
+                        src={item.product.images[0]}
+                        alt={item.product.name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-3xl">
+                        {item.product.category === "kits" ? "🎁" : item.product.category === "ouate" ? "🧻" : "☕"}
                       </span>
-                      <button
-                        onClick={() =>
-                          updateQuantity(item.product.id, item.variant.id, item.quantity + 1)
-                        }
-                        style={{ color: "#18223b" }}
-                        aria-label="Augmenter"
-                      >
-                        <Plus size={14} />
-                      </button>
-                    </div>
+                    )}
+                  </div>
 
-                    <div className="flex items-center gap-4">
-                      <span className="font-bold text-lg" style={{ color: "#18223b" }}>
-                        {formatPrice(item.variant.price * item.quantity)}
-                      </span>
-                      <button
-                        onClick={() => removeItem(item.product.id, item.variant.id)}
-                        className="opacity-40 hover:opacity-100 transition-opacity"
-                        style={{ color: "#e67e22" }}
-                        aria-label="Supprimer"
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold mb-1" style={{ color: "#18223b" }}>
+                      {item.product.name}
+                    </h3>
+                    <p className="text-sm opacity-60 mb-3" style={{ color: "#18223b" }}>
+                      {item.variant.name}
+                    </p>
+
+                    <div className="flex items-center justify-between">
+                      {/* Quantité */}
+                      <div
+                        className="flex items-center gap-3 px-3 py-2 rounded-xl"
+                        style={{ backgroundColor: "#F7F5F0" }}
                       >
-                        <Trash2 size={16} />
-                      </button>
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.product.id, item.variant.id, item.quantity - 1)
+                          }
+                          style={{ color: "#18223b" }}
+                          aria-label="Diminuer"
+                        >
+                          <Minus size={14} />
+                        </button>
+                        <span className="font-bold w-5 text-center text-sm" style={{ color: "#18223b" }}>
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.product.id, item.variant.id, item.quantity + 1)
+                          }
+                          style={{ color: "#18223b" }}
+                          aria-label="Augmenter"
+                        >
+                          <Plus size={14} />
+                        </button>
+                      </div>
+
+                      <div className="flex flex-col items-end gap-1">
+                        {hasContractPrice && (
+                          <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ backgroundColor: "#e67e22", color: "white" }}>
+                            Prix contrat
+                          </span>
+                        )}
+                        <div>
+                          {hasContractPrice && (
+                            <span className="text-xs opacity-50 line-through block">{formatPrice(catalogPrice * item.quantity)}</span>
+                          )}
+                          <span className="font-bold text-lg" style={{ color: "#18223b" }}>
+                            {formatPrice(displayPrice * item.quantity)}
+                          </span>
+                        </div>
+                        <button
+                          onClick={() => removeItem(item.product.id, item.variant.id)}
+                          className="opacity-40 hover:opacity-100 transition-opacity mt-1"
+                          style={{ color: "#e67e22" }}
+                          aria-label="Supprimer"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
 
             {/* Continuer les achats */}
             <Link

@@ -431,6 +431,7 @@ export default function AdminPage() {
                 { label: "Commandes", sub: `${stats.total} au total`, href: "/admin/commandes", icon: ShoppingBag, badge: stats.pending || null, badgeColor: "#856404", badgeBg: "#fff3cd" },
                 { label: "Clients", sub: `${clientsCount.approved} approuvés`, href: "/admin/clients", icon: Users, badge: clientsCount.pending || null, badgeColor: "#e67e22", badgeBg: "#e67e2215" },
                 { label: "Produits", sub: `${PRODUCTS.filter((p) => p.is_active).length} actifs`, href: "/admin/produits", icon: Package, badge: null, badgeColor: "", badgeBg: "" },
+                { label: "Import clients", sub: "CSV → clients + prix", href: "/admin/import", icon: TrendingUp, badge: null, badgeColor: "", badgeBg: "" },
               ].map((item) => (
                 <Link key={item.href} href={item.href}
                   className="flex items-center gap-3 p-3.5 rounded-xl transition-all hover:shadow-sm hover:-translate-y-0.5"

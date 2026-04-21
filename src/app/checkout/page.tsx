@@ -54,6 +54,11 @@ export default function CheckoutPage() {
         email: prev.email || profile.email || "",
         phone: prev.phone || profile.phone || "",
         company: prev.company || profile.company || "",
+        address: prev.address || profile.address || "",
+        address2: prev.address2 || profile.address2 || "",
+        city: prev.city || profile.city || "",
+        postalCode: prev.postalCode || profile.postal_code || "",
+        country: prev.country || profile.country || "FR",
       }));
     }
   }, [profile]);
@@ -164,9 +169,30 @@ export default function CheckoutPage() {
 
               {/* Adresse */}
               <div className="rounded-2xl p-6" style={{ backgroundColor: "white" }}>
-                <div className="flex items-center gap-2 mb-5">
-                  <Truck size={18} style={{ color: "#e67e22" }} />
-                  <h2 className="font-bold" style={{ color: "#18223b" }}>Adresse de livraison</h2>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-2">
+                    <Truck size={18} style={{ color: "#e67e22" }} />
+                    <h2 className="font-bold" style={{ color: "#18223b" }}>Adresse de livraison</h2>
+                  </div>
+                  {user && profile?.address && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setForm((prev) => ({
+                          ...prev,
+                          address: profile.address || "",
+                          address2: profile.address2 || "",
+                          city: profile.city || "",
+                          postalCode: profile.postal_code || "",
+                          country: profile.country || "FR",
+                        }));
+                      }}
+                      className="text-xs px-3 py-1.5 rounded-lg font-medium transition-colors"
+                      style={{ backgroundColor: "#F7F5F0", color: "#e67e22" }}
+                    >
+                      Utiliser mon adresse
+                    </button>
+                  )}
                 </div>
                 <div className="space-y-4">
                   <div>
@@ -266,7 +292,9 @@ export default function CheckoutPage() {
                 <div className="space-y-3 mb-4">
                   {items.map((item) => {
                     const contractPrice = getContractPrice(item.variant.id);
-                    const displayPrice = contractPrice ?? item.variant.price;
+                    const catalogPrice = item.variant.price;
+                    const hasContractPrice = contractPrice !== null;
+                    const displayPrice = hasContractPrice ? contractPrice : catalogPrice;
                     return (
                       <div key={`${item.product.id}-${item.variant.id}`} className="flex justify-between text-sm" style={{ color: "#18223b" }}>
                         <span className="opacity-80">
@@ -274,7 +302,21 @@ export default function CheckoutPage() {
                           <br />
                           <span className="text-xs opacity-50">{item.variant.name} × {item.quantity}</span>
                         </span>
-                        <span className="font-semibold">{formatPrice(displayPrice * item.quantity)}</span>
+                        <div className="flex flex-col items-end gap-1">
+                          {hasContractPrice && (
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ backgroundColor: "#e67e22", color: "white" }}>
+                                Prix contrat
+                              </span>
+                            </div>
+                          )}
+                          <div>
+                            {hasContractPrice && (
+                              <span className="text-xs opacity-50 line-through block">{formatPrice(catalogPrice * item.quantity)}</span>
+                            )}
+                            <span className="font-semibold">{formatPrice(displayPrice * item.quantity)}</span>
+                          </div>
+                        </div>
                       </div>
                     );
                   })}

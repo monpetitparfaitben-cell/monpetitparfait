@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase";
 import { PRODUCTS } from "@/lib/products";
-import { sendOrderConfirmation } from "@/lib/emails";
+import { sendOrderConfirmation, sendNewOrderAlert } from "@/lib/emails";
 
 export async function POST(req: NextRequest) {
   try {
@@ -115,8 +115,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Erreur lors de l'enregistrement des articles" }, { status: 500 });
     }
 
-    // Envoyer email de confirmation (silencieux si erreur)
+    // Envoyer emails (silencieux si erreur)
     if (process.env.RESEND_API_KEY) {
+      // Email de confirmation au client
       sendOrderConfirmation({
         to: customerInfo.email,
         customerName: `${customerInfo.firstName} ${customerInfo.lastName}`,
@@ -128,7 +129,21 @@ export async function POST(req: NextRequest) {
           unitPrice: item.unit_price,
         })),
         total: subtotal,
-      }).catch((e) => console.error("Email non envoyé:", e));
+      }).catch((e) => console.error("Email confirmation non envoyé:", e));
+
+      // Email d'alerte à l'admin
+      sendNewOrderAlert({
+        to: "ouazanab@gmail.com",
+        orderId: order.id,
+        customerName: `${customerInfo.firstName} ${customerInfo.lastName}`,
+        company: customerInfo.company || "N/A",
+        total: subtotal,
+        items: resolvedItems.map((item: typeof resolvedItems[0]) => ({
+          name: item.product_name,
+          variant: item.variant_name,
+          quantity: item.quantity,
+        })),
+      }).catch((e) => console.error("Email alerte non envoyé:", e));
     }
 
     return NextResponse.json({

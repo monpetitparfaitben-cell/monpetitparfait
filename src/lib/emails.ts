@@ -189,3 +189,114 @@ export async function sendWelcomeEmail(params: {
 function formatEur(cents: number): string {
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(cents / 100);
 }
+
+// ─── Email alerte nouvelle commande (admin) ───────────────────────────────────
+export async function sendNewOrderAlert(params: {
+  to: string;
+  orderId: string;
+  customerName: string;
+  company: string;
+  total: number;
+  items: Array<{ name: string; variant: string; quantity: number }>;
+}) {
+  const { to, orderId, customerName, company, total, items } = params;
+  const ref = orderId.slice(0, 8).toUpperCase();
+
+  const itemsHtml = items
+    .map(
+      (item) => `
+      <tr>
+        <td style="padding:10px 0; border-bottom:1px solid #ede9e0; color:#18223b; font-size:14px;">
+          ${item.name}
+        </td>
+        <td style="padding:10px 0; border-bottom:1px solid #ede9e0; color:#18223b; font-size:14px;">
+          ${item.variant}
+        </td>
+        <td style="padding:10px 0; border-bottom:1px solid #ede9e0; text-align:center; color:#18223b; font-size:14px;">
+          ${item.quantity}
+        </td>
+      </tr>`
+    )
+    .join("");
+
+  const html = `
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Nouvelle commande</title></head>
+<body style="margin:0;padding:0;background:#F7F5F0;font-family:'Helvetica Neue',Arial,sans-serif;">
+  <div style="max-width:600px;margin:40px auto;background:#F7F5F0;">
+
+    <!-- Header -->
+    <div style="background:#18223b;padding:32px 40px;border-radius:16px 16px 0 0;text-align:center;">
+      <h1 style="margin:0;color:white;font-size:22px;font-weight:800;letter-spacing:-0.5px;">
+        mon petit <span style="color:#e67e22;">parfait</span>
+      </h1>
+    </div>
+
+    <!-- Body -->
+    <div style="background:white;padding:40px;">
+      <h2 style="margin:0 0 8px;color:#18223b;font-size:24px;font-weight:700;">🎉 Nouvelle commande</h2>
+      <p style="margin:0 0 24px;color:#18223b;opacity:.7;font-size:15px;">
+        Une nouvelle commande vient d'être enregistrée.
+      </p>
+
+      <!-- Client -->
+      <div style="background:#F7F5F0;border-radius:12px;padding:16px 20px;margin-bottom:28px;">
+        <p style="margin:0;color:#18223b;font-size:13px;opacity:.6;">Client</p>
+        <p style="margin:4px 0 0;color:#18223b;font-size:16px;font-weight:700;">
+          ${customerName} <br/>
+          <span style="opacity:.7;font-size:14px;">${company}</span>
+        </p>
+      </div>
+
+      <!-- Référence -->
+      <div style="background:#e67e2215;border-radius:12px;padding:16px 20px;margin-bottom:28px;border-left:4px solid #e67e22;">
+        <p style="margin:0;color:#18223b;font-size:13px;opacity:.6;">Référence commande</p>
+        <p style="margin:4px 0 0;color:#18223b;font-size:18px;font-weight:700;font-family:monospace;">#${ref}</p>
+      </div>
+
+      <!-- Articles -->
+      <h3 style="margin:0 0 12px;color:#18223b;font-size:15px;font-weight:700;">Articles</h3>
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#18223b;opacity:.5;padding-bottom:8px;">Produit</th>
+            <th style="text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#18223b;opacity:.5;padding-bottom:8px;">Variante</th>
+            <th style="text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#18223b;opacity:.5;padding-bottom:8px;">Qté</th>
+          </tr>
+        </thead>
+        <tbody>${itemsHtml}</tbody>
+      </table>
+
+      <!-- Total -->
+      <div style="background:#18223b;border-radius:12px;padding:16px 20px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="color:white;font-size:15px;font-weight:600;">Total TTC</span>
+        <span style="color:#e67e22;font-size:20px;font-weight:800;">${formatEur(total)}</span>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://monpetitparfait.fr/admin/commandes"
+          style="display:inline-block;background:#e67e22;color:white;padding:14px 32px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;">
+          Voir la commande
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:24px 40px;text-align:center;">
+      <p style="margin:0;color:#18223b;font-size:12px;opacity:.5;">
+        © ${new Date().getFullYear()} Mon Petit Parfait · <a href="mailto:contact@monpetitparfait.fr" style="color:#e67e22;text-decoration:none;">contact@monpetitparfait.fr</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>`;
+
+  return resend.emails.send({
+    from: FROM,
+    to,
+    subject: `🎉 Nouvelle commande #${ref} de ${company}`,
+    html,
+  });
+}
