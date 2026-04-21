@@ -8,7 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { signIn } = useAuth();
+  const { signIn, isAdmin } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -34,7 +34,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.push("/compte");
+    router.push(isAdmin ? "/admin" : "/compte");
     router.refresh();
   };
 
