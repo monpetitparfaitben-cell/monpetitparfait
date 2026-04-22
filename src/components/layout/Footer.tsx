@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ExternalLink, Share2 } from "lucide-react";
 
 export default function Footer() {
@@ -48,9 +49,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="block mb-4">
-              <span className="text-xl font-bold">
-                mon petit <span style={{ color: "#e67e22" }}>parfait</span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Mon Petit Parfait"
+                width={130}
+                height={81}
+                className="object-contain"
+              />
             </Link>
             <p className="text-sm opacity-70 leading-relaxed mb-6">
               Spécialiste des kits et consommables pour hôtels, conciergeries et hébergements professionnels.

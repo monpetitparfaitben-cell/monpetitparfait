@@ -106,8 +106,8 @@ export default function Header() {
               <Image
                 src="/logo.png"
                 alt="Mon Petit Parfait"
-                width={48}
-                height={48}
+                width={110}
+                height={69}
                 className="object-contain"
                 priority
               />

@@ -44,9 +44,7 @@ export async function sendOrderConfirmation(params: {
 
     <!-- Header -->
     <div style="background:#18223b;padding:32px 40px;border-radius:16px 16px 0 0;text-align:center;">
-      <h1 style="margin:0;color:white;font-size:22px;font-weight:800;letter-spacing:-0.5px;">
-        mon petit <span style="color:#e67e22;">parfait</span>
-      </h1>
+      <img src="https://monpetitparfait.fr/logo.png" alt="Mon Petit Parfait" style="height:50px;width:auto;" />
     </div>
 
     <!-- Body -->
@@ -141,9 +139,7 @@ export async function sendWelcomeEmail(params: {
   <div style="max-width:600px;margin:40px auto;background:#F7F5F0;">
 
     <div style="background:#18223b;padding:32px 40px;border-radius:16px 16px 0 0;text-align:center;">
-      <h1 style="margin:0;color:white;font-size:22px;font-weight:800;">
-        mon petit <span style="color:#e67e22;">parfait</span>
-      </h1>
+      <img src="https://monpetitparfait.fr/logo.png" alt="Mon Petit Parfait" style="height:50px;width:auto;" />
     </div>
 
     <div style="background:white;padding:40px;">
@@ -231,9 +227,7 @@ export async function sendNewOrderAlert(params: {
 
     <!-- Header -->
     <div style="background:#18223b;padding:32px 40px;border-radius:16px 16px 0 0;text-align:center;">
-      <h1 style="margin:0;color:white;font-size:22px;font-weight:800;letter-spacing:-0.5px;">
-        mon petit <span style="color:#e67e22;">parfait</span>
-      </h1>
+      <img src="https://monpetitparfait.fr/logo.png" alt="Mon Petit Parfait" style="height:50px;width:auto;" />
     </div>
 
     <!-- Body -->
