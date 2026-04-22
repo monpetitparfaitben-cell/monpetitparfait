@@ -19,9 +19,10 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Salle de Bains",
     images: [
-      `${IMG}/carre_12-scaled.jpg`,
-      `${IMG}/HD_carre12-scaled.jpg`,
-      `${IMG}/HD_carre11-scaled.jpg`,
+      `${IMG}/kit%20sdb%20carree.jpg`,
+      `${IMG}/kit%20sdb%202%20carre.jpg`,
+      `${IMG}/kit%20sdb%20carre%20.jpg`,
+      `${IMG}/kit%20sdb%20carre%203%20.jpg`,
     ],
     variants: [
       { id: "kit-sdb-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-SDB-100" },
@@ -46,9 +47,9 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Capsule Café",
     images: [
-      `${IMG}/HD_6-scaled.jpg`,
-      `${IMG}/HD_4-scaled.jpg`,
-      `${IMG}/HD_3-scaled.jpg`,
+      `${IMG}/kit%20capsule%20carre.jpg`,
+      `${IMG}/kit%20capsules%20carre%20.jpg`,
+      `${IMG}/kit%20capsules%204%20carre%20.jpg`,
     ],
     variants: [
       { id: "kit-caf-100", name: "100 kits", price: 8900, stock: 500, sku: "KIT-CAF-100" },
@@ -73,8 +74,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/HD_8-scaled.jpg`,
-      `${IMG}/HD_5-scaled.jpg`,
+      `${IMG}/kit%20welcome%20carre%20.jpg`,
+      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
     ],
     variants: [
       { id: "kit-grm1-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM1-100" },
@@ -99,8 +100,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/HD_8-scaled.jpg`,
-      `${IMG}/HD_5-scaled.jpg`,
+      `${IMG}/kit%20welcome%20carre%20.jpg`,
+      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
     ],
     variants: [
       { id: "kit-grm2-100", name: "100 kits", price: 15900, stock: 500, sku: "KIT-GRM2-100" },
@@ -125,8 +126,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/HD_8-scaled.jpg`,
-      `${IMG}/HD_5-scaled.jpg`,
+      `${IMG}/kit%20welcome%20carre%20.jpg`,
+      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
     ],
     variants: [
       { id: "kit-grm3-100", name: "100 kits", price: 13900, stock: 500, sku: "KIT-GRM3-100" },
@@ -151,8 +152,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/HD_8-scaled.jpg`,
-      `${IMG}/HD_5-scaled.jpg`,
+      `${IMG}/kit%20welcome%20carre%20.jpg`,
+      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
     ],
     variants: [
       { id: "kit-grm4-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM4-100" },
@@ -177,8 +178,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/HD_9-scaled.jpg`,
-      `${IMG}/HD_7-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
     ],
     variants: [
       { id: "kit-ent1-100", name: "100 kits", price: 6500, stock: 500, sku: "KIT-ENT1-100" },
@@ -203,8 +204,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/HD_9-scaled.jpg`,
-      `${IMG}/HD_7-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
     ],
     variants: [
       { id: "kit-ent2-100", name: "100 kits", price: 8500, stock: 500, sku: "KIT-ENT2-100" },
@@ -229,8 +230,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/HD_9-scaled.jpg`,
-      `${IMG}/HD_7-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
     ],
     variants: [
       { id: "kit-ent3-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-ENT3-100" },
@@ -255,8 +256,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/HD_9-scaled.jpg`,
-      `${IMG}/HD_7-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
     ],
     variants: [
       { id: "kit-ent4-100", name: "100 kits", price: 9500, stock: 500, sku: "KIT-ENT4-100" },
@@ -285,8 +286,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/HD_carre5-scaled.jpg`,
-      `${IMG}/HD_carre6-scaled.jpg`,
+      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
+      `${IMG}/essuie%20tout%20.png`,
     ],
     variants: [
       { id: "oua-ess1-100", name: "100 unités", price: 3900, stock: 500, sku: "OUA-ESS1-100" },
@@ -311,8 +312,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/HD_carre5-scaled.jpg`,
-      `${IMG}/HD_carre6-scaled.jpg`,
+      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
+      `${IMG}/essuie%20tout%20.png`,
     ],
     variants: [
       { id: "oua-ess2-100", name: "100 unités", price: 4500, stock: 500, sku: "OUA-ESS2-100" },
@@ -337,8 +338,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/HD_carre5-scaled.jpg`,
-      `${IMG}/HD_carre6-scaled.jpg`,
+      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
+      `${IMG}/essuie%20tout%20.png`,
     ],
     variants: [
       { id: "oua-ess3-100", name: "100 unités", price: 5200, stock: 500, sku: "OUA-ESS3-100" },
@@ -363,8 +364,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/HD_carre5-scaled.jpg`,
-      `${IMG}/HD_carre6-scaled.jpg`,
+      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
+      `${IMG}/essuie%20tout%20.png`,
     ],
     variants: [
       { id: "oua-ess4-100", name: "100 unités", price: 4200, stock: 500, sku: "OUA-ESS4-100" },
@@ -393,8 +394,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/HD_carre3-scaled.jpg`,
-      `${IMG}/HD_carre4-scaled.jpg`,
+      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
+      `${IMG}/sopalin.png`,
     ],
     variants: [
       { id: "oua-ptt1-100", name: "100 rouleaux", price: 3200, stock: 500, sku: "OUA-PTT1-100" },
@@ -419,8 +420,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/HD_carre3-scaled.jpg`,
-      `${IMG}/HD_carre4-scaled.jpg`,
+      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
+      `${IMG}/sopalin.png`,
     ],
     variants: [
       { id: "oua-ptt2-100", name: "100 rouleaux", price: 3600, stock: 500, sku: "OUA-PTT2-100" },
@@ -445,8 +446,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/HD_carre3-scaled.jpg`,
-      `${IMG}/HD_carre4-scaled.jpg`,
+      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
+      `${IMG}/sopalin.png`,
     ],
     variants: [
       { id: "oua-ptt3-100", name: "100 rouleaux", price: 4200, stock: 500, sku: "OUA-PTT3-100" },
@@ -471,8 +472,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/HD_carre3-scaled.jpg`,
-      `${IMG}/HD_carre4-scaled.jpg`,
+      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
+      `${IMG}/sopalin.png`,
     ],
     variants: [
       { id: "oua-ptt4-100", name: "100 rouleaux", price: 5500, stock: 500, sku: "OUA-PTT4-100" },
@@ -812,8 +813,8 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Capsule café",
     images: [
-      `${IMG}/PHOTO-2026-02-03-11-23-06-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-11-23-06.jpg`,
+      `${IMG}/capsule%20fond%20blanc.jpg`,
+      `${IMG}/capsule%20.png`,
     ],
     variants: [
       { id: "con-cap-alu-100", name: "100 capsules", price: 3900, stock: 500, sku: "CON-CAP-ALU-100" },
@@ -837,8 +838,8 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Capsule café",
     images: [
-      `${IMG}/PHOTO-2026-02-03-11-23-06-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-11-23-06.jpg`,
+      `${IMG}/capsule%20fond%20blanc.jpg`,
+      `${IMG}/capsule%20.png`,
     ],
     variants: [
       { id: "con-cap-pla-100", name: "100 capsules", price: 3200, stock: 500, sku: "CON-CAP-PLA-100" },

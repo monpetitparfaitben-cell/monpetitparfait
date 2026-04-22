@@ -8,42 +8,41 @@ const IMG = "/images/products";
 
 const kits = [
   {
-    slug: "kit-salle-de-bain",
-    label: "Kit Salle De Bain",
+    slug: "kit-salle-de-bains",
+    label: "Kit Salle de Bains",
     desc: "Savon 30ml, shampoing 30ml, vanity kit, savonnette — prêt à déposer",
-    img: `${IMG}/carre_12-scaled.jpg`,
+    img: `${IMG}/kit%20sdb%20carree.jpg`,
   },
   {
-    slug: "kit-capsule",
-    label: "Kit Capsule",
+    slug: "kit-capsule-cafe",
+    label: "Kit Capsule Café",
     desc: "3 capsules de café compatibles, prêtes à l'emploi",
-    img: `${IMG}/HD_6-scaled.jpg`,
+    img: `${IMG}/kit%20capsule%20carre.jpg`,
   },
   {
-    slug: "kit-entretien",
+    slug: "kit-gourmand-formule-1",
+    label: "Kit Gourmand",
+    desc: "2 cafés solubles, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
+    img: `${IMG}/kit%20welcome%20carre%20.jpg`,
+  },
+  {
+    slug: "kit-entretien-formule-1",
     label: "Kit Entretien",
     desc: "Liquide vaisselle, éponge, sacs poubelles petit et grand format",
-    img: `${IMG}/HD_9-scaled.jpg`,
-  },
-  {
-    slug: "kit-welcome-cafe",
-    label: "Kit Welcome",
-    desc: "2 sachets café soluble, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
-    img: `${IMG}/HD_8-scaled.jpg`,
+    img: `${IMG}/kit%20entretien%20carre%20.jpg`,
   },
 ];
 
 const ouate = [
-  { slug: "essuie-tout", label: "Essuie-tout", img: `${IMG}/HD_carre5-scaled.jpg` },
-  { slug: "papier-toilette", label: "Papier toilette", img: `${IMG}/HD_carre3-scaled.jpg` },
-  { slug: "mouchoirs-en-papier", label: "Mouchoirs en papier", img: `${IMG}/HD_carre7-scaled.jpg` },
+  { slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: `${IMG}/essuie%20tout%20fond%20bland.jpg` },
+  { slug: "papier-toilette-gamme-1", label: "Papier toilette", img: `${IMG}/sopalin%20fond%20blanc%20.jpg` },
 ];
 
 const consommables = [
-  { slug: "sacs-poubelle", label: "Sacs poubelles", img: `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png` },
-  { slug: "tablette-vaisselle-linge", label: "Tablette vaisselle / linge", img: `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png` },
-  { slug: "capsules-cafe", label: "Capsules café", img: `${IMG}/PHOTO-2026-02-03-11-23-06-removebg-preview.png` },
-  { slug: "eponges", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },
+  { slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png` },
+  { slug: "tablette-lave-vaisselle", label: "Tablettes", img: `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png` },
+  { slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
+  { slug: "eponge-standard", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },
 ];
 
 export default function HomePage() {
