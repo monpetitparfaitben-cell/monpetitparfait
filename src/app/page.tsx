@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS, formatPrice } from "@/lib/products";
+import HeroCarousel from "@/components/home/HeroCarousel";
 
 const IMG = "/images/products";
 
@@ -50,40 +51,7 @@ export default function HomePage() {
     <div style={{ backgroundColor: "#F7F5F0" }}>
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#18223b" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#e67e22" }}>
-              NOUVELLE COLLECTION
-            </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white">
-              L&apos;Essentiel<br />
-              <span style={{ color: "#e67e22" }}>au Quotidien.</span>
-            </h1>
-            <p className="text-white opacity-70 text-lg md:text-xl mb-10 leading-relaxed">
-              Offrez à vos voyageurs une expérience inoubliable dès leur arrivée. Kits d&apos;accueil et consommables pour hôtels, Airbnb et locations saisonnières.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/boutique"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold transition-opacity hover:opacity-90"
-                style={{ backgroundColor: "#e67e22", color: "white" }}
-              >
-                Découvrir la gamme <ArrowRight size={18} />
-              </Link>
-              <Link
-                href="/auth/register"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all"
-                style={{ backgroundColor: "rgba(255,255,255,0.1)", color: "white", border: "1.5px solid rgba(255,255,255,0.2)" }}
-              >
-                Créer un compte professionnel
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="absolute right-0 top-0 h-full w-1/3 opacity-5"
-          style={{ background: "radial-gradient(circle, #e67e22 0%, transparent 70%)" }} />
-      </section>
+      <HeroCarousel />
 
       {/* ===== NOS KITS ===== */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
