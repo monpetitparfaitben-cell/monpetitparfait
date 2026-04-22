@@ -6,6 +6,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ChevronRight,
+  ChevronLeft,
   Minus,
   Plus,
   Truck,
@@ -96,32 +97,17 @@ export default function ProductPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Image */}
           <div>
-            <div
-              className="rounded-3xl aspect-square relative overflow-hidden flex items-center justify-center"
-              style={{ backgroundColor: "#ede9e0" }}
-            >
-              {images ? (
-                <Image
-                  src={images[selectedImageIdx]}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              ) : (
-                <span className="text-[10rem] select-none">{categoryEmoji}</span>
-              )}
-            </div>
+            {/* Thumbnails en haut */}
             {images && images.length > 1 && (
-              <div className="flex gap-3 mt-4">
+              <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
                 {images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setSelectedImageIdx(i)}
-                    className="w-16 h-16 rounded-xl relative overflow-hidden flex-shrink-0"
+                    className="w-16 h-16 rounded-xl relative overflow-hidden flex-shrink-0 transition-all duration-200"
                     style={{
-                      border: `2px solid ${i === selectedImageIdx ? "#18223b" : "#ede9e0"}`,
+                      border: `2.5px solid ${i === selectedImageIdx ? "#e67e22" : "#ede9e0"}`,
+                      opacity: i === selectedImageIdx ? 1 : 0.6,
                     }}
                   >
                     <Image
@@ -135,6 +121,57 @@ export default function ProductPage({ params }: PageProps) {
                 ))}
               </div>
             )}
+
+            {/* Image principale avec flèches oranges */}
+            <div className="relative">
+              <div
+                className="rounded-3xl aspect-square relative overflow-hidden flex items-center justify-center"
+                style={{ backgroundColor: "#ede9e0" }}
+              >
+                {images ? (
+                  <Image
+                    src={images[selectedImageIdx]}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                ) : (
+                  <span className="text-[10rem] select-none">{categoryEmoji}</span>
+                )}
+              </div>
+
+              {/* Flèches navigation (uniquement si plusieurs images) */}
+              {images && images.length > 1 && (
+                <>
+                  <button
+                    onClick={() =>
+                      setSelectedImageIdx((prev) =>
+                        prev === 0 ? images.length - 1 : prev - 1
+                      )
+                    }
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+                    style={{ backgroundColor: "#e67e22" }}
+                    aria-label="Image précédente"
+                  >
+                    <ChevronLeft size={20} className="text-white" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setSelectedImageIdx((prev) =>
+                        prev === images.length - 1 ? 0 : prev + 1
+                      )
+                    }
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+                    style={{ backgroundColor: "#e67e22" }}
+                    aria-label="Image suivante"
+                  >
+                    <ChevronRight size={20} className="text-white" />
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Infos produit */}

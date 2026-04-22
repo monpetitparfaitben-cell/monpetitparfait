@@ -6,26 +6,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 // ── Slides du carrousel ─────────────────────────────────────────
-// Remplace les `img` par tes vraies photos une fois reçues
 const SLIDES = [
-  {
-    label: "NOUVELLE COLLECTION",
-    heading: "L'Essentiel\nau Quotidien.",
-    img: "/images/products/HD_6-scaled.jpg",
-    alt: "Kit Capsule Café",
-  },
-  {
-    label: "KITS PRÊTS À L'EMPLOI",
-    heading: "Bienvenue\nchez vous.",
-    img: "/images/products/carre_12-scaled.jpg",
-    alt: "Kit Salle de Bains",
-  },
-  {
-    label: "PRODUITS PROFESSIONNELS",
-    heading: "Qualité\nau Quotidien.",
-    img: "/images/products/HD_9-scaled.jpg",
-    alt: "Kit Entretien",
-  },
+  { img: "/images/hero/hero-sdb.jpg",      alt: "Kit Salle de Bains" },
+  { img: "/images/hero/hero-cafe.jpg",     alt: "Kit Capsule Café" },
+  { img: "/images/hero/hero-gourmand.jpg", alt: "Kit Gourmand" },
 ];
 
 export default function HeroCarousel() {
@@ -41,15 +25,12 @@ export default function HeroCarousel() {
     }, 300);
   }, [animating]);
 
-  // Auto-avance toutes les 5 secondes
   useEffect(() => {
     const timer = setInterval(() => {
       goTo((current + 1) % SLIDES.length);
     }, 5000);
     return () => clearInterval(timer);
   }, [current, goTo]);
-
-  const slide = SLIDES[current];
 
   return (
     <section
@@ -62,16 +43,13 @@ export default function HeroCarousel() {
           style={{ minHeight: "88vh", paddingTop: "4rem", paddingBottom: "4rem" }}
         >
 
-          {/* ── Texte (gauche) ── */}
-          <div
-            className="flex flex-col justify-center transition-opacity duration-300"
-            style={{ opacity: animating ? 0 : 1 }}
-          >
+          {/* ── Texte (gauche) — identique pour tous les slides ── */}
+          <div className="flex flex-col justify-center">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-4"
               style={{ color: "#e67e22" }}
             >
-              {slide.label}
+              NOUVELLE COLLECTION
             </p>
 
             <h1
@@ -79,10 +57,9 @@ export default function HeroCarousel() {
               style={{
                 color: "#18223b",
                 fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
-                whiteSpace: "pre-line",
               }}
             >
-              {slide.heading}
+              L&apos;Essentiel<br />au Quotidien.
             </h1>
 
             <Link
@@ -116,7 +93,7 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* ── Image (droite) ── */}
+          {/* ── Image (droite) — change à chaque slide ── */}
           <div className="relative order-first lg:order-last">
             <div
               className="relative overflow-hidden transition-opacity duration-300"
@@ -127,8 +104,8 @@ export default function HeroCarousel() {
               }}
             >
               <Image
-                src={slide.img}
-                alt={slide.alt}
+                src={SLIDES[current].img}
+                alt={SLIDES[current].alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 55vw"
