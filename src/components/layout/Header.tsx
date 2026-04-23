@@ -92,14 +92,13 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 transition-all duration-300"
+        className="z-40"
         style={{
-          backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "#F7F5F0",
-          boxShadow: scrolled ? "0 1px 20px rgba(0,0,0,0.08)" : "none",
+          backgroundColor: "#F7F5F0",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ paddingTop: "6px" }}>
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between" style={{ height: "88px", paddingTop: "12px", paddingBottom: "4px" }}>
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">

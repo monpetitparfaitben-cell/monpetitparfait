@@ -36,16 +36,16 @@ export default function HeroCarousel() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ backgroundColor: "#F7F5F0", minHeight: "88vh" }}
+      style={{ backgroundColor: "#F7F5F0", minHeight: "85vh" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-          style={{ minHeight: "88vh", paddingTop: "4rem", paddingBottom: "4rem" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch"
+          style={{ minHeight: "85vh" }}
         >
 
-          {/* ── Texte (gauche) — identique pour tous les slides ── */}
-          <div className="flex flex-col justify-center">
+          {/* ── Texte (gauche) ── */}
+          <div className="flex flex-col justify-center py-16">
             <h1
               className="font-extrabold leading-tight mb-8"
               style={{
@@ -87,9 +87,44 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* ── Image (droite) — change à chaque slide ── */}
+          {/* ── Image (droite) — pleine hauteur ── */}
           <div
-            className="relative order-first lg:order-last"
+            className="relative order-first lg:order-last hidden lg:block"
+            onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              if (touchStartX === null) return;
+              const delta = touchStartX - e.changedTouches[0].clientX;
+              if (Math.abs(delta) > 40) {
+                goTo(delta > 0
+                  ? (current + 1) % SLIDES.length
+                  : (current - 1 + SLIDES.length) % SLIDES.length
+                );
+              }
+              setTouchStartX(null);
+            }}
+          >
+            <div
+              className="relative overflow-hidden transition-opacity duration-300 h-full"
+              style={{
+                borderRadius: "32px",
+                opacity: animating ? 0 : 1,
+                minHeight: "70vh",
+              }}
+            >
+              <Image
+                src={SLIDES[current].img}
+                alt={SLIDES[current].alt}
+                fill
+                className="object-cover"
+                sizes="55vw"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* ── Image mobile (en dessous du texte) ── */}
+          <div
+            className="relative lg:hidden"
             onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
             onTouchEnd={(e) => {
               if (touchStartX === null) return;
@@ -106,18 +141,17 @@ export default function HeroCarousel() {
             <div
               className="relative overflow-hidden transition-opacity duration-300"
               style={{
-                borderRadius: "32px",
-                aspectRatio: "16 / 9",
+                borderRadius: "24px",
+                aspectRatio: "4 / 3",
                 opacity: animating ? 0 : 1,
-                backgroundColor: "#F7F5F0",
               }}
             >
               <Image
                 src={SLIDES[current].img}
                 alt={SLIDES[current].alt}
                 fill
-                className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+                sizes="100vw"
                 priority
               />
             </div>
