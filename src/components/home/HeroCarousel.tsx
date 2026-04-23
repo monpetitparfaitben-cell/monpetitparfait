@@ -87,9 +87,9 @@ export default function HeroCarousel() {
             </div>
           </div>
 
-          {/* ── Image (droite) — pleine hauteur ── */}
+          {/* ── Image (droite) — format paysage ── */}
           <div
-            className="lg:col-span-3 relative order-first lg:order-last hidden lg:block"
+            className="lg:col-span-3 relative order-first lg:order-last hidden lg:flex lg:items-center"
             onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
             onTouchEnd={(e) => {
               if (touchStartX === null) return;
@@ -104,11 +104,11 @@ export default function HeroCarousel() {
             }}
           >
             <div
-              className="relative overflow-hidden transition-opacity duration-300 h-full"
+              className="relative overflow-hidden transition-opacity duration-300 w-full"
               style={{
                 borderRadius: "32px",
+                aspectRatio: "16 / 10",
                 opacity: animating ? 0 : 1,
-                minHeight: "60vh",
               }}
             >
               <Image
@@ -116,7 +116,7 @@ export default function HeroCarousel() {
                 alt={SLIDES[current].alt}
                 fill
                 className="object-cover"
-                sizes="55vw"
+                sizes="60vw"
                 priority
               />
             </div>

@@ -95,10 +95,10 @@ function BoutiqueContent() {
     return (
       <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
         {/* Header */}
-        <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#18223b" }}>
+        <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
           <div className="max-w-7xl mx-auto">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-xs opacity-50 text-white mb-3">
+            <div className="flex items-center gap-2 text-xs mb-3" style={{ color: "#18223b", opacity: 0.5 }}>
               <Link href="/boutique" className="hover:opacity-80">Boutique</Link>
               {parentCat && (
                 <>
@@ -109,10 +109,10 @@ function BoutiqueContent() {
                 </>
               )}
               <ChevronRight size={12} />
-              <span className="text-white opacity-100">{subcatParam}</span>
+              <span style={{ opacity: 1 }}>{subcatParam}</span>
             </div>
-            <h1 className="text-3xl font-bold text-white">{subcatParam}</h1>
-            <p className="text-white opacity-60 text-sm mt-1">
+            <h1 className="text-3xl font-bold" style={{ color: "#18223b" }}>{subcatParam}</h1>
+            <p className="text-sm mt-1" style={{ color: "#18223b", opacity: 0.5 }}>
               {products.length} référence{products.length > 1 ? "s" : ""} disponible{products.length > 1 ? "s" : ""}
             </p>
           </div>
@@ -174,14 +174,14 @@ function BoutiqueContent() {
     if (catInfo) {
       return (
         <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
-          <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#18223b" }}>
+          <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-2 text-xs opacity-50 text-white mb-3">
+              <div className="flex items-center gap-2 text-xs mb-3" style={{ color: "#18223b", opacity: 0.5 }}>
                 <Link href="/boutique" className="hover:opacity-80">Boutique</Link>
                 <ChevronRight size={12} />
-                <span className="text-white opacity-100">{catInfo.label}</span>
+                <span style={{ opacity: 1 }}>{catInfo.label}</span>
               </div>
-              <h1 className="text-3xl font-bold text-white">{catInfo.label}</h1>
+              <h1 className="text-3xl font-bold" style={{ color: "#18223b" }}>{catInfo.label}</h1>
             </div>
           </div>
 
@@ -260,12 +260,12 @@ function BoutiqueContent() {
   return (
     <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
       {/* Header */}
-      <div className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#18223b" }}>
+      <div className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-widest opacity-50 text-white mb-2">
+          <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: "#18223b", opacity: 0.4 }}>
             Notre sélection
           </p>
-          <h1 className="text-3xl md:text-4xl font-bold text-white">
+          <h1 className="text-3xl md:text-4xl font-bold" style={{ color: "#18223b" }}>
             Tout le catalogue
           </h1>
         </div>
