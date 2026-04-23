@@ -65,12 +65,12 @@ export default function HomePage() {
           {kits.map((kit) => {
             const product = PRODUCTS.find((p) => p.slug === kit.slug);
             return (
-              <Link key={kit.slug} href={kit.href} className="group">
+              <Link key={kit.slug} href={kit.href} className="group h-full">
                 <div
-                  className="rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  className="rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 h-full flex flex-col"
                   style={{ backgroundColor: "white" }}
                 >
-                  <div className="aspect-square relative overflow-hidden" style={{ backgroundColor: "#F7F5F0" }}>
+                  <div className="aspect-square relative overflow-hidden flex-shrink-0" style={{ backgroundColor: "#F7F5F0" }}>
                     <Image
                       src={kit.img}
                       alt={kit.label}
@@ -79,7 +79,7 @@ export default function HomePage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
-                  <div className="p-3">
+                  <div className="p-3 flex flex-col flex-1">
                     <h3 className="font-bold text-sm mb-1" style={{ color: "#18223b" }}>
                       {kit.label}
                     </h3>
@@ -87,7 +87,7 @@ export default function HomePage() {
                       {kit.desc}
                     </p>
                     {product && (
-                      <p className="text-xs font-medium" style={{ color: "#e67e22" }}>
+                      <p className="text-xs font-medium mt-auto" style={{ color: "#e67e22" }}>
                         À partir de {formatPrice(product.price)}
                       </p>
                     )}

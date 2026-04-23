@@ -109,13 +109,14 @@ export default function HeroCarousel() {
                 borderRadius: "32px",
                 aspectRatio: "16 / 9",
                 opacity: animating ? 0 : 1,
+                backgroundColor: "#F7F5F0",
               }}
             >
               <Image
                 src={SLIDES[current].img}
                 alt={SLIDES[current].alt}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 priority
               />

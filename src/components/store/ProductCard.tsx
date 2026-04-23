@@ -28,9 +28,9 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Link href={`/produit/${product.slug}`} className="group block">
+    <Link href={`/produit/${product.slug}`} className="group block h-full">
       <div
-        className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+        className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col"
         style={{ backgroundColor: "white" }}
       >
         {/* Image */}
@@ -84,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Infos */}
-        <div className="p-4">
+        <div className="p-4 flex flex-col flex-1">
           <p className="text-xs font-medium uppercase tracking-wider mb-1 opacity-50" style={{ color: "#18223b" }}>
             {product.category === "kits" && "Kit"}
             {product.category === "ouate" && "100% Ouate"}
@@ -100,7 +100,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </p>
 
           {/* Prix */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-auto">
             <div>
               {user ? (
                 <>
