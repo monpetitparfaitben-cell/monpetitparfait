@@ -198,6 +198,23 @@ export default function ProductPage({ params }: PageProps) {
               {product.name}
             </h1>
 
+            {/* Description en premier */}
+            <div className="mb-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
+              <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
+                {product.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-3 py-1 rounded-full font-medium"
+                    style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             {/* Prix */}
             <div className="mb-6">
@@ -340,76 +357,6 @@ export default function ProductPage({ params }: PageProps) {
               </div>
             )}
 
-            {/* Description */}
-            <div className="mt-6 rounded-2xl p-6" style={{ backgroundColor: "white" }}>
-              <h2 className="text-base font-bold mb-3" style={{ color: "#18223b" }}>Description</h2>
-              <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
-                {product.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {product.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-3 py-1 rounded-full font-medium"
-                    style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Options */}
-        <div className="mb-16">
-          <div className="rounded-2xl p-8" style={{ backgroundColor: "white" }}>
-            <h2 className="text-xl font-bold mb-4" style={{ color: "#18223b" }}>Toutes les options</h2>
-            <div className="space-y-3">
-              {product.variants.map((variant) => {
-                const vContractPrice = getContractPrice(variant.id);
-                const vPrice = vContractPrice ?? variant.price;
-                const isSelected = selectedVariant.id === variant.id;
-
-                return (
-                  <button
-                    key={variant.id}
-                    onClick={() => setSelectedVariant(variant)}
-                    className="w-full flex items-center justify-between p-3 rounded-xl transition-all"
-                    style={{
-                      backgroundColor: isSelected ? "#F7F5F0" : "transparent",
-                      border: `2px solid ${isSelected ? "#18223b" : "#ede9e0"}`,
-                    }}
-                  >
-                    <div className="flex items-center gap-3">
-                      {isSelected && <Check size={14} style={{ color: "#e67e22" }} />}
-                      <span className="text-sm font-medium" style={{ color: "#18223b" }}>
-                        {variant.name}
-                      </span>
-                    </div>
-                    {user ? (
-                      <div className="text-right">
-                        <span className="font-bold text-sm" style={{ color: "#18223b" }}>
-                          {formatPrice(vPrice)}
-                        </span>
-                        {vContractPrice && vContractPrice < variant.price && (
-                          <>
-                            <span className="text-xs ml-1.5 line-through opacity-40" style={{ color: "#18223b" }}>
-                              {formatPrice(variant.price)}
-                            </span>
-                            <span className="block text-xs" style={{ color: "#e67e22" }}>🤝 contractuel</span>
-                          </>
-                        )}
-                      </div>
-                    ) : (
-                      <span className="text-xs opacity-40" style={{ color: "#18223b" }}>
-                        <Lock size={12} />
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
           </div>
         </div>
 
