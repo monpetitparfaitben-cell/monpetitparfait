@@ -339,30 +339,30 @@ export default function ProductPage({ params }: PageProps) {
                 </span>
               </div>
             )}
+
+            {/* Description */}
+            <div className="mt-6 rounded-2xl p-6" style={{ backgroundColor: "white" }}>
+              <h2 className="text-base font-bold mb-3" style={{ color: "#18223b" }}>Description</h2>
+              <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
+                {product.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-3 py-1 rounded-full font-medium"
+                    style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Description */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div className="rounded-2xl p-8" style={{ backgroundColor: "white" }}>
-            <h2 className="text-xl font-bold mb-4" style={{ color: "#18223b" }}>Description</h2>
-            <p className="text-sm leading-relaxed opacity-80" style={{ color: "#18223b" }}>
-              {product.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              {product.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1 rounded-full font-medium"
-                  style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Options */}
+        {/* Options */}
+        <div className="mb-16">
           <div className="rounded-2xl p-8" style={{ backgroundColor: "white" }}>
             <h2 className="text-xl font-bold mb-4" style={{ color: "#18223b" }}>Toutes les options</h2>
             <div className="space-y-3">

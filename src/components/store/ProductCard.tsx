@@ -38,14 +38,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="relative aspect-square flex items-center justify-center"
           style={{ backgroundColor: "#F7F5F0" }}
         >
-          {product.is_featured && (
-            <span
-              className="absolute top-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full text-white z-10"
-              style={{ backgroundColor: "#e67e22" }}
-            >
-              ⭐ Populaire
-            </span>
-          )}
           {hasContractPrice && (
             <span
               className="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full z-10"
