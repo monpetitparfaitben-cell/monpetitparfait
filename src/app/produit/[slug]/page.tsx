@@ -9,9 +9,7 @@ import {
   ChevronLeft,
   Minus,
   Plus,
-  Truck,
   Shield,
-  Star,
   ArrowLeft,
   Check,
   Lock,
@@ -43,6 +41,7 @@ export default function ProductPage({ params }: PageProps) {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   // Prix résolu pour la variante sélectionnée
   const contractPrice = getContractPrice(selectedVariant.id);
@@ -123,7 +122,22 @@ export default function ProductPage({ params }: PageProps) {
             )}
 
             {/* Image principale avec flèches oranges */}
-            <div className="relative">
+            <div
+              className="relative"
+              onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+              onTouchEnd={(e) => {
+                if (touchStartX === null || !images) return;
+                const delta = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(delta) > 40) {
+                  if (delta > 0) {
+                    setSelectedImageIdx((prev) => prev === images.length - 1 ? 0 : prev + 1);
+                  } else {
+                    setSelectedImageIdx((prev) => prev === 0 ? images.length - 1 : prev - 1);
+                  }
+                }
+                setTouchStartX(null);
+              }}
+            >
               <div
                 className="rounded-3xl aspect-square relative overflow-hidden flex items-center justify-center"
                 style={{ backgroundColor: "#ede9e0" }}
@@ -151,11 +165,11 @@ export default function ProductPage({ params }: PageProps) {
                         prev === 0 ? images.length - 1 : prev - 1
                       )
                     }
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
-                    style={{ backgroundColor: "#e67e22" }}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                    style={{ backgroundColor: "transparent" }}
                     aria-label="Image précédente"
                   >
-                    <ChevronLeft size={20} className="text-white" />
+                    <ChevronLeft size={28} style={{ color: "#e67e22", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }} />
                   </button>
                   <button
                     onClick={() =>
@@ -163,11 +177,11 @@ export default function ProductPage({ params }: PageProps) {
                         prev === images.length - 1 ? 0 : prev + 1
                       )
                     }
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
-                    style={{ backgroundColor: "#e67e22" }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                    style={{ backgroundColor: "transparent" }}
                     aria-label="Image suivante"
                   >
-                    <ChevronRight size={20} className="text-white" />
+                    <ChevronRight size={28} style={{ color: "#e67e22", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }} />
                   </button>
                 </>
               )}
@@ -184,14 +198,6 @@ export default function ProductPage({ params }: PageProps) {
               {product.name}
             </h1>
 
-            <div className="flex items-center gap-2 mb-6">
-              <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} fill="#e67e22" stroke="none" />
-                ))}
-              </div>
-              <span className="text-sm opacity-60" style={{ color: "#18223b" }}>(4.9 · 127 avis)</span>
-            </div>
 
             {/* Prix */}
             <div className="mb-6">
@@ -305,7 +311,7 @@ export default function ProductPage({ params }: PageProps) {
                     className="px-5 py-2.5 rounded-xl text-sm font-semibold"
                     style={{ backgroundColor: "white", color: "#18223b", border: "2px solid #ede9e0" }}
                   >
-                    Demander un accès
+                    Créer un compte
                   </Link>
                 </div>
               </div>
@@ -315,15 +321,9 @@ export default function ProductPage({ params }: PageProps) {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#e67e22" }}>
-                  <Truck size={14} className="text-white" />
-                </div>
-                <span><strong>Livraison gratuite</strong> — expédition le jour même avant 14h</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#e67e22" }}>
                   <Shield size={14} className="text-white" />
                 </div>
-                <span><strong>Paiement sécurisé</strong> — CB, Visa, Mastercard via Stripe</span>
+                <span><strong>Paiement sécurisé</strong> — CB, Visa, Mastercard</span>
               </div>
             </div>
 
@@ -356,7 +356,7 @@ export default function ProductPage({ params }: PageProps) {
                   className="text-xs px-3 py-1 rounded-full font-medium"
                   style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
                 >
-                  #{tag}
+                  {tag}
                 </span>
               ))}
             </div>

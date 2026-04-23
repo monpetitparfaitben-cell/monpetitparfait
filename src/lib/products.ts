@@ -14,7 +14,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-salle-de-bains",
     name: "Kit Salle de Bains",
     description:
-      "Un kit essentiel, simple et efficace.\n\nPensé spécialement pour les locations courte durée, ce kit contient tout le nécessaire pour que vos voyageurs se sentent immédiatement à l'aise dès leur arrivée. Il comprend :\n• Savon 30 ml\n• Shampoing 30 ml\n• Vanity kit (accessoires essentiels)\n• Savonnette pour les mains\n\nChaque élément est sélectionné pour répondre aux besoins réels d'un séjour, qu'il soit court ou prolongé. Nos kits sont préparés avec soin, conditionnés et livrés prêts à être déposés dans votre salle de bain. Aucune préparation supplémentaire n'est nécessaire : vous gagnez du temps tout en garantissant un accueil professionnel et soigné.\n\nUn voyageur remarque toujours la salle de bain en premier. Propreté, praticité, petites attentions… Ce sont ces détails qui rassurent et marquent les esprits. Avec notre Kit Salle de Bains Mon Petit Parfait, vous assurez à vos hôtes un accueil soigné, professionnel et confortable dès leur arrivée.",
+      "KIT SALLE DE BAINS :\n✨ Un kit essentiel, simple et efficace\nPensé spécialement pour les locations courte durée, ce kit contient tout le nécessaire pour que vos voyageurs se sentent immédiatement à l'aise dès leur arrivée.\nIl comprend :\n🧼 Savon 30 ml\n🧴 Shampoing 30 ml\n🪥 Vanity kit (accessoires essentiels)\n🧽 Savonnette pour les mains\nChaque élément est sélectionné pour répondre aux besoins réels d'un séjour, qu'il soit court ou prolongé.\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être déposés dans votre salle de bain.\nAucune préparation supplémentaire n'est nécessaire : vous gagnez du temps tout en garantissant un accueil professionnel et soigné.\n\n✨ Offrez une première impression irréprochable\nUn voyageur remarque toujours la salle de bain en premier.\nPropreté, praticité, petites attentions… Ce sont ces détails qui rassurent et marquent les esprits.\nAvec notre Kit Salle de Bains Mon Petit Parfait, vous assurez à vos hôtes un accueil soigné, professionnel et confortable dès leur arrivée.",
     short_description: "• 1 Shampoo 30 ml · • 1 Shower Gel 30 ml · • 1 Vanity Kit · • 1 Savonnette 20 gr",
     category: "kits",
     subcategory: "Kit Salle de Bains",
@@ -42,7 +42,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-capsule-cafe",
     name: "Kit Capsule Café",
     description:
-      "Le petit geste qui fait toujours plaisir.\n\nAprès un trajet parfois long, quoi de plus agréable qu'un café prêt à déguster ? Avec notre Kit Capsules de Café Mon Petit Parfait, vous offrez à vos voyageurs une attention simple mais particulièrement appréciée. Un détail qui crée immédiatement une sensation d'accueil chaleureux et attentionné.\n\nCe kit comprend une sélection de 3 capsules de café prêtes à l'emploi, compatibles avec les machines standards (à adapter selon ton modèle si besoin). Il permet à vos hôtes de profiter d'un moment de détente dès leur arrivée ou au réveil, sans avoir à courir au supermarché.\n\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être installés dans votre cuisine. Aucune organisation supplémentaire : vous les recevez, vous les disposez, et l'accueil est prêt. Simple, efficace et toujours apprécié.",
+      "KIT CAPSULE\n✨ Le petit geste qui fait toujours plaisir\nAprès un trajet parfois long, quoi de plus agréable qu'un café prêt à déguster ?\nAvec notre Kit Capsules de Café Mon Petit Parfait, vous offrez à vos voyageurs une attention simple mais particulièrement appréciée.\nUn détail qui crée immédiatement une sensation d'accueil chaleureux et attentionné.\n\n☕ Un indispensable pour bien commencer la journée\nCe kit comprend une sélection de 3 capsules de café prêtes à l'emploi, compatibles avec les machines standards (à adapter selon ton modèle si besoin).\nIl permet à vos hôtes de profiter d'un moment de détente dès leur arrivée ou au réveil, sans avoir à courir au supermarché.\n\n🎯 Pourquoi proposer un kit café ?\n✔️ Apporte une touche conviviale à votre accueil\n✔️ Crée un effet \"comme à la maison\"\n✔️ Valorise votre logement à moindre coût\n✔️ Encourage des avis positifs\nCe sont souvent les petites attentions qui marquent le plus.\n\n📦 Prêt à déposer, prêt à savourer\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être installés dans votre cuisine.\nAucune organisation supplémentaire : vous les recevez, vous les disposez, et l'accueil est prêt.\nSimple, efficace et toujours apprécié.",
     short_description: "• 3 capsules de café",
     category: "kits",
     subcategory: "Kit Capsule Café",
@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
     slug: "kit-gourmand-formule-1",
     name: "Kit Gourmand — Formule 1",
     description:
-      "La touche qui transforme un simple séjour en belle expérience.\n\nUn petit geste peut créer une grande différence. Avec notre Kit Gourmand Mon Petit Parfait, vous offrez à vos voyageurs une attention délicate qui marque les esprits dès leur arrivée. C'est ce détail inattendu qui crée un effet de surprise et donne immédiatement le sentiment d'être attendu.\n\nNotre kit gourmand contient :\n• 2 sachets de café soluble\n• 1 thé vert\n• 1 thé noir\n• 2 sucres\n• 2 touillettes\n• 2 biscuits Lotus\n\nUn assortiment simple, efficace et apprécié, parfait pour accompagner une pause café ou thé après un trajet. Nos kits sont préparés avec soin, conditionnés et livrés prêts à être disposés dans votre logement. Aucune préparation nécessaire : vous les installez et l'accueil est immédiatement valorisé. Un petit plus simple… qui laisse un grand souvenir.",
+      "KIT WELCOME\n🍪 KIT GOURMAND\n✨ La touche qui transforme un simple séjour en belle expérience\nUn petit geste peut créer une grande différence.\nAvec notre Kit Gourmand Mon Petit Parfait, vous offrez à vos voyageurs une attention délicate qui marque les esprits dès leur arrivée.\nC'est ce détail inattendu qui crée un effet de surprise et donne immédiatement le sentiment d'être attendu.\n\n🍫 Un accueil chaleureux et attentionné\nNotre kit gourmand est soigneusement préparé pour offrir un moment de détente et de convivialité.\nIl contient :\n☕ 2 sachets de café soluble\n🍵 1 thé vert\n🍵 1 thé noir\n🍬 2 sucres\n🥄 2 touillettes\n🍪 2 biscuits Lotus\nUn assortiment simple, efficace et apprécié, parfait pour accompagner une pause café ou thé après un trajet.\n\n🎯 Pourquoi proposer un kit gourmand ?\n✔️ Crée un effet \"waouh\" dès l'entrée\n✔️ Apporte une touche conviviale et soignée\n✔️ Renforce l'image professionnelle de votre logement\n✔️ Favorise les avis positifs\nCes petites attentions font souvent toute la différence dans l'expérience globale du séjour.\n\n📦 Prêt à déposer, prêt à savourer\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être disposés dans votre logement.\nAucune préparation nécessaire : vous les installez et l'accueil est immédiatement valorisé.\nUn petit plus simple… qui laisse un grand souvenir.",
     short_description: "• 2 cafés solubles · • 1 thé vert · • 1 thé noir · • 2 sucres · • 2 touillettes · • 2 gâteaux",
     category: "kits",
     subcategory: "Kit Gourmand",
@@ -868,7 +868,7 @@ export const PRODUCTS: Product[] = [
     subcategory: "Éponge",
     images: [
       `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      `${IMG}/HD_carre9-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
     ],
     variants: [
       { id: "con-epo-std-100", name: "100 éponges", price: 2900, stock: 500, sku: "CON-EPO-STD-100" },
@@ -893,7 +893,7 @@ export const PRODUCTS: Product[] = [
     subcategory: "Éponge",
     images: [
       `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      `${IMG}/HD_carre9-scaled.jpg`,
+      `${IMG}/kit%20entretien%20carre%20.jpg`,
     ],
     variants: [
       { id: "con-epo-ind-100", name: "100 éponges", price: 3500, stock: 500, sku: "CON-EPO-IND-100" },

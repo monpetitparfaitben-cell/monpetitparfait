@@ -147,12 +147,12 @@ export default function RegisterPage() {
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: "#e67e2215" }}>
             <CheckCircle size={40} style={{ color: "#e67e22" }} />
           </div>
-          <h1 className="text-2xl font-bold mb-3" style={{ color: "#18223b" }}>Demande envoyée !</h1>
+          <h1 className="text-2xl font-bold mb-3" style={{ color: "#18223b" }}>Compte créé !</h1>
           <p className="opacity-70 mb-2" style={{ color: "#18223b" }}>
-            Votre demande de compte a bien été reçue.
+            Votre compte a bien été créé.
           </p>
           <p className="text-sm opacity-60 mb-8" style={{ color: "#18223b" }}>
-            Notre équipe va valider votre compte sous 24h et vous contacter pour établir vos tarifs personnalisés.
+            Vous pouvez maintenant vous connecter et parcourir notre catalogue.
           </p>
           <Link href="/" className="inline-block px-6 py-3 rounded-xl font-bold text-white" style={{ backgroundColor: "#18223b" }}>
             Retour à l&apos;accueil
@@ -172,10 +172,10 @@ export default function RegisterPage() {
             </span>
           </Link>
           <h1 className="text-xl font-bold mt-6 mb-2" style={{ color: "#18223b" }}>
-            Créer mon compte professionnel
+            Créer mon compte
           </h1>
           <p className="text-sm opacity-60" style={{ color: "#18223b" }}>
-            Réservé aux hôtels, conciergeries et hébergements professionnels
+            Hôtels, conciergeries et hébergements professionnels
           </p>
         </div>
 
@@ -361,9 +361,6 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <p className="mt-4 text-xs text-center opacity-50" style={{ color: "#18223b" }}>
-          Votre compte sera validé par notre équipe sous 24h.
-        </p>
       </div>
     </div>
   );

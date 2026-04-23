@@ -15,6 +15,7 @@ const SLIDES = [
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const goTo = useCallback((idx: number) => {
     if (animating) return;
@@ -94,7 +95,21 @@ export default function HeroCarousel() {
           </div>
 
           {/* ── Image (droite) — change à chaque slide ── */}
-          <div className="relative order-first lg:order-last">
+          <div
+            className="relative order-first lg:order-last"
+            onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              if (touchStartX === null) return;
+              const delta = touchStartX - e.changedTouches[0].clientX;
+              if (Math.abs(delta) > 40) {
+                goTo(delta > 0
+                  ? (current + 1) % SLIDES.length
+                  : (current - 1 + SLIDES.length) % SLIDES.length
+                );
+              }
+              setTouchStartX(null);
+            }}
+          >
             <div
               className="relative overflow-hidden transition-opacity duration-300"
               style={{

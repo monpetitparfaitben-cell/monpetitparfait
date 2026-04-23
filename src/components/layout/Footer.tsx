@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ExternalLink, Share2 } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -57,31 +57,9 @@ export default function Footer() {
                 className="object-contain"
               />
             </Link>
-            <p className="text-sm opacity-70 leading-relaxed mb-6">
+            <p className="text-sm opacity-70 leading-relaxed">
               Spécialiste des kits et consommables pour hôtels, conciergeries et hébergements professionnels.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg transition-opacity hover:opacity-70"
-                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
-                aria-label="Instagram"
-              >
-                <ExternalLink size={18} />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg transition-opacity hover:opacity-70"
-                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
-                aria-label="Facebook"
-              >
-                <Share2 size={18} />
-              </a>
-            </div>
           </div>
 
           {/* Boutique */}
