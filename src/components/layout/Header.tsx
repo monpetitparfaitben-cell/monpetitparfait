@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="z-40"
+        className="relative z-40"
         style={{
           backgroundColor: "#F7F5F0",
         }}
