@@ -70,7 +70,7 @@ export default function PriceGate({ children, compact = false }: PriceGateProps)
           className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:shadow-sm"
           style={{ backgroundColor: "white", color: "#18223b", border: "2px solid #ede9e0" }}
         >
-          Demander un accès
+          Créer un compte
         </Link>
       </div>
     </div>

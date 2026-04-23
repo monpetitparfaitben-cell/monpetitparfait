@@ -181,7 +181,7 @@ export default function LoginPage() {
                 className="font-semibold"
                 style={{ color: "#e67e22" }}
               >
-                Demander un accès
+                Créer un compte
               </Link>
             </p>
           </div>

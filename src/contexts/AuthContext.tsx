@@ -184,7 +184,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         country: data.country || "FR",
         siret: data.siret || null,
         type_etablissement: data.typeEtablissement || null,
-        account_status: "pending",
+        account_status: "approved",
       });
     }
 
