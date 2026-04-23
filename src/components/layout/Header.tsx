@@ -113,7 +113,7 @@ export default function Header() {
             </Link>
 
             {/* ── Nav desktop ── */}
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-6 ml-16">
 
               {/* Mega-menu PRODUITS */}
               <div ref={menuRef} className="relative">
