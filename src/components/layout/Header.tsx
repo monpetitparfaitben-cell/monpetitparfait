@@ -98,7 +98,7 @@ export default function Header() {
           boxShadow: scrolled ? "0 1px 20px rgba(0,0,0,0.08)" : "none",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ paddingTop: "6px" }}>
           <div className="flex items-center justify-between h-20">
 
             {/* Logo */}
