@@ -8,24 +8,28 @@ const IMG = "/images/products";
 
 const kits = [
   {
+    href: "/boutique?subcategory=Kit+Salle+de+Bains",
     slug: "kit-salle-de-bains",
     label: "Kit Salle de Bains",
     desc: "Savon 30ml, shampoing 30ml, vanity kit, savonnette — prêt à déposer",
     img: `${IMG}/kit%20sdb%20carree.jpg`,
   },
   {
+    href: "/boutique?subcategory=Kit+Capsule+Caf%C3%A9",
     slug: "kit-capsule-cafe",
     label: "Kit Capsule Café",
     desc: "3 capsules de café compatibles, prêtes à l'emploi",
     img: `${IMG}/kit%20capsule%20carre.jpg`,
   },
   {
+    href: "/boutique?subcategory=Kit+Gourmand",
     slug: "kit-gourmand-formule-1",
     label: "Kit Gourmand",
     desc: "2 cafés solubles, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
     img: `${IMG}/kit%20welcome%20carre%20.jpg`,
   },
   {
+    href: "/boutique?subcategory=Kit+Entretien",
     slug: "kit-entretien-formule-1",
     label: "Kit Entretien",
     desc: "Liquide vaisselle, éponge, sacs poubelles petit et grand format",
@@ -34,15 +38,15 @@ const kits = [
 ];
 
 const ouate = [
-  { slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: `${IMG}/essuie%20tout%20fond%20bland.jpg` },
-  { slug: "papier-toilette-gamme-1", label: "Papier toilette", img: `${IMG}/sopalin%20fond%20blanc%20.jpg` },
+  { href: "/boutique?subcategory=Essuie-tout", slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: `${IMG}/essuie%20tout%20fond%20bland.jpg` },
+  { href: "/boutique?subcategory=Papier+toilette", slug: "papier-toilette-gamme-1", label: "Papier toilette", img: `${IMG}/sopalin%20fond%20blanc%20.jpg` },
 ];
 
 const consommables = [
-  { slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png` },
-  { slug: "tablette-lave-vaisselle", label: "Tablettes", img: `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png` },
-  { slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
-  { slug: "eponge-standard", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },
+  { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png` },
+  { href: "/boutique?subcategory=Tablette", slug: "tablette-lave-vaisselle", label: "Tablettes", img: `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png` },
+  { href: "/boutique?subcategory=Capsule+caf%C3%A9", slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
+  { href: "/boutique?subcategory=%C3%89ponge", slug: "eponge-standard", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },
 ];
 
 export default function HomePage() {
@@ -61,7 +65,7 @@ export default function HomePage() {
           {kits.map((kit) => {
             const product = PRODUCTS.find((p) => p.slug === kit.slug);
             return (
-              <Link key={kit.slug} href={`/produit/${kit.slug}`} className="group">
+              <Link key={kit.slug} href={kit.href} className="group">
                 <div
                   className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                   style={{ backgroundColor: "white" }}
@@ -104,7 +108,7 @@ export default function HomePage() {
           {ouate.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (
-              <Link key={item.slug} href={`/produit/${item.slug}`} className="group">
+              <Link key={item.slug} href={item.href} className="group">
                 <div
                   className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                   style={{ backgroundColor: "white" }}
@@ -144,7 +148,7 @@ export default function HomePage() {
           {consommables.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (
-              <Link key={item.slug} href={`/produit/${item.slug}`} className="group">
+              <Link key={item.slug} href={item.href} className="group">
                 <div
                   className="rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                   style={{ backgroundColor: "white" }}

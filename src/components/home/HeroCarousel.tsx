@@ -46,13 +46,6 @@ export default function HeroCarousel() {
 
           {/* ── Texte (gauche) — identique pour tous les slides ── */}
           <div className="flex flex-col justify-center">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-4"
-              style={{ color: "#e67e22" }}
-            >
-              NOUVELLE COLLECTION
-            </p>
-
             <h1
               className="font-extrabold leading-tight mb-8"
               style={{
@@ -114,7 +107,7 @@ export default function HeroCarousel() {
               className="relative overflow-hidden transition-opacity duration-300"
               style={{
                 borderRadius: "32px",
-                aspectRatio: "4 / 3",
+                aspectRatio: "16 / 9",
                 opacity: animating ? 0 : 1,
               }}
             >

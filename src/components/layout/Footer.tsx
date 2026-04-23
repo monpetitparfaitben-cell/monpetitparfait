@@ -1,22 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#18223b", color: "white" }}>
+    <footer style={{ backgroundColor: "#F7F5F0", borderTop: "1px solid #e8e4dc" }}>
+
       {/* Newsletter */}
       <div
         className="border-b"
-        style={{ borderColor: "rgba(255,255,255,0.1)" }}
+        style={{ borderColor: "#e8e4dc" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl font-bold mb-1">
+              <h3 className="text-xl font-bold mb-1" style={{ color: "#18223b" }}>
                 Restez informé de nos nouveautés
               </h3>
-              <p className="text-sm opacity-70">
+              <p className="text-sm opacity-60" style={{ color: "#18223b" }}>
                 Offres exclusives, nouveaux produits et conseils pour vos hébergements
               </p>
             </div>
@@ -26,9 +27,9 @@ export default function Footer() {
                 placeholder="Votre adresse email"
                 className="flex-1 md:w-72 px-4 py-3 rounded-xl text-sm outline-none"
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  color: "white",
+                  backgroundColor: "white",
+                  border: "1.5px solid #e8e4dc",
+                  color: "#18223b",
                 }}
               />
               <button
@@ -52,19 +53,19 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Mon Petit Parfait"
-                width={130}
-                height={81}
+                width={140}
+                height={88}
                 className="object-contain"
               />
             </Link>
-            <p className="text-sm opacity-70 leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: "#18223b", opacity: 0.6 }}>
               Spécialiste des kits et consommables pour hôtels, conciergeries et hébergements professionnels.
             </p>
           </div>
 
           {/* Boutique */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider opacity-50">
+            <h4 className="font-bold mb-4 text-xs uppercase tracking-wider" style={{ color: "#18223b", opacity: 0.4 }}>
               Boutique
             </h4>
             <ul className="space-y-2">
@@ -77,7 +78,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm opacity-70 hover:opacity-100 transition-opacity"
+                    className="text-sm transition-opacity hover:opacity-100"
+                    style={{ color: "#18223b", opacity: 0.6 }}
                   >
                     {link.label}
                   </Link>
@@ -88,7 +90,7 @@ export default function Footer() {
 
           {/* Informations */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider opacity-50">
+            <h4 className="font-bold mb-4 text-xs uppercase tracking-wider" style={{ color: "#18223b", opacity: 0.4 }}>
               Informations
             </h4>
             <ul className="space-y-2">
@@ -101,7 +103,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm opacity-70 hover:opacity-100 transition-opacity"
+                    className="text-sm transition-opacity hover:opacity-100"
+                    style={{ color: "#18223b", opacity: 0.6 }}
                   >
                     {link.label}
                   </Link>
@@ -112,23 +115,17 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider opacity-50">
+            <h4 className="font-bold mb-4 text-xs uppercase tracking-wider" style={{ color: "#18223b", opacity: 0.4 }}>
               Contact
             </h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm opacity-70">
+              <li className="flex items-center gap-3 text-sm" style={{ color: "#18223b", opacity: 0.6 }}>
                 <Mail size={15} className="flex-shrink-0" />
                 <a href="mailto:contact@monpetitparfait.fr" className="hover:opacity-100 transition-opacity">
                   contact@monpetitparfait.fr
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-sm opacity-70">
-                <Phone size={15} className="flex-shrink-0" />
-                <a href="mailto:contact@monpetitparfait.fr" className="hover:opacity-100 transition-opacity">
-                  Nous contacter par email
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm opacity-70">
+              <li className="flex items-start gap-3 text-sm" style={{ color: "#18223b", opacity: 0.6 }}>
                 <MapPin size={15} className="flex-shrink-0 mt-0.5" />
                 <span>France</span>
               </li>
@@ -139,12 +136,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 border-t"
-          style={{ borderColor: "rgba(255,255,255,0.1)" }}
+          style={{ borderColor: "#e8e4dc" }}
         >
-          <p className="text-xs opacity-50">
+          <p className="text-xs" style={{ color: "#18223b", opacity: 0.4 }}>
             © {new Date().getFullYear()} Mon Petit Parfait. Tous droits réservés.
           </p>
-          <div className="flex items-center gap-4 text-xs opacity-50">
+          <div className="flex items-center gap-4 text-xs" style={{ color: "#18223b", opacity: 0.4 }}>
             <span>Paiement sécurisé</span>
             <span>·</span>
             <span>🔒 SSL</span>

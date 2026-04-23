@@ -99,15 +99,15 @@ export default function Header() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/logo.png"
                 alt="Mon Petit Parfait"
-                width={110}
-                height={69}
+                width={160}
+                height={100}
                 className="object-contain"
                 priority
               />
@@ -210,19 +210,12 @@ export default function Header() {
               {/* Panier */}
               <button
                 onClick={toggleCart}
-                className="relative p-2 rounded-full transition-colors hover:opacity-70"
-                style={{ color: "#18223b" }}
+                className="relative flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-80"
+                style={{ backgroundColor: itemCount > 0 ? "#e67e22" : "#18223b", color: "white" }}
                 aria-label="Panier"
               >
-                <ShoppingCart size={20} />
-                {itemCount > 0 && (
-                  <span
-                    className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
-                    style={{ backgroundColor: "#e67e22" }}
-                  >
-                    {itemCount > 99 ? "99+" : itemCount}
-                  </span>
-                )}
+                <ShoppingCart size={16} />
+                <span>{itemCount > 0 ? `${itemCount > 99 ? "99+" : itemCount} article${itemCount > 1 ? "s" : ""}` : "Panier"}</span>
               </button>
 
               {/* Compte */}
@@ -277,13 +270,13 @@ export default function Header() {
 
             {/* ── Mobile ── */}
             <div className="flex md:hidden items-center gap-2">
-              <button onClick={toggleCart} className="relative p-2" style={{ color: "#18223b" }}>
-                <ShoppingCart size={22} />
-                {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center" style={{ backgroundColor: "#e67e22" }}>
-                    {itemCount}
-                  </span>
-                )}
+              <button
+                onClick={toggleCart}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-semibold"
+                style={{ backgroundColor: itemCount > 0 ? "#e67e22" : "#18223b", color: "white" }}
+              >
+                <ShoppingCart size={16} />
+                {itemCount > 0 && <span>{itemCount}</span>}
               </button>
               <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2" style={{ color: "#18223b" }}>
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
