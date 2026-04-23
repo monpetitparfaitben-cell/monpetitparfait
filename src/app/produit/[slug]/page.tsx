@@ -203,17 +203,6 @@ export default function ProductPage({ params }: PageProps) {
               <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
                 {product.description}
               </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {product.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-3 py-1 rounded-full font-medium"
-                    style={{ backgroundColor: "#F7F5F0", color: "#18223b" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Prix */}
