@@ -40,12 +40,12 @@ export default function HeroCarousel() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch"
-          style={{ minHeight: "85vh" }}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-stretch"
+          style={{ minHeight: "80vh" }}
         >
 
           {/* ── Texte (gauche) ── */}
-          <div className="flex flex-col justify-center py-16">
+          <div className="lg:col-span-2 flex flex-col justify-center py-16">
             <h1
               className="font-extrabold leading-tight mb-8"
               style={{
@@ -89,7 +89,7 @@ export default function HeroCarousel() {
 
           {/* ── Image (droite) — pleine hauteur ── */}
           <div
-            className="relative order-first lg:order-last hidden lg:block"
+            className="lg:col-span-3 relative order-first lg:order-last hidden lg:block"
             onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
             onTouchEnd={(e) => {
               if (touchStartX === null) return;
@@ -108,7 +108,7 @@ export default function HeroCarousel() {
               style={{
                 borderRadius: "32px",
                 opacity: animating ? 0 : 1,
-                minHeight: "70vh",
+                minHeight: "60vh",
               }}
             >
               <Image
