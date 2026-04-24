@@ -81,6 +81,21 @@ function BoutiqueContent() {
   const subcatParam   = searchParams.get("subcategory") || "";
   const [search, setSearch] = useState("");
 
+  // ── Filtrage (doit être AVANT les returns conditionnels — règle des hooks React) ──
+  const filtered = useMemo(() => {
+    let products = PRODUCTS.filter((p) => p.is_active);
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      products = products.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.short_description.toLowerCase().includes(q) ||
+          p.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+    return products;
+  }, [search]);
+
   // ── Vue sous-catégorie (style Beneki) ──
   if (subcatParam) {
     const products = PRODUCTS.filter(
@@ -243,20 +258,6 @@ function BoutiqueContent() {
   }
 
   // ── Vue générale (tout le catalogue) ───────────────────────────
-  const filtered = useMemo(() => {
-    let products = PRODUCTS.filter((p) => p.is_active);
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      products = products.filter(
-        (p) =>
-          p.name.toLowerCase().includes(q) ||
-          p.short_description.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q))
-      );
-    }
-    return products;
-  }, [search]);
-
   return (
     <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
       {/* Header */}
