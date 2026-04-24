@@ -34,14 +34,14 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
   const image = product.images[0];
 
   return (
-    <Link href={`/produit/${product.slug}`} className="group block">
+    <Link href={`/produit/${product.slug}`} className="group block h-full">
       <div
-        className="rounded-2xl overflow-hidden transition-all duration-200 group-hover:shadow-lg"
+        className="rounded-2xl overflow-hidden transition-all duration-200 group-hover:shadow-lg h-full flex flex-col"
         style={{ backgroundColor: "white", border: "1.5px solid #ede9e0" }}
       >
         {/* Image */}
         <div
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center flex-shrink-0"
           style={{ height: "180px", backgroundColor: "#F7F5F0" }}
         >
           {image ? (
@@ -58,14 +58,14 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
         </div>
 
         {/* Infos */}
-        <div className="p-4">
+        <div className="p-4 flex flex-col flex-1">
           <p className="font-bold text-sm leading-snug mb-1" style={{ color: "#18223b" }}>
             {product.name}
           </p>
           <p className="text-xs opacity-50 mb-2" style={{ color: "#18223b" }}>
             {product.short_description}
           </p>
-          <p className="text-sm font-semibold" style={{ color: "#e67e22" }}>
+          <p className="text-sm font-semibold mt-auto" style={{ color: "#e67e22" }}>
             à partir de {formatPrice(lowestPrice)}
           </p>
         </div>
