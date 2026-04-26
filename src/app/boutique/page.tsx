@@ -49,7 +49,7 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
               src={image}
               alt={product.name}
               fill
-              className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             />
           ) : (
@@ -231,7 +231,7 @@ function BoutiqueContent() {
                             src={firstProduct.images[0]}
                             alt={subcat}
                             fill
-                            className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
                             sizes="(max-width: 768px) 50vw, 25vw"
                           />
                         ) : (
@@ -343,7 +343,7 @@ function BoutiqueContent() {
                                 src={firstProduct.images[0]}
                                 alt={subcat}
                                 fill
-                                className="object-contain p-5 transition-transform duration-300 group-hover:scale-105"
+                                className="object-cover transition-transform duration-300 group-hover:scale-105"
                                 sizes="(max-width: 768px) 50vw, 20vw"
                               />
                             ) : (
