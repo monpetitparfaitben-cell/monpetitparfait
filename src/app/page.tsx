@@ -39,7 +39,7 @@ const kits = [
 
 const ouate = [
   { href: "/boutique?subcategory=Essuie-tout", slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: `${IMG}/essuie%20tout%20fond%20bland.jpg` },
-  { href: "/boutique?subcategory=Papier+toilette", slug: "papier-toilette-gamme-1", label: "Papier toilette", img: `${IMG}/sopalin%20fond%20blanc%20.jpg` },
+  { href: "/boutique?subcategory=Papier+toilette", slug: "papier-toilette-gamme-1", label: "Papier toilette", img: "/images/produits/kit-toilette.jpg" },
 ];
 
 const consommables = [

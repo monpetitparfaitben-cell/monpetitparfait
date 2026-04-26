@@ -24,8 +24,6 @@ export const PRODUCTS: Product[] = [
       "/images/produits/kit-sdb-3.jpg",
       "/images/produits/kit-sdb-4.jpg",
       "/images/produits/kit-sdb-5.jpg",
-      "/images/produits/kit-toilette.jpg",
-      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "kit-sdb-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-SDB-100" },
@@ -397,8 +395,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
-      `${IMG}/sopalin.png`,
+      "/images/produits/kit-toilette.jpg",
+      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "oua-ptt1-100", name: "100 rouleaux", price: 3200, stock: 500, sku: "OUA-PTT1-100" },
@@ -423,8 +421,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
-      `${IMG}/sopalin.png`,
+      "/images/produits/kit-toilette.jpg",
+      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "oua-ptt2-100", name: "100 rouleaux", price: 3600, stock: 500, sku: "OUA-PTT2-100" },
@@ -449,8 +447,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
-      `${IMG}/sopalin.png`,
+      "/images/produits/kit-toilette.jpg",
+      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "oua-ptt3-100", name: "100 rouleaux", price: 4200, stock: 500, sku: "OUA-PTT3-100" },
@@ -475,8 +473,8 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      `${IMG}/sopalin%20fond%20blanc%20.jpg`,
-      `${IMG}/sopalin.png`,
+      "/images/produits/kit-toilette.jpg",
+      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "oua-ptt4-100", name: "100 rouleaux", price: 5500, stock: 500, sku: "OUA-PTT4-100" },
