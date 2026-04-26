@@ -19,10 +19,13 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Salle de Bains",
     images: [
-      `${IMG}/kit%20sdb%20carree.jpg`,
-      `${IMG}/kit%20sdb%202%20carre.jpg`,
-      `${IMG}/kit%20sdb%20carre%20.jpg`,
-      `${IMG}/kit%20sdb%20carre%203%20.jpg`,
+      "/images/produits/kit-sdb.jpg",
+      "/images/produits/kit-sdb-2.jpg",
+      "/images/produits/kit-sdb-3.jpg",
+      "/images/produits/kit-sdb-4.jpg",
+      "/images/produits/kit-sdb-5.jpg",
+      "/images/produits/kit-toilette.jpg",
+      "/images/produits/kit-toilette-2.jpg",
     ],
     variants: [
       { id: "kit-sdb-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-SDB-100" },
@@ -47,9 +50,9 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Capsule Café",
     images: [
-      `${IMG}/kit%20capsule%20carre.jpg`,
-      `${IMG}/kit%20capsules%20carre%20.jpg`,
-      `${IMG}/kit%20capsules%204%20carre%20.jpg`,
+      "/images/produits/kit-cafe.jpg",
+      "/images/produits/kit-cafe-2.jpg",
+      "/images/produits/kit-cafe-3.jpg",
     ],
     variants: [
       { id: "kit-caf-100", name: "100 kits", price: 8900, stock: 500, sku: "KIT-CAF-100" },
@@ -74,8 +77,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/kit%20welcome%20carre%20.jpg`,
-      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
+      "/images/produits/kit-welcome.jpg",
+      "/images/produits/kit-welcome-2.jpg",
     ],
     variants: [
       { id: "kit-grm1-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM1-100" },
@@ -100,8 +103,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/kit%20welcome%20carre%20.jpg`,
-      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
+      "/images/produits/kit-welcome.jpg",
+      "/images/produits/kit-welcome-2.jpg",
     ],
     variants: [
       { id: "kit-grm2-100", name: "100 kits", price: 15900, stock: 500, sku: "KIT-GRM2-100" },
@@ -126,8 +129,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/kit%20welcome%20carre%20.jpg`,
-      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
+      "/images/produits/kit-welcome.jpg",
+      "/images/produits/kit-welcome-2.jpg",
     ],
     variants: [
       { id: "kit-grm3-100", name: "100 kits", price: 13900, stock: 500, sku: "KIT-GRM3-100" },
@@ -152,8 +155,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      `${IMG}/kit%20welcome%20carre%20.jpg`,
-      `${IMG}/kit%20welcome%20carre%202%20.jpg`,
+      "/images/produits/kit-welcome.jpg",
+      "/images/produits/kit-welcome-2.jpg",
     ],
     variants: [
       { id: "kit-grm4-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM4-100" },
@@ -178,8 +181,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
-      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
+      "/images/produits/kit-entretien-2.jpg",
     ],
     variants: [
       { id: "kit-ent1-100", name: "100 kits", price: 6500, stock: 500, sku: "KIT-ENT1-100" },
@@ -204,8 +207,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
-      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
+      "/images/produits/kit-entretien-2.jpg",
     ],
     variants: [
       { id: "kit-ent2-100", name: "100 kits", price: 8500, stock: 500, sku: "KIT-ENT2-100" },
@@ -230,8 +233,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
-      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
+      "/images/produits/kit-entretien-2.jpg",
     ],
     variants: [
       { id: "kit-ent3-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-ENT3-100" },
@@ -256,8 +259,8 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
-      `${IMG}/kit%20entretien%202%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
+      "/images/produits/kit-entretien-2.jpg",
     ],
     variants: [
       { id: "kit-ent4-100", name: "100 kits", price: 9500, stock: 500, sku: "KIT-ENT4-100" },
@@ -868,7 +871,7 @@ export const PRODUCTS: Product[] = [
     subcategory: "Éponge",
     images: [
       `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
     ],
     variants: [
       { id: "con-epo-std-100", name: "100 éponges", price: 2900, stock: 500, sku: "CON-EPO-STD-100" },
@@ -893,7 +896,7 @@ export const PRODUCTS: Product[] = [
     subcategory: "Éponge",
     images: [
       `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      `${IMG}/kit%20entretien%20carre%20.jpg`,
+      "/images/produits/kit-entretien.jpg",
     ],
     variants: [
       { id: "con-epo-ind-100", name: "100 éponges", price: 3500, stock: 500, sku: "CON-EPO-IND-100" },

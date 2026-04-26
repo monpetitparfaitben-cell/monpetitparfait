@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { ArrowLeft, Lock, Download } from "lucide-react";
+import { ArrowLeft, Lock } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { PRODUCTS, formatPrice } from "@/lib/products";
 
@@ -46,14 +46,6 @@ export default function MonContratPage() {
               </p>
             )}
           </div>
-          {hasContract && (
-            <button
-              className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-opacity hover:opacity-70"
-              style={{ backgroundColor: "white", color: "#18223b", border: "1.5px solid #ede9e0" }}
-            >
-              <Download size={15} /> Télécharger PDF
-            </button>
-          )}
         </div>
 
         {!hasContract ? (

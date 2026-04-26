@@ -12,28 +12,28 @@ const kits = [
     slug: "kit-salle-de-bains",
     label: "Kit Salle de Bains",
     desc: "Savon 30ml, shampoing 30ml, vanity kit, savonnette — prêt à déposer",
-    img: `${IMG}/kit%20sdb%20carree.jpg`,
+    img: "/images/hero/kit-sdb.jpg",
   },
   {
     href: "/boutique?subcategory=Kit+Capsule+Caf%C3%A9",
     slug: "kit-capsule-cafe",
     label: "Kit Capsule Café",
     desc: "3 capsules de café compatibles, prêtes à l'emploi",
-    img: `${IMG}/kit%20capsule%20carre.jpg`,
+    img: "/images/hero/kit-cafe.jpg",
   },
   {
     href: "/boutique?subcategory=Kit+Gourmand",
     slug: "kit-gourmand-formule-1",
     label: "Kit Gourmand",
     desc: "2 cafés solubles, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
-    img: `${IMG}/kit%20welcome%20carre%20.jpg`,
+    img: "/images/hero/kit-welcome.jpg",
   },
   {
     href: "/boutique?subcategory=Kit+Entretien",
     slug: "kit-entretien-formule-1",
     label: "Kit Entretien",
     desc: "Liquide vaisselle, éponge, sacs poubelles petit et grand format",
-    img: `${IMG}/kit%20entretien%20carre%20.jpg`,
+    img: "/images/hero/kit-entretien.jpg",
   },
 ];
 
