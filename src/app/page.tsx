@@ -38,12 +38,12 @@ const kits = [
 ];
 
 const ouate = [
-  { href: "/boutique?subcategory=Essuie-tout", slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: `${IMG}/essuie%20tout%20fond%20bland.jpg` },
+  { href: "/boutique?subcategory=Essuie-tout", slug: "essuie-tout-gamme-1", label: "Essuie-tout", img: "/images/hero/essuie-tout.jpg" },
   { href: "/boutique?subcategory=Papier+toilette", slug: "papier-toilette-gamme-1", label: "Papier toilette", img: "/images/produits/kit-toilette.jpg" },
 ];
 
 const consommables = [
-  { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: `${IMG}/PHOTO-2026-02-03-09-37-47-removebg-preview.png` },
+  { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle.jpg" },
   { href: "/boutique?subcategory=Tablette", slug: "tablette-lave-vaisselle", label: "Tablettes", img: `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png` },
   { href: "/boutique?subcategory=Capsule+caf%C3%A9", slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
   { href: "/boutique?subcategory=%C3%89ponge", slug: "eponge-standard", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },

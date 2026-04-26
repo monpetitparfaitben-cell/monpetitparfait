@@ -287,8 +287,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
-      `${IMG}/essuie%20tout%20.png`,
+      "/images/produits/essuie-tout-1.jpg",
     ],
     variants: [
       { id: "oua-ess1-100", name: "100 unités", price: 3900, stock: 500, sku: "OUA-ESS1-100" },
@@ -313,8 +312,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
-      `${IMG}/essuie%20tout%20.png`,
+      "/images/produits/essuie-tout-2.jpg",
     ],
     variants: [
       { id: "oua-ess2-100", name: "100 unités", price: 4500, stock: 500, sku: "OUA-ESS2-100" },
@@ -339,8 +337,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
-      `${IMG}/essuie%20tout%20.png`,
+      "/images/produits/essuie-tout-3.jpg",
     ],
     variants: [
       { id: "oua-ess3-100", name: "100 unités", price: 5200, stock: 500, sku: "OUA-ESS3-100" },
@@ -365,8 +362,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Essuie-tout",
     images: [
-      `${IMG}/essuie%20tout%20fond%20bland.jpg`,
-      `${IMG}/essuie%20tout%20.png`,
+      "/images/produits/essuie-tout-4.jpg",
     ],
     variants: [
       { id: "oua-ess4-100", name: "100 unités", price: 4200, stock: 500, sku: "OUA-ESS4-100" },
@@ -389,14 +385,14 @@ export const PRODUCTS: Product[] = [
     id: "papier-toilette-gamme-1",
     slug: "papier-toilette-gamme-1",
     name: "Papier toilette — Gamme 1",
+
     description:
       "Papier toilette JL+ — 2 plis, 120 mm x 87 m, 11,4 m/rouleau. La valeur sûre pour un usage quotidien. Doux, résistant, adapté à tous les établissements.",
     short_description: "Papier toilette JL+ — 2 plis, 120 mm x 87 m, 11,4 m/rouleau",
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      "/images/produits/kit-toilette.jpg",
-      "/images/produits/kit-toilette-2.jpg",
+      "/images/produits/papier-toilette-1.jpg",
     ],
     variants: [
       { id: "oua-ptt1-100", name: "100 rouleaux", price: 3200, stock: 500, sku: "OUA-PTT1-100" },
@@ -421,8 +417,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      "/images/produits/kit-toilette.jpg",
-      "/images/produits/kit-toilette-2.jpg",
+      "/images/produits/papier-toilette-2.jpg",
     ],
     variants: [
       { id: "oua-ptt2-100", name: "100 rouleaux", price: 3600, stock: 500, sku: "OUA-PTT2-100" },
@@ -447,8 +442,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      "/images/produits/kit-toilette.jpg",
-      "/images/produits/kit-toilette-2.jpg",
+      "/images/produits/papier-toilette-3.jpg",
     ],
     variants: [
       { id: "oua-ptt3-100", name: "100 rouleaux", price: 4200, stock: 500, sku: "OUA-PTT3-100" },
@@ -473,8 +467,7 @@ export const PRODUCTS: Product[] = [
     category: "ouate",
     subcategory: "Papier toilette",
     images: [
-      "/images/produits/kit-toilette.jpg",
-      "/images/produits/kit-toilette-2.jpg",
+      "/images/produits/papier-toilette-4.jpg",
     ],
     variants: [
       { id: "oua-ptt4-100", name: "100 rouleaux", price: 5500, stock: 500, sku: "OUA-PTT4-100" },
