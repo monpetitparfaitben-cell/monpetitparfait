@@ -143,14 +143,21 @@ export default function ProductPage({ params }: PageProps) {
                 style={{ backgroundColor: "#ede9e0" }}
               >
                 {images ? (
-                  <Image
-                    src={images[selectedImageIdx]}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
+                  images.map((img, i) => (
+                    <Image
+                      key={img}
+                      src={img}
+                      alt={`${product.name} ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority={i === 0}
+                      style={{
+                        opacity: i === selectedImageIdx ? 1 : 0,
+                        transition: "opacity 200ms ease",
+                      }}
+                    />
+                  ))
                 ) : (
                   <span className="text-[10rem] select-none">{categoryEmoji}</span>
                 )}
