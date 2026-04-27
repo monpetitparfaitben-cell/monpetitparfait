@@ -699,8 +699,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette",
     images: [
-      `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-09-51-51.jpg`,
+      "/images/produits/tablette-lave-vaisselle.jpg",
     ],
     variants: [
       { id: "con-tab-lv-100", name: "100 tablettes", price: 1900, stock: 500, sku: "CON-TAB-LV-100" },
@@ -724,8 +723,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette",
     images: [
-      `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-09-51-51.jpg`,
+      "/images/produits/tablette-linge.jpg",
     ],
     variants: [
       { id: "con-tab-lin-100", name: "100 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-100" },
@@ -753,8 +751,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Pastille",
     images: [
-      `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-09-51-51.jpg`,
+      "/images/produits/tablette-lave-vaisselle.jpg",
     ],
     variants: [
       { id: "con-pas-lv-100", name: "100 pastilles", price: 1800, stock: 500, sku: "CON-PAS-LV-100" },
@@ -778,8 +775,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Pastille",
     images: [
-      `${IMG}/PHOTO-2026-02-03-09-51-51-removebg-preview.png`,
-      `${IMG}/PHOTO-2026-02-03-09-51-51.jpg`,
+      "/images/produits/tablette-linge.jpg",
     ],
     variants: [
       { id: "con-pas-lin-100", name: "100 pastilles", price: 2000, stock: 500, sku: "CON-PAS-LIN-100" },
