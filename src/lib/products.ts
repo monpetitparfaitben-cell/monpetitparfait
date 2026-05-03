@@ -68,15 +68,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-gourmand-1",
     slug: "kit-gourmand-formule-1",
-    name: "Kit Gourmand — Formule 1",
+    name: "Kit Gourmand — L'Instant Douceur",
     description:
       "KIT WELCOME\n🍪 KIT GOURMAND\n✨ La touche qui transforme un simple séjour en belle expérience\nUn petit geste peut créer une grande différence.\nAvec notre Kit Gourmand Mon Petit Parfait, vous offrez à vos voyageurs une attention délicate qui marque les esprits dès leur arrivée.\nC'est ce détail inattendu qui crée un effet de surprise et donne immédiatement le sentiment d'être attendu.\n\n🍫 Un accueil chaleureux et attentionné\nNotre kit gourmand est soigneusement préparé pour offrir un moment de détente et de convivialité.\nIl contient :\n☕ 2 sachets de café soluble\n🍵 1 thé vert\n🍵 1 thé noir\n🍬 2 sucres\n🥄 2 touillettes\n🍪 2 biscuits Lotus\nUn assortiment simple, efficace et apprécié, parfait pour accompagner une pause café ou thé après un trajet.\n\n🎯 Pourquoi proposer un kit gourmand ?\n✔️ Crée un effet \"waouh\" dès l'entrée\n✔️ Apporte une touche conviviale et soignée\n✔️ Renforce l'image professionnelle de votre logement\n✔️ Favorise les avis positifs\nCes petites attentions font souvent toute la différence dans l'expérience globale du séjour.\n\n📦 Prêt à déposer, prêt à savourer\nNos kits sont préparés avec soin, conditionnés et livrés prêts à être disposés dans votre logement.\nAucune préparation nécessaire : vous les installez et l'accueil est immédiatement valorisé.\nUn petit plus simple… qui laisse un grand souvenir.",
     short_description: "• 2 cafés solubles · • 1 thé vert · • 1 thé noir · • 2 sucres · • 2 touillettes · • 2 gâteaux",
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      "/images/produits/kit-welcome.jpg",
-      "/images/produits/kit-welcome-2.jpg",
+      "/images/produits/kit-gourmand-1.jpg",
     ],
     variants: [
       { id: "kit-grm1-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM1-100" },
@@ -94,15 +93,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-gourmand-2",
     slug: "kit-gourmand-formule-2",
-    name: "Kit Gourmand — Formule 2",
+    name: "Kit Gourmand — Le Raffiné",
     description:
       "La version capsules de notre Kit Gourmand.\n\nComposition : 2 capsules de café, 1 thé noir, 1 thé vert, 2 sucres, 2 touillettes, 2 gâteaux. Idéal pour les logements équipés d'une machine à capsules. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 2 capsules de café · • 1 thé noir · • 1 thé vert · • 2 sucres · • 2 touillettes · • 2 gâteaux",
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      "/images/produits/kit-welcome.jpg",
-      "/images/produits/kit-welcome-2.jpg",
+      "/images/produits/kit-gourmand-2.jpg",
     ],
     variants: [
       { id: "kit-grm2-100", name: "100 kits", price: 15900, stock: 500, sku: "KIT-GRM2-100" },
@@ -120,15 +118,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-gourmand-3",
     slug: "kit-gourmand-formule-3",
-    name: "Kit Gourmand — Formule 3",
+    name: "Kit Gourmand — Le Barista",
     description:
       "La formule café renforcée, sans gâteaux.\n\nComposition : 4 capsules de café, 1 thé noir, 1 thé vert, 2 sucres, 2 touillettes. Pour les voyageurs qui apprécient avant tout un bon café. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 4 capsules de café · • 1 thé noir · • 1 thé vert · • 2 sucres · • 2 touillettes",
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      "/images/produits/kit-welcome.jpg",
-      "/images/produits/kit-welcome-2.jpg",
+      "/images/produits/kit-gourmand-3.jpg",
     ],
     variants: [
       { id: "kit-grm3-100", name: "100 kits", price: 13900, stock: 500, sku: "KIT-GRM3-100" },
@@ -146,15 +143,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-gourmand-4",
     slug: "kit-gourmand-formule-4",
-    name: "Kit Gourmand — Formule 4",
+    name: "Kit Gourmand — Le Gourmet",
     description:
       "La formule sans sucre pour les hôtes attentifs.\n\nComposition : 4 capsules de café, 1 thé vert, 1 thé noir, 2 touillettes, 2 gâteaux. Sans sucre ajouté — pensé pour les voyageurs qui font attention à leur consommation. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 4 capsules de café · • 1 thé vert · • 1 thé noir · • 2 touillettes · • 2 gâteaux",
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      "/images/produits/kit-welcome.jpg",
-      "/images/produits/kit-welcome-2.jpg",
+      "/images/produits/kit-gourmand-4.jpg",
     ],
     variants: [
       { id: "kit-grm4-100", name: "100 kits", price: 14900, stock: 500, sku: "KIT-GRM4-100" },
