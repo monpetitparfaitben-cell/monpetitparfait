@@ -61,9 +61,6 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
           <p className="font-bold text-sm leading-snug mb-1" style={{ color: "#18223b" }}>
             {product.name}
           </p>
-          <p className="text-xs opacity-50 mb-2" style={{ color: "#18223b" }}>
-            {product.short_description}
-          </p>
           <p className="text-sm font-semibold mt-auto" style={{ color: "#e67e22" }}>
             à partir de {formatPrice(lowestPrice)}
           </p>
