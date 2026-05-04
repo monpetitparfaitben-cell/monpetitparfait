@@ -9,6 +9,20 @@ import { PRODUCTS, formatPrice } from "@/lib/products";
 import { ProductCategory, CATEGORY_LABELS } from "@/types";
 import ProductCard from "@/components/store/ProductCard";
 
+// ── Images hero par sous-catégorie (pour les cartes de navigation) ──
+const SUBCAT_HERO_IMAGES: Record<string, string> = {
+  "Kit Salle de Bains": "/images/hero/kit-sdb.jpg",
+  "Kit Capsule Café": "/images/hero/kit-cafe.jpg",
+  "Kit Gourmand": "/images/hero/kit-welcome.jpg",
+  "Kit Entretien": "/images/hero/kit-entretien.jpg",
+  "Essuie-tout": "/images/hero/essuie-tout.jpg",
+  "Papier toilette": "/images/produits/kit-toilette.jpg",
+  "Sac poubelle": "/images/produits/sac-poubelle.jpg",
+  "Tablette": "/images/produits/tablette-lave-vaisselle.jpg",
+  "Capsule café": "/images/products/capsule fond blanc.jpg",
+  "Éponge": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
+};
+
 // ── Structure de navigation ─────────────────────────────────────
 const NAV_STRUCTURE = [
   {
@@ -221,9 +235,9 @@ function BoutiqueContent() {
                         className="relative aspect-square w-full overflow-hidden"
                         style={{ backgroundColor: "#F7F5F0" }}
                       >
-                        {firstProduct?.images[0] ? (
+                        {(SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0]) ? (
                           <Image
-                            src={firstProduct.images[0]}
+                            src={SUBCAT_HERO_IMAGES[subcat] ?? firstProduct!.images[0]}
                             alt={subcat}
                             fill
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -332,9 +346,9 @@ function BoutiqueContent() {
                             className="relative aspect-square w-full overflow-hidden"
                             style={{ backgroundColor: "#F7F5F0" }}
                           >
-                            {firstProduct?.images[0] ? (
+                            {(SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0]) ? (
                               <Image
-                                src={firstProduct.images[0]}
+                                src={SUBCAT_HERO_IMAGES[subcat] ?? firstProduct!.images[0]}
                                 alt={subcat}
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
