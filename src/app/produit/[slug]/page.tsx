@@ -12,13 +12,11 @@ import {
   Shield,
   ArrowLeft,
   Check,
-  Lock,
   ShoppingCart,
 } from "lucide-react";
 import { getProductBySlug, formatPrice, PRODUCTS } from "@/lib/products";
 import { useCartStore } from "@/store/cartStore";
 import { useAuth } from "@/contexts/AuthContext";
-import { PriceDisplay } from "@/components/auth/PriceGate";
 import { ProductVariant } from "@/types";
 import ProductCard from "@/components/store/ProductCard";
 
@@ -49,11 +47,9 @@ export default function ProductPage({ params }: PageProps) {
   const totalPrice = resolvedPrice * quantity;
 
   const handleAddToCart = () => {
-    if (!user) return;
-    // Ajouter au panier avec le prix résolu (contractuel ou catalogue)
     addItem(
       product,
-      { ...selectedVariant, price: resolvedPrice }, // prix résolu
+      { ...selectedVariant, price: resolvedPrice },
       quantity
     );
     setAdded(true);
@@ -214,11 +210,12 @@ export default function ProductPage({ params }: PageProps) {
 
             {/* Prix */}
             <div className="mb-6">
-              <PriceDisplay
-                basePrice={selectedVariant.price}
-                variantId={selectedVariant.id}
-                showContractBadge={true}
-              />
+              <p className="text-3xl font-bold" style={{ color: "#18223b" }}>
+                {formatPrice(resolvedPrice)}
+              </p>
+              {contract && contractPrice && contractPrice < selectedVariant.price && (
+                <p className="text-sm opacity-50 line-through mt-1">{formatPrice(selectedVariant.price)}</p>
+              )}
             </div>
 
             {/* Variants */}
@@ -244,12 +241,10 @@ export default function ProductPage({ params }: PageProps) {
                       }}
                     >
                       <span className="block">{variant.name}</span>
-                      {user && (
-                        <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.7 : 0.5 }}>
-                          {formatPrice(vPrice)}
-                          {vContractPrice && vContractPrice < variant.price && " 🤝"}
-                        </span>
-                      )}
+                      <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.7 : 0.5 }}>
+                        {formatPrice(vPrice)}
+                        {vContractPrice && vContractPrice < variant.price && " 🤝"}
+                      </span>
                       {isSelected && (
                         <Check
                           size={12}
@@ -264,71 +259,40 @@ export default function ProductPage({ params }: PageProps) {
             </div>
 
             {/* Quantité + CTA */}
-            {user ? (
-              <div className="flex gap-4 mb-8">
-                <div
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl"
-                  style={{ backgroundColor: "white", border: "2px solid #ede9e0" }}
-                >
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    style={{ color: "#18223b" }}
-                  >
-                    <Minus size={16} />
-                  </button>
-                  <span className="font-bold w-6 text-center" style={{ color: "#18223b" }}>
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    style={{ color: "#18223b" }}
-                  >
-                    <Plus size={16} />
-                  </button>
-                </div>
-
+            <div className="flex gap-4 mb-8">
+              <div
+                className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                style={{ backgroundColor: "white", border: "2px solid #ede9e0" }}
+              >
                 <button
-                  onClick={handleAddToCart}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-base font-bold text-white transition-all duration-200"
-                  style={{ backgroundColor: added ? "#27ae60" : "#e67e22" }}
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  style={{ color: "#18223b" }}
                 >
-                  {added ? (
-                    <><Check size={18} /> Ajouté !</>
-                  ) : (
-                    <><ShoppingCart size={18} /> Ajouter — {formatPrice(totalPrice)}</>
-                  )}
+                  <Minus size={16} />
+                </button>
+                <span className="font-bold w-6 text-center" style={{ color: "#18223b" }}>
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => setQuantity(quantity + 1)}
+                  style={{ color: "#18223b" }}
+                >
+                  <Plus size={16} />
                 </button>
               </div>
-            ) : (
-              <div
-                className="rounded-2xl p-6 mb-8 text-center"
-                style={{ backgroundColor: "#ede9e0" }}
+
+              <button
+                onClick={handleAddToCart}
+                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-base font-bold text-white transition-all duration-200"
+                style={{ backgroundColor: added ? "#27ae60" : "#e67e22" }}
               >
-                <Lock size={24} className="mx-auto mb-3" style={{ color: "#18223b" }} />
-                <p className="font-bold mb-1" style={{ color: "#18223b" }}>
-                  Connectez-vous pour commander
-                </p>
-                <p className="text-sm opacity-70 mb-4" style={{ color: "#18223b" }}>
-                  Nos prix sont personnalisés selon votre contrat professionnel
-                </p>
-                <div className="flex gap-3 justify-center">
-                  <Link
-                    href="/auth/login"
-                    className="px-5 py-2.5 rounded-xl text-sm font-bold text-white"
-                    style={{ backgroundColor: "#18223b" }}
-                  >
-                    Se connecter
-                  </Link>
-                  <Link
-                    href="/auth/register"
-                    className="px-5 py-2.5 rounded-xl text-sm font-semibold"
-                    style={{ backgroundColor: "white", color: "#18223b", border: "2px solid #ede9e0" }}
-                  >
-                    Créer un compte
-                  </Link>
-                </div>
-              </div>
-            )}
+                {added ? (
+                  <><Check size={18} /> Ajouté !</>
+                ) : (
+                  <><ShoppingCart size={18} /> Ajouter — {formatPrice(totalPrice)}</>
+                )}
+              </button>
+            </div>
 
             {/* Garanties */}
             <div className="space-y-3">
