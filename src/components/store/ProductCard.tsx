@@ -14,7 +14,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCartStore();
-  const { user, getContractPrice } = useAuth();
+  const { getContractPrice } = useAuth();
 
   const contractPrice = getContractPrice(product.variants[0].id);
   const displayPrice = contractPrice ?? product.price;
@@ -23,7 +23,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) return;
     addItem(product, product.variants[0], 1);
   };
 
@@ -62,17 +61,15 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
           )}
 
-          {/* Quick add (visible seulement si connecté) */}
-          {user && (
-            <button
-              onClick={handleQuickAdd}
-              className="absolute bottom-3 right-3 p-2.5 rounded-xl text-white shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200"
-              style={{ backgroundColor: "#e67e22" }}
-              aria-label={`Ajouter ${product.name} au panier`}
-            >
-              <ShoppingCart size={16} />
-            </button>
-          )}
+          {/* Quick add */}
+          <button
+            onClick={handleQuickAdd}
+            className="absolute bottom-3 right-3 p-2.5 rounded-xl text-white shadow-lg opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200"
+            style={{ backgroundColor: "#e67e22" }}
+            aria-label={`Ajouter ${product.name} au panier`}
+          >
+            <ShoppingCart size={16} />
+          </button>
         </div>
 
         {/* Infos */}
@@ -87,43 +84,24 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.name}
           </h3>
 
-          <p className="text-xs opacity-60 mb-3 line-clamp-2" style={{ color: "#18223b" }}>
-            {product.short_description}
-          </p>
-
           {/* Prix */}
           <div className="flex items-center justify-between mt-auto">
             <div>
-              {user ? (
-                <>
-                  <p className="text-xs opacity-50 mb-0.5" style={{ color: "#18223b" }}>
-                    À partir de
-                  </p>
-                  <div className="flex items-baseline gap-1.5">
-                    <p className="font-bold text-base" style={{ color: "#18223b" }}>
-                      {formatPrice(displayPrice)}
-                    </p>
-                    {hasContractPrice && displayPrice < product.price && (
-                      <span className="text-xs line-through opacity-40" style={{ color: "#18223b" }}>
-                        {formatPrice(product.price)}
-                      </span>
-                    )}
-                  </div>
-                  {hasContractPrice && (
-                    <span className="text-xs font-semibold" style={{ color: "#e67e22" }}>
-                      Votre prix contractuel
-                    </span>
-                  )}
-                </>
-              ) : (
-                <Link
-                  href="/auth/login"
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all hover:opacity-80"
-                  style={{ backgroundColor: "#18223b", color: "white" }}
-                >
-                  🔒 Voir le prix
-                </Link>
+              <p className="text-xs opacity-50 mb-0.5" style={{ color: "#18223b" }}>À partir de</p>
+              <div className="flex items-baseline gap-1.5">
+                <p className="font-bold text-base" style={{ color: "#18223b" }}>
+                  {formatPrice(displayPrice)}
+                </p>
+                {hasContractPrice && displayPrice < product.price && (
+                  <span className="text-xs line-through opacity-40" style={{ color: "#18223b" }}>
+                    {formatPrice(product.price)}
+                  </span>
+                )}
+              </div>
+              {hasContractPrice && (
+                <span className="text-xs font-semibold" style={{ color: "#e67e22" }}>
+                  Votre prix contractuel
+                </span>
               )}
             </div>
             <span
