@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     try {
       const supabase = createSupabaseAdmin();
       const metadata = session.metadata || {};
-      const shipping = session.shipping_details?.address || {};
+      const stripeShipping = session.shipping_details?.address || {};
 
       // Récupérer les line items de la session Stripe
       const lineItemsResult = await stripe.checkout.sessions.listLineItems(session.id, {
@@ -54,11 +54,11 @@ export async function POST(req: NextRequest) {
           shipping_email: session.customer_email || "",
           shipping_phone: metadata.phone || "",
           shipping_company: metadata.company || "",
-          shipping_address: shipping.line1 || "",
-          shipping_address2: shipping.line2 || "",
-          shipping_city: shipping.city || "",
-          shipping_postal_code: shipping.postal_code || "",
-          shipping_country: shipping.country || "FR",
+          shipping_address: metadata.address || stripeShipping.line1 || "",
+          shipping_address2: metadata.address2 || stripeShipping.line2 || "",
+          shipping_city: metadata.city || stripeShipping.city || "",
+          shipping_postal_code: metadata.postalCode || stripeShipping.postal_code || "",
+          shipping_country: metadata.country || stripeShipping.country || "FR",
           subtotal,
           shipping_cost: 0,
           total,

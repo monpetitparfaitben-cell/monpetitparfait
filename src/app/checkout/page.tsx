@@ -73,13 +73,14 @@ export default function CheckoutPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items: items.map((item) => ({
             productId: item.product.id,
             variantId: item.variant.id,
+            name: `${item.product.name} — ${item.variant.name}`,
             quantity: item.quantity,
           })),
           customerInfo: form,
@@ -88,10 +89,10 @@ export default function CheckoutPage() {
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Erreur lors de la commande");
+      if (!res.ok) throw new Error(data.error || "Erreur lors du paiement");
 
-      clearCart();
-      router.push(`/confirmation?orderId=${data.orderId}`);
+      // Rediriger vers la page Stripe
+      window.location.href = data.url;
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
       setLoading(false);
@@ -353,7 +354,7 @@ export default function CheckoutPage() {
                   {loading ? (
                     <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Traitement...</>
                   ) : (
-                    <><Lock size={16} /> Confirmer la commande</>
+                    <><Lock size={16} /> Payer en sécurité</>
                   )}
                 </button>
 

@@ -95,9 +95,14 @@ export async function POST(req: NextRequest) {
         user_id: userId ?? "",
         firstName: customerInfo.firstName,
         lastName: customerInfo.lastName,
-        phone: customerInfo.phone,
+        phone: customerInfo.phone ?? "",
         company: customerInfo.company ?? "",
         notes: customerInfo.notes ?? "",
+        address: customerInfo.address ?? "",
+        address2: customerInfo.address2 ?? "",
+        city: customerInfo.city ?? "",
+        postalCode: customerInfo.postalCode ?? "",
+        country: customerInfo.country ?? "FR",
       },
     });
 
