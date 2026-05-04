@@ -32,10 +32,6 @@ const NAV_STRUCTURE = [
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
   const lowestPrice = Math.min(...product.variants.map((v) => v.price));
   const image = product.images[0];
-  // Infographies (kits) → object-contain pour voir l'image entière
-  // Photos produits → object-cover pour remplir le carré
-  const isKit = product.category === "kits";
-
   return (
     <Link href={`/produit/${product.slug}`} className="group block h-full">
       <div
@@ -45,14 +41,14 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
         {/* Image */}
         <div
           className="relative aspect-square w-full flex-shrink-0 overflow-hidden"
-          style={{ backgroundColor: isKit ? "white" : "#F7F5F0" }}
+          style={{ backgroundColor: "#F7F5F0" }}
         >
           {image ? (
             <Image
               src={image}
               alt={product.name}
               fill
-              className={`${isKit ? "object-contain" : "object-cover"} transition-transform duration-300 group-hover:scale-105`}
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             />
           ) : (
