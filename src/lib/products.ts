@@ -168,15 +168,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-entretien-1",
     slug: "kit-entretien-formule-1",
-    name: "Kit Entretien — Formule 1",
+    name: "Kit Entretien — L'Essentiel",
     description:
       "L'essentiel pour un logement propre.\n\nFormule Basique : 1 éponge, 1 liquide vaisselle, 1 sac 50 L, 1 sac 10 L. Tout ce qu'il faut pour assurer la propreté du quotidien. Préparé avec soin, livré prêt à déposer dans la cuisine ou l'espace ménage.",
     short_description: "• 1 éponge · • 1 liquide vaisselle · • 1 sac 50 L · • 1 sac 10 L",
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      "/images/produits/kit-entretien.jpg",
-      "/images/produits/kit-entretien-2.jpg",
+      "/images/produits/kit-entretien-1.jpg",
     ],
     variants: [
       { id: "kit-ent1-100", name: "100 kits", price: 6500, stock: 500, sku: "KIT-ENT1-100" },
@@ -194,14 +193,13 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-entretien-2",
     slug: "kit-entretien-formule-2",
-    name: "Kit Entretien — Formule 2",
+    name: "Kit Entretien — Le Complet",
     description:
       "La formule Intermédiaire pour un accueil complet.\n\nComposition : 1 éponge, 1 liquide vaisselle, 1 sac 50 L, 1 sac 10 L, 1 tablette lave-vaisselle, 1 tablette linge. Tout inclus pour le ménage et la lessive. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 1 éponge · • 1 liquide vaisselle · • 1 sac 50 L · • 1 sac 10 L · • 1 tablette lave-vaisselle · • 1 tablette linge",
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      "/images/produits/kit-entretien.jpg",
       "/images/produits/kit-entretien-2.jpg",
     ],
     variants: [
@@ -220,15 +218,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-entretien-3",
     slug: "kit-entretien-formule-3",
-    name: "Kit Entretien — Formule 3",
+    name: "Kit Entretien — Le Confort +",
     description:
       "La formule Premium pour les établissements exigeants.\n\nComposition : 1 éponge, 1 liquide vaisselle, 1 sac 50 L, 1 sac 10 L, 2 tablettes lave-vaisselle, 2 tablettes lessive. La dose doublée pour plusieurs jours d'autonomie. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 1 éponge · • 1 liquide vaisselle · • 1 sac 50 L · • 1 sac 10 L · • 2 tablettes lave-vaisselle · • 2 tablettes lessive",
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      "/images/produits/kit-entretien.jpg",
-      "/images/produits/kit-entretien-2.jpg",
+      "/images/produits/kit-entretien-3.jpg",
     ],
     variants: [
       { id: "kit-ent3-100", name: "100 kits", price: 9900, stock: 500, sku: "KIT-ENT3-100" },
@@ -246,15 +243,14 @@ export const PRODUCTS: Product[] = [
   {
     id: "kit-entretien-4",
     slug: "kit-entretien-formule-4",
-    name: "Kit Entretien — Formule 4",
+    name: "Kit Entretien — Le Premium",
     description:
       "La Version pods pour plus de praticité.\n\nComposition : 1 éponge, 1 liquide vaisselle, 1 sac 50 L, 1 sac 10 L, 1 pods vaisselle, 1 pods linge. Version pods ultra-pratiques, dosés et prêts à l'emploi. Préparé avec soin, livré prêt à déposer.",
     short_description: "• 1 éponge · • 1 liquide vaisselle · • 1 sac 50 L · • 1 sac 10 L · • 1 pods vaisselle · • 1 pods linge",
     category: "kits",
     subcategory: "Kit Entretien",
     images: [
-      "/images/produits/kit-entretien.jpg",
-      "/images/produits/kit-entretien-2.jpg",
+      "/images/produits/kit-entretien-4.jpg",
     ],
     variants: [
       { id: "kit-ent4-100", name: "100 kits", price: 9500, stock: 500, sku: "KIT-ENT4-100" },

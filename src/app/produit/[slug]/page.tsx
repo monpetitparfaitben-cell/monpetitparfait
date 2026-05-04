@@ -139,8 +139,8 @@ export default function ProductPage({ params }: PageProps) {
               }}
             >
               <div
-                className="rounded-3xl aspect-square relative overflow-hidden flex items-center justify-center"
-                style={{ backgroundColor: "#ede9e0" }}
+                className="rounded-2xl aspect-square relative overflow-hidden"
+                style={{ backgroundColor: "white" }}
               >
                 {images ? (
                   images.map((img, i) => (
@@ -149,7 +149,7 @@ export default function ProductPage({ params }: PageProps) {
                       src={img}
                       alt={`${product.name} ${i + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority={i === 0}
                       style={{

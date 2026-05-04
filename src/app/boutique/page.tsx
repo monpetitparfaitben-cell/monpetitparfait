@@ -32,6 +32,9 @@ const NAV_STRUCTURE = [
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
   const lowestPrice = Math.min(...product.variants.map((v) => v.price));
   const image = product.images[0];
+  // Infographies (kits) → object-contain pour voir l'image entière
+  // Photos produits → object-cover pour remplir le carré
+  const isKit = product.category === "kits";
 
   return (
     <Link href={`/produit/${product.slug}`} className="group block h-full">
@@ -41,19 +44,19 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
       >
         {/* Image */}
         <div
-          className="relative flex items-center justify-center flex-shrink-0"
-          style={{ height: "180px", backgroundColor: "#F7F5F0" }}
+          className="relative aspect-square w-full flex-shrink-0 overflow-hidden"
+          style={{ backgroundColor: isKit ? "white" : "#F7F5F0" }}
         >
           {image ? (
             <Image
               src={image}
               alt={product.name}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className={`${isKit ? "object-contain" : "object-cover"} transition-transform duration-300 group-hover:scale-105`}
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             />
           ) : (
-            <span className="text-5xl opacity-20">📦</span>
+            <span className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">📦</span>
           )}
         </div>
 
@@ -211,7 +214,6 @@ function BoutiqueContent() {
                   ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
                       .flatMap(p => p.variants.map(v => v.price)))
                   : 0;
-
                 return (
                   <Link
                     key={subcat}
@@ -223,8 +225,8 @@ function BoutiqueContent() {
                       style={{ backgroundColor: "white", border: "1.5px solid #ede9e0" }}
                     >
                       <div
-                        className="relative flex items-center justify-center"
-                        style={{ height: "160px", backgroundColor: "#F7F5F0" }}
+                        className="relative aspect-square w-full overflow-hidden"
+                        style={{ backgroundColor: "#F7F5F0" }}
                       >
                         {firstProduct?.images[0] ? (
                           <Image
@@ -235,7 +237,7 @@ function BoutiqueContent() {
                             sizes="(max-width: 768px) 50vw, 25vw"
                           />
                         ) : (
-                          <span className="text-5xl opacity-20">📦</span>
+                          <span className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">📦</span>
                         )}
                       </div>
                       <div className="p-4">
@@ -323,7 +325,6 @@ function BoutiqueContent() {
                       ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
                           .flatMap(p => p.variants.map(v => v.price)))
                       : 0;
-
                     return (
                       <Link
                         key={subcat}
@@ -335,8 +336,8 @@ function BoutiqueContent() {
                           style={{ backgroundColor: "white", border: "1.5px solid #ede9e0" }}
                         >
                           <div
-                            className="relative flex items-center justify-center"
-                            style={{ height: "140px", backgroundColor: "#F7F5F0" }}
+                            className="relative aspect-square w-full overflow-hidden"
+                            style={{ backgroundColor: "#F7F5F0" }}
                           >
                             {firstProduct?.images[0] ? (
                               <Image
@@ -347,7 +348,7 @@ function BoutiqueContent() {
                                 sizes="(max-width: 768px) 50vw, 20vw"
                               />
                             ) : (
-                              <span className="text-4xl opacity-20">📦</span>
+                              <span className="absolute inset-0 flex items-center justify-center text-4xl opacity-20">📦</span>
                             )}
                           </div>
                           <div className="p-3">
