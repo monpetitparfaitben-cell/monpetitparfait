@@ -26,7 +26,7 @@ const kits = [
     slug: "kit-gourmand-formule-1",
     label: "Kit Gourmand",
     desc: "2 cafés solubles, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
-    img: "/images/produits/kit-gourmand-1.jpg",
+    img: "/images/hero/kit-welcome.jpg",
   },
   {
     href: "/boutique?subcategory=Kit+Entretien",
