@@ -16,6 +16,11 @@ interface CustomerInfo {
   phone: string;
   company?: string;
   notes?: string;
+  address?: string;
+  address2?: string;
+  city?: string;
+  postalCode?: string;
+  country?: string;
 }
 
 export async function POST(req: NextRequest) {

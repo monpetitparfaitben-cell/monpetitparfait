@@ -15,6 +15,57 @@ const TYPES_ETABLISSEMENT = [
   "Autre",
 ];
 
+const inputStyle = {
+  border: "1.5px solid #ede9e0",
+  color: "#18223b",
+  backgroundColor: "white",
+};
+
+function Field({
+  label,
+  name,
+  type = "text",
+  required = false,
+  placeholder = "",
+  icon: Icon,
+  value,
+  onChange,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+  icon?: React.ElementType;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) {
+  return (
+    <div>
+      <label className="block text-xs font-semibold mb-1.5 opacity-70" style={{ color: "#18223b" }}>
+        {label} {required && <span style={{ color: "#e67e22" }}>*</span>}
+      </label>
+      <div className="relative">
+        {Icon && (
+          <Icon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 opacity-40" style={{ color: "#18223b" }} />
+        )}
+        <input
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
+          placeholder={placeholder}
+          className={`w-full ${Icon ? "pl-8" : "px-3"} pr-3 py-2.5 rounded-xl text-sm outline-none`}
+          style={inputStyle}
+          onFocus={(e) => (e.target.style.borderColor = "#e67e22")}
+          onBlur={(e) => (e.target.style.borderColor = "#ede9e0")}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function RegisterPage() {
   const { signUp } = useAuth();
   const [form, setForm] = useState({
@@ -95,50 +146,6 @@ export default function RegisterPage() {
     setLoading(false);
   };
 
-  const inputStyle = {
-    border: "1.5px solid #ede9e0",
-    color: "#18223b",
-    backgroundColor: "white",
-  };
-
-  const Field = ({
-    label,
-    name,
-    type = "text",
-    required = false,
-    placeholder = "",
-    icon: Icon,
-  }: {
-    label: string;
-    name: string;
-    type?: string;
-    required?: boolean;
-    placeholder?: string;
-    icon?: React.ElementType;
-  }) => (
-    <div>
-      <label className="block text-xs font-semibold mb-1.5 opacity-70" style={{ color: "#18223b" }}>
-        {label} {required && <span style={{ color: "#e67e22" }}>*</span>}
-      </label>
-      <div className="relative">
-        {Icon && (
-          <Icon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 opacity-40" style={{ color: "#18223b" }} />
-        )}
-        <input
-          type={type}
-          name={name}
-          value={(form as Record<string, string>)[name]}
-          onChange={handleChange}
-          required={required}
-          placeholder={placeholder}
-          className={`w-full ${Icon ? "pl-8" : "px-3"} pr-3 py-2.5 rounded-xl text-sm outline-none`}
-          style={inputStyle}
-          onFocus={(e) => (e.target.style.borderColor = "#e67e22")}
-          onBlur={(e) => (e.target.style.borderColor = "#ede9e0")}
-        />
-      </div>
-    </div>
-  );
 
   if (success) {
     return (
@@ -191,10 +198,10 @@ export default function RegisterPage() {
                 </h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field label="Prénom" name="firstName" required placeholder="Jean" icon={User} />
-                <Field label="Nom" name="lastName" required placeholder="Dupont" />
-                <Field label="Email professionnel" name="email" type="email" required placeholder="direction@hotel.com" icon={Mail} />
-                <Field label="Téléphone" name="phone" type="tel" required placeholder="+33 6 00 00 00 00" icon={Phone} />
+                <Field label="Prénom" name="firstName" required placeholder="Jean" icon={User} value={form.firstName} onChange={handleChange} />
+                <Field label="Nom" name="lastName" required placeholder="Dupont" value={form.lastName} onChange={handleChange} />
+                <Field label="Email professionnel" name="email" type="email" required placeholder="direction@hotel.com" icon={Mail} value={form.email} onChange={handleChange} />
+                <Field label="Téléphone" name="phone" type="tel" required placeholder="+33 6 00 00 00 00" icon={Phone} value={form.phone} onChange={handleChange} />
               </div>
             </div>
 
@@ -208,7 +215,7 @@ export default function RegisterPage() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="sm:col-span-2">
-                  <Field label="Nom de l'entreprise / établissement" name="company" required placeholder="Hôtel Lumière Paris SAS" icon={Building2} />
+                  <Field label="Nom de l'entreprise / établissement" name="company" required placeholder="Hôtel Lumière Paris SAS" icon={Building2} value={form.company} onChange={handleChange} />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold mb-1.5 opacity-70" style={{ color: "#18223b" }}>
@@ -231,7 +238,7 @@ export default function RegisterPage() {
                     <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-40 pointer-events-none" style={{ color: "#18223b" }} />
                   </div>
                 </div>
-                <Field label="N° SIRET (optionnel)" name="siret" placeholder="123 456 789 00010" />
+                <Field label="N° SIRET (optionnel)" name="siret" placeholder="123 456 789 00010" value={form.siret} onChange={handleChange} />
               </div>
             </div>
 
@@ -244,11 +251,11 @@ export default function RegisterPage() {
                 </h2>
               </div>
               <div className="space-y-4">
-                <Field label="Adresse" name="address" required placeholder="123 rue de la Paix" icon={MapPin} />
-                <Field label="Complément d'adresse" name="address2" placeholder="Bâtiment A, étage 2..." />
+                <Field label="Adresse" name="address" required placeholder="123 rue de la Paix" icon={MapPin} value={form.address} onChange={handleChange} />
+                <Field label="Complément d'adresse" name="address2" placeholder="Bâtiment A, étage 2..." value={form.address2} onChange={handleChange} />
                 <div className="grid grid-cols-2 gap-4">
-                  <Field label="Code postal" name="postalCode" required placeholder="75001" />
-                  <Field label="Ville" name="city" required placeholder="Paris" />
+                  <Field label="Code postal" name="postalCode" required placeholder="75001" value={form.postalCode} onChange={handleChange} />
+                  <Field label="Ville" name="city" required placeholder="Paris" value={form.city} onChange={handleChange} />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold mb-1.5 opacity-70" style={{ color: "#18223b" }}>
