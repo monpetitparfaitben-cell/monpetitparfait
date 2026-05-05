@@ -20,6 +20,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Sac poubelle": "/images/produits/sac-poubelle.jpg",
   "Tablette": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/products/capsule fond blanc.jpg",
+  "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
   "Éponge": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
 };
 
@@ -38,7 +39,7 @@ const NAV_STRUCTURE = [
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Éponge"],
+    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge"],
   },
 ];
 
@@ -322,8 +323,8 @@ function BoutiqueContent() {
                   </Link>
                 </div>
 
-                {/* Cartes sous-catégories */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                {/* Cartes sous-catégories — grille uniforme 3 colonnes */}
+                <div className="grid grid-cols-3 gap-3 sm:gap-4">
                   {cat.subcategories.map((subcat) => {
                     const firstProduct = PRODUCTS.find(
                       (p) => p.is_active && p.subcategory === subcat
@@ -332,6 +333,7 @@ function BoutiqueContent() {
                       ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
                           .flatMap(p => p.variants.map(v => v.price)))
                       : 0;
+                    const imgSrc = SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0];
                     return (
                       <Link
                         key={subcat}
@@ -339,32 +341,32 @@ function BoutiqueContent() {
                         className="group block"
                       >
                         <div
-                          className="rounded-2xl overflow-hidden transition-all duration-200 group-hover:shadow-md"
+                          className="rounded-2xl overflow-hidden transition-all duration-200 group-hover:shadow-md h-full flex flex-col"
                           style={{ backgroundColor: "white", border: "1.5px solid #ede9e0" }}
                         >
                           <div
-                            className="relative aspect-square w-full overflow-hidden"
+                            className="relative aspect-square w-full overflow-hidden flex-shrink-0"
                             style={{ backgroundColor: "#F7F5F0" }}
                           >
-                            {(SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0]) ? (
+                            {imgSrc ? (
                               <Image
-                                src={SUBCAT_HERO_IMAGES[subcat] ?? firstProduct!.images[0]}
+                                src={imgSrc}
                                 alt={subcat}
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                sizes="(max-width: 768px) 50vw, 20vw"
+                                sizes="(max-width: 768px) 33vw, 20vw"
                               />
                             ) : (
                               <span className="absolute inset-0 flex items-center justify-center text-4xl opacity-20">📦</span>
                             )}
                           </div>
-                          <div className="p-3">
+                          <div className="p-2 sm:p-3 flex flex-col flex-1 justify-between">
                             <p className="font-bold text-xs leading-snug" style={{ color: "#18223b" }}>
                               {subcat}
                             </p>
                             {lowestPrice > 0 && (
                               <p className="text-xs mt-0.5 font-semibold" style={{ color: "#e67e22" }}>
-                                à partir de {formatPrice(lowestPrice)}
+                                {formatPrice(lowestPrice)}
                               </p>
                             )}
                           </div>
