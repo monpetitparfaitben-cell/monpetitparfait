@@ -323,8 +323,8 @@ function BoutiqueContent() {
                   </Link>
                 </div>
 
-                {/* Cartes sous-catégories — grille uniforme 3 colonnes */}
-                <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {/* Cartes sous-catégories — grille uniforme auto-fill */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 180px))", gap: "12px" }}>
                   {cat.subcategories.map((subcat) => {
                     const firstProduct = PRODUCTS.find(
                       (p) => p.is_active && p.subcategory === subcat
@@ -360,7 +360,7 @@ function BoutiqueContent() {
                               <span className="absolute inset-0 flex items-center justify-center text-4xl opacity-20">📦</span>
                             )}
                           </div>
-                          <div className="p-2 sm:p-3 flex flex-col flex-1 justify-between">
+                          <div className="p-3 flex flex-col flex-1 justify-between">
                             <p className="font-bold text-xs leading-snug" style={{ color: "#18223b" }}>
                               {subcat}
                             </p>
