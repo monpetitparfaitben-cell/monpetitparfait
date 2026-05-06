@@ -16,6 +16,8 @@ const SUBCAT_IMAGE_POSITION: Record<string, string> = {};
 // ── Lien direct vers produit (sous-catégories avec 1 seul produit) ──
 const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Kit Capsule Café": "/produit/kit-capsule-cafe",
+  "Éponge standard": "/produit/eponge-standard",
+  "Éponge emballage individuel": "/produit/eponge-emballage-individuel",
 };
 
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
