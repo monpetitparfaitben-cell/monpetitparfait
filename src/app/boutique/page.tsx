@@ -15,6 +15,11 @@ const SUBCAT_IMAGE_POSITION: Record<string, string> = {
   "Éponge emballage individuel": "left center",
 };
 
+// ── Lien direct vers produit (sous-catégories avec 1 seul produit) ──
+const SUBCAT_DIRECT_LINK: Record<string, string> = {
+  "Kit Capsule Café": "/produit/kit-capsule-cafe",
+};
+
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
 const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Kit Salle de Bains": "/images/hero/kit-sdb.jpg",
@@ -246,7 +251,7 @@ function BoutiqueContent() {
                 return (
                   <Link
                     key={subcat}
-                    href={`/boutique?subcategory=${encodeURIComponent(subcat)}`}
+                    href={SUBCAT_DIRECT_LINK[subcat] ?? `/boutique?subcategory=${encodeURIComponent(subcat)}`}
                     className="group block"
                   >
                     <div

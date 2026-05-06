@@ -15,7 +15,7 @@ const kits = [
     img: "/images/hero/kit-sdb.jpg",
   },
   {
-    href: "/boutique?subcategory=Kit+Capsule+Caf%C3%A9",
+    href: "/produit/kit-capsule-cafe",
     slug: "kit-capsule-cafe",
     label: "Kit Capsule Café",
     desc: "3 capsules de café compatibles, prêtes à l'emploi",

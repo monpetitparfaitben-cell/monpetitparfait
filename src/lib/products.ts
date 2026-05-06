@@ -788,8 +788,6 @@ export const PRODUCTS: Product[] = [
     subcategory: "Capsule café",
     images: [
       "/images/hero/capsule-cafe.jpg",
-      `${IMG}/capsule%20fond%20blanc.jpg`,
-      `${IMG}/capsule%20.png`,
     ],
     variants: [
       { id: "con-cap-alu-100", name: "100 capsules", price: 3900, stock: 500, sku: "CON-CAP-ALU-100" },
