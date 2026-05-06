@@ -839,10 +839,9 @@ export const PRODUCTS: Product[] = [
     description: "Éponge standard double face — côté doux / côté grattant. Résistante et efficace pour la vaisselle et le nettoyage des surfaces.",
     short_description: "Éponge standard",
     category: "consommables",
-    subcategory: "Éponge",
+    subcategory: "Éponge standard",
     images: [
-      `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      "/images/produits/kit-entretien.jpg",
+      "/images/produits/eponge-simple.png",
     ],
     variants: [
       { id: "con-epo-std-100", name: "100 éponges", price: 2900, stock: 500, sku: "CON-EPO-STD-100" },
@@ -864,10 +863,9 @@ export const PRODUCTS: Product[] = [
     description: "Éponge avec emballage individuel. Hygiénique, propre à la pose, idéale pour les locations courte durée où l'hygiène est primordiale.",
     short_description: "Éponge avec emballage individuel",
     category: "consommables",
-    subcategory: "Éponge",
+    subcategory: "Éponge emballage individuel",
     images: [
-      `${IMG}/PHOTO-2026-02-03-14-59-07.jpg`,
-      "/images/produits/kit-entretien.jpg",
+      "/images/produits/eponge-emballage.png",
     ],
     variants: [
       { id: "con-epo-ind-100", name: "100 éponges", price: 3500, stock: 500, sku: "CON-EPO-IND-100" },

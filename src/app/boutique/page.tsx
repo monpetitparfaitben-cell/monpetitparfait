@@ -21,7 +21,8 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Tablette": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/products/capsule fond blanc.jpg",
   "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
-  "Éponge": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
+  "Éponge standard": "/images/produits/eponge-simple.png",
+  "Éponge emballage individuel": "/images/produits/eponge-emballage.png",
 };
 
 // ── Structure de navigation ─────────────────────────────────────
@@ -39,7 +40,7 @@ const NAV_STRUCTURE = [
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge"],
+    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge standard", "Éponge emballage individuel"],
   },
 ];
 
