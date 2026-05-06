@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock, Mail, AlertCircle } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import BackButton from "@/components/ui/BackButton";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -44,6 +45,7 @@ export default function LoginPage() {
       style={{ backgroundColor: "#F7F5F0" }}
     >
       <div className="w-full max-w-md">
+        <BackButton href="/" />
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/">

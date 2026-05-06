@@ -1,13 +1,12 @@
 import Link from "next/link";
+import BackButton from "@/components/ui/BackButton";
 
 export default function MentionsLegalesPage() {
   return (
     <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        <Link href="/" className="text-sm opacity-50 hover:opacity-80 transition-opacity" style={{ color: "#18223b" }}>
-          ← Accueil
-        </Link>
+        <BackButton href="/" />
 
         <h1 className="text-3xl font-bold mt-6 mb-8" style={{ color: "#18223b" }}>
           Mentions Légales

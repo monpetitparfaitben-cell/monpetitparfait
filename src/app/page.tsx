@@ -46,6 +46,7 @@ const consommables = [
   { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle.jpg" },
   { href: "/boutique?subcategory=Tablette", slug: "tablette-lave-vaisselle", label: "Tablettes", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/boutique?subcategory=Capsule+caf%C3%A9", slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
+  { href: "/boutique?subcategory=Th%C3%A9", slug: "the", label: "Thé", img: "/images/produits/PHOTO-2026-02-03-14-59-07.jpg" },
   { href: "/boutique?subcategory=%C3%89ponge", slug: "eponge-standard", label: "Éponges", img: `${IMG}/PHOTO-2026-02-03-14-59-07.jpg` },
 ];
 
@@ -61,7 +62,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Nos kits
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 180px))", gap: "12px" }}>
           {kits.map((kit) => {
             const product = PRODUCTS.find((p) => p.slug === kit.slug);
             return (
@@ -83,9 +84,6 @@ export default function HomePage() {
                     <h3 className="font-bold text-sm mb-1" style={{ color: "#18223b" }}>
                       {kit.label}
                     </h3>
-                    <p className="text-xs opacity-60 mb-2 line-clamp-2" style={{ color: "#18223b" }}>
-                      {kit.desc}
-                    </p>
                     {product && (
                       <p className="text-xs font-medium mt-auto" style={{ color: "#e67e22" }}>
                         À partir de {formatPrice(product.price)}
@@ -104,7 +102,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Produits 100% Ouate
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 180px))", gap: "12px" }}>
           {ouate.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (
@@ -113,12 +111,12 @@ export default function HomePage() {
                   className="rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   style={{ backgroundColor: "white" }}
                 >
-                  <div className="aspect-video relative overflow-hidden" style={{ backgroundColor: "#F7F5F0" }}>
+                  <div className="aspect-square relative overflow-hidden" style={{ backgroundColor: "#F7F5F0" }}>
                     <Image
                       src={item.img}
                       alt={item.label}
                       fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, 33vw"
                     />
                   </div>
@@ -144,7 +142,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Nos consommables
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 180px))", gap: "12px" }}>
           {consommables.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (

@@ -19,6 +19,7 @@ import {
 import { useAuth } from "@/contexts/AuthContext";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
 import { formatPrice } from "@/lib/products";
+import BackButton from "@/components/ui/BackButton";
 
 interface OrderPreview {
   id: string;
@@ -152,6 +153,7 @@ export default function ComptePage() {
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="max-w-3xl mx-auto space-y-6">
+        <BackButton href="/" label="Retour à l'accueil" />
         {/* Header compte */}
         <div className="rounded-2xl p-6 flex items-center justify-between" style={{ backgroundColor: "#18223b" }}>
           <div className="flex items-center gap-4">

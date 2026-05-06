@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ArrowLeft, Lock } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { PRODUCTS, formatPrice } from "@/lib/products";
+import BackButton from "@/components/ui/BackButton";
 
 export default function MonContratPage() {
   const { user, profile, contract, contractPrices, loading } = useAuth();
@@ -28,13 +29,9 @@ export default function MonContratPage() {
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="max-w-4xl mx-auto">
-        <Link
-          href="/compte"
-          className="inline-flex items-center gap-2 text-sm font-medium mb-6 opacity-60 hover:opacity-100 transition-opacity"
-          style={{ color: "#18223b" }}
-        >
-          <ArrowLeft size={16} /> Mon compte
-        </Link>
+        <div className="mb-6">
+          <BackButton href="/compte" />
+        </div>
 
         <div className="flex items-center justify-between mb-8">
           <div>

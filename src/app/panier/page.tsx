@@ -6,6 +6,7 @@ import { Trash2, Plus, Minus, ArrowLeft, ArrowRight, ShoppingBag } from "lucide-
 import { useCartStore } from "@/store/cartStore";
 import { useAuth } from "@/contexts/AuthContext";
 import { formatPrice } from "@/lib/products";
+import BackButton from "@/components/ui/BackButton";
 
 export default function PanierPage() {
   const { items, removeItem, updateQuantity, clearCart, getSubtotal } = useCartStore();
@@ -43,6 +44,9 @@ export default function PanierPage() {
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
+      <div className="max-w-5xl mx-auto mb-4">
+        <BackButton href="/boutique" label="Retour à la boutique" />
+      </div>
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl md:text-3xl font-bold" style={{ color: "#18223b" }}>

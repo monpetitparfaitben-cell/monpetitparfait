@@ -19,6 +19,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useCartStore } from "@/store/cartStore";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
 import { PRODUCTS } from "@/lib/products";
+import BackButton from "@/components/ui/BackButton";
 
 interface OrderItem {
   product_id: string;
@@ -198,13 +199,9 @@ export default function CommandesPage() {
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="max-w-3xl mx-auto">
-        <Link
-          href="/compte"
-          className="inline-flex items-center gap-2 text-sm font-medium mb-6 opacity-60 hover:opacity-100 transition-opacity"
-          style={{ color: "#18223b" }}
-        >
-          <ArrowLeft size={16} /> Mon compte
-        </Link>
+        <div className="mb-4">
+          <BackButton href="/compte" label="Retour à mon compte" />
+        </div>
 
         <h1 className="text-2xl font-bold mb-8" style={{ color: "#18223b" }}>
           Mes commandes

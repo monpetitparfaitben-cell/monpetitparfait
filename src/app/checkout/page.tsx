@@ -7,6 +7,7 @@ import { useCartStore } from "@/store/cartStore";
 import { useAuth } from "@/contexts/AuthContext";
 import { formatPrice } from "@/lib/products";
 import { useRouter } from "next/navigation";
+import BackButton from "@/components/ui/BackButton";
 
 interface FormData {
   firstName: string;
@@ -112,9 +113,9 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="max-w-5xl mx-auto">
-        <Link href="/panier" className="inline-flex items-center gap-2 text-sm font-medium mb-8 opacity-60 hover:opacity-100 transition-opacity" style={{ color: "#18223b" }}>
-          <ArrowLeft size={16} /> Retour au panier
-        </Link>
+        <div className="mb-4">
+          <BackButton href="/panier" label="Retour au panier" />
+        </div>
 
         <h1 className="text-2xl md:text-3xl font-bold mb-8" style={{ color: "#18223b" }}>
           Finaliser la commande

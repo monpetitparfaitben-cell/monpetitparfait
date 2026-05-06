@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackButton from "@/components/ui/BackButton";
 
 export const metadata = {
   title: "Conditions Générales de Vente — Mon Petit Parfait",
@@ -273,13 +274,9 @@ export default function CGVPage() {
 
         {/* Header */}
         <div className="mb-10">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1 text-sm font-medium mb-6 opacity-50 hover:opacity-80 transition-opacity"
-            style={{ color: "#18223b" }}
-          >
-            ← Accueil
-          </Link>
+          <div className="mb-6">
+            <BackButton href="/" />
+          </div>
           <h1 className="text-3xl font-bold mb-2" style={{ color: "#18223b" }}>
             Conditions Générales de Vente
           </h1>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import BackButton from "@/components/ui/BackButton";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -50,6 +51,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="w-full max-w-md">
+        <BackButton href="/auth/login" />
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold" style={{ color: "#18223b" }}>Mot de passe oublié</h1>
           <p className="text-sm opacity-60 mt-2" style={{ color: "#18223b" }}>

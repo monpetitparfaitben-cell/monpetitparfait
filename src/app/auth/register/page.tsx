@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, User, Building2, Phone, Mail, MapPin, AlertCircle, CheckCircle, ChevronDown } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import BackButton from "@/components/ui/BackButton";
 
 const TYPES_ETABLISSEMENT = [
   "Hôtel",
@@ -172,6 +173,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="w-full max-w-2xl">
+        <BackButton href="/" />
         <div className="text-center mb-8">
           <Link href="/">
             <span className="text-2xl font-bold" style={{ color: "#18223b" }}>
