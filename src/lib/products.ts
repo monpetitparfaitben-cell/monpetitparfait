@@ -891,10 +891,10 @@ export const PRODUCTS: Product[] = [
     subcategory: "Thé",
     images: ["/images/produits/PHOTO-2026-02-03-14-59-07.jpg"],
     variants: [
-      { id: "con-the-x10", name: "10 sachets", price: 1200, stock: 500, sku: "CON-THE-X10" },
+      { id: "con-the-x10", name: "10 sachets", price: 2000, stock: 500, sku: "CON-THE-X10" },
       { id: "con-the-x50", name: "50 sachets", price: 4900, stock: 300, sku: "CON-THE-X50" },
     ],
-    price: 1200,
+    price: 2000,
     tags: ["thé", "boisson", "accueil"],
     is_featured: false,
     is_active: true,
