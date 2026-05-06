@@ -43,6 +43,11 @@ const NAV_STRUCTURE = [
     label: "Consommables",
     subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge standard", "Éponge emballage individuel"],
   },
+  {
+    id: "eponge",
+    label: "Éponge",
+    subcategories: ["Éponge standard", "Éponge emballage individuel"],
+  },
 ];
 
 // ── Carte produit style Beneki ──────────────────────────────────
