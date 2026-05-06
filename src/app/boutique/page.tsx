@@ -37,7 +37,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
 };
 
 // ── Structure de navigation ─────────────────────────────────────
-const NAV_STRUCTURE = [
+const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidden?: boolean }[] = [
   {
     id: "kits",
     label: "Kits",
@@ -52,6 +52,12 @@ const NAV_STRUCTURE = [
     id: "consommables",
     label: "Consommables",
     subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé"],
+  },
+  {
+    id: "eponge",
+    label: "Éponge",
+    subcategories: ["Éponge standard", "Éponge emballage individuel"],
+    hidden: true, // Accessible via /boutique?category=eponge mais pas affiché dans la vue générale
   },
 ];
 
@@ -332,7 +338,7 @@ function BoutiqueContent() {
         {/* Navigation par catégories ──── */}
         {!search && (
           <div className="space-y-10 mb-12">
-            {NAV_STRUCTURE.map((cat) => (
+            {NAV_STRUCTURE.filter((cat) => !cat.hidden).map((cat) => (
               <div key={cat.id}>
                 {/* Titre catégorie */}
                 <div className="flex items-center justify-between mb-4">
