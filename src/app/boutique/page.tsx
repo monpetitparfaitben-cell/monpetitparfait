@@ -16,7 +16,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Kit Gourmand": "/images/hero/kit-welcome.jpg",
   "Kit Entretien": "/images/hero/kit-entretien.jpg",
   "Essuie-tout": "/images/hero/essuie-tout.jpg",
-  "Papier toilette": "/images/produits/kit-toilette.jpg",
+  "Papier toilette": "/images/hero/papier-toilette-hero.jpg",
   "Sac poubelle": "/images/produits/sac-poubelle-hero.jpeg",
   "Tablette": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/hero/capsule-cafe.jpg",
