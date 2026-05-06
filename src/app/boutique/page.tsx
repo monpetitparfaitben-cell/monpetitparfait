@@ -51,12 +51,7 @@ const NAV_STRUCTURE = [
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge standard"],
-  },
-  {
-    id: "eponge",
-    label: "Éponge",
-    subcategories: ["Éponge standard", "Éponge emballage individuel"],
+    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé"],
   },
 ];
 
@@ -385,6 +380,7 @@ function BoutiqueContent() {
                                 fill
                                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                                 sizes="(max-width: 768px) 33vw, 20vw"
+                                style={{ objectPosition: SUBCAT_IMAGE_POSITION[subcat] ?? "center" }}
                               />
                             ) : (
                               <span className="absolute inset-0 flex items-center justify-center text-4xl opacity-20">📦</span>
