@@ -43,7 +43,7 @@ const ouate = [
 ];
 
 const consommables = [
-  { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle-produit.png" },
+  { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle-hero.jpeg" },
   { href: "/boutique?subcategory=Tablette", slug: "tablette-lave-vaisselle", label: "Tablettes", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/boutique?subcategory=Capsule+caf%C3%A9", slug: "capsule-cafe-aluminium", label: "Capsules café", img: `${IMG}/capsule%20fond%20blanc.jpg` },
   { href: "/boutique?subcategory=Th%C3%A9", slug: "the", label: "Thé", img: "/images/produits/PHOTO-2026-02-03-14-59-07.jpg" },
