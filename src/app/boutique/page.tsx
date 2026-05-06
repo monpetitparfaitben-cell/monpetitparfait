@@ -368,7 +368,7 @@ function BoutiqueContent() {
                     return (
                       <Link
                         key={subcat}
-                        href={`/boutique?subcategory=${encodeURIComponent(subcat)}`}
+                        href={SUBCAT_DIRECT_LINK[subcat] ?? `/boutique?subcategory=${encodeURIComponent(subcat)}`}
                         className="group block"
                       >
                         <div
