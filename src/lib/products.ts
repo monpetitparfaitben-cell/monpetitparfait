@@ -889,6 +889,28 @@ export const PRODUCTS: Product[] = [
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
+
+  // CONSOMMABLES — Thé (placeholder)
+  {
+    id: "con-the-001",
+    name: "Sélection de Thés",
+    slug: "selection-thes",
+    short_description: "Assortiment de thés premium pour vos hébergements",
+    description: "Sélection de thés premium à venir.",
+    category: "consommables",
+    subcategory: "Thé",
+    images: ["/images/produits/PHOTO-2026-02-03-14-59-07.jpg"],
+    variants: [
+      { id: "con-the-x10", name: "10 sachets", price: 1200, stock: 500, sku: "CON-THE-X10" },
+      { id: "con-the-x50", name: "50 sachets", price: 4900, stock: 300, sku: "CON-THE-X50" },
+    ],
+    price: 1200,
+    tags: ["thé", "boisson", "accueil"],
+    is_featured: false,
+    is_active: true,
+    created_at: "2024-01-01T00:00:00Z",
+    updated_at: "2024-01-01T00:00:00Z",
+  },
 ];
 
 // =========================================================

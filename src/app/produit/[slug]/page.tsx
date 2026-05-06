@@ -10,10 +10,10 @@ import {
   Minus,
   Plus,
   Shield,
-  ArrowLeft,
   Check,
   ShoppingCart,
 } from "lucide-react";
+import BackButton from "@/components/ui/BackButton";
 import { getProductBySlug, formatPrice, PRODUCTS } from "@/lib/products";
 import { useCartStore } from "@/store/cartStore";
 import { useAuth } from "@/contexts/AuthContext";
@@ -80,13 +80,9 @@ export default function ProductPage({ params }: PageProps) {
           <span className="opacity-100 font-medium">{product.name}</span>
         </nav>
 
-        <Link
-          href="/boutique"
-          className="inline-flex items-center gap-2 text-sm font-medium mb-8 transition-opacity hover:opacity-70"
-          style={{ color: "#18223b" }}
-        >
-          <ArrowLeft size={16} /> Retour à la boutique
-        </Link>
+        <div className="mb-8">
+          <BackButton href="/boutique" label="Retour à la boutique" />
+        </div>
 
         {/* Product section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
