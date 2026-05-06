@@ -487,7 +487,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-10lb-100", name: "100 sacs", price: 1900, stock: 500, sku: "SAC-10LB-100" },
@@ -511,7 +511,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-30ln-100", name: "100 sacs", price: 2200, stock: 500, sku: "SAC-30LN-100" },
@@ -535,7 +535,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-50lb-100", name: "100 sacs", price: 2500, stock: 500, sku: "SAC-50LB-100" },
@@ -559,7 +559,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-50ln-100", name: "100 sacs", price: 2800, stock: 500, sku: "SAC-50LN-100" },
@@ -583,7 +583,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-100ln-100", name: "100 sacs", price: 3500, stock: 500, sku: "SAC-100LN-100" },
@@ -607,7 +607,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-110lb-100", name: "100 sacs", price: 3800, stock: 500, sku: "SAC-110LB-100" },
@@ -631,7 +631,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-130ln44-100", name: "100 sacs", price: 4500, stock: 500, sku: "SAC-130LN44-100" },
@@ -655,7 +655,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
-      '/images/produits/sac-poubelle.jpg',
+      '/images/produits/sac-poubelle-produit.png',
     ],
     variants: [
       { id: "sac-130ln33-100", name: "100 sacs", price: 4200, stock: 500, sku: "SAC-130LN33-100" },
