@@ -10,6 +10,11 @@ import { ProductCategory, CATEGORY_LABELS } from "@/types";
 import ProductCard from "@/components/store/ProductCard";
 import BackButton from "@/components/ui/BackButton";
 
+// ── Position de l'image par sous-catégorie ──
+const SUBCAT_IMAGE_POSITION: Record<string, string> = {
+  "Éponge emballage individuel": "left center",
+};
+
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
 const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Kit Salle de Bains": "/images/hero/kit-sdb.jpg",
@@ -41,7 +46,7 @@ const NAV_STRUCTURE = [
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge standard", "Éponge emballage individuel"],
+    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé", "Éponge standard"],
   },
   {
     id: "eponge",
@@ -259,6 +264,7 @@ function BoutiqueContent() {
                             fill
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                             sizes="(max-width: 768px) 50vw, 25vw"
+                            style={{ objectPosition: SUBCAT_IMAGE_POSITION[subcat] ?? "center" }}
                           />
                         ) : (
                           <span className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">📦</span>
