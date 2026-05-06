@@ -125,6 +125,12 @@ function BoutiqueContent() {
         {/* Header */}
         <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
           <div className="max-w-7xl mx-auto">
+            <div className="mb-3">
+              <BackButton
+                href={parentCat ? `/boutique?category=${parentCat.id}` : "/boutique"}
+                label={parentCat ? `Retour à ${parentCat.label}` : "Retour à la boutique"}
+              />
+            </div>
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-xs mb-3" style={{ color: "#18223b", opacity: 0.5 }}>
               <Link href="/boutique" className="hover:opacity-80">Boutique</Link>
@@ -204,6 +210,9 @@ function BoutiqueContent() {
         <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
           <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
             <div className="max-w-7xl mx-auto">
+              <div className="mb-3">
+                <BackButton href="/boutique" label="Retour à la boutique" />
+              </div>
               <div className="flex items-center gap-2 text-xs mb-3" style={{ color: "#18223b", opacity: 0.5 }}>
                 <Link href="/boutique" className="hover:opacity-80">Boutique</Link>
                 <ChevronRight size={12} />
