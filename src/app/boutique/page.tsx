@@ -11,9 +11,7 @@ import ProductCard from "@/components/store/ProductCard";
 import BackButton from "@/components/ui/BackButton";
 
 // ── Position de l'image par sous-catégorie ──
-const SUBCAT_IMAGE_POSITION: Record<string, string> = {
-  "Éponge emballage individuel": "left center",
-};
+const SUBCAT_IMAGE_POSITION: Record<string, string> = {};
 
 // ── Lien direct vers produit (sous-catégories avec 1 seul produit) ──
 const SUBCAT_DIRECT_LINK: Record<string, string> = {
