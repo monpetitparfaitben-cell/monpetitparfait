@@ -8,6 +8,7 @@ import { Search, X, ChevronRight } from "lucide-react";
 import { PRODUCTS, formatPrice } from "@/lib/products";
 import { ProductCategory, CATEGORY_LABELS } from "@/types";
 import ProductCard from "@/components/store/ProductCard";
+import BackButton from "@/components/ui/BackButton";
 
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
 const SUBCAT_HERO_IMAGES: Record<string, string> = {
@@ -274,6 +275,9 @@ function BoutiqueContent() {
       {/* Header */}
       <div className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
         <div className="max-w-7xl mx-auto">
+          <div className="mb-4">
+            <BackButton href="/" label="Retour à l'accueil" />
+          </div>
           <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: "#18223b", opacity: 0.4 }}>
             Notre sélection
           </p>

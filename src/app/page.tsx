@@ -47,8 +47,7 @@ const consommables = [
   { href: "/boutique?subcategory=Tablette", slug: "tablette-lave-vaisselle", label: "Tablettes", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/boutique?subcategory=Capsule+caf%C3%A9", slug: "capsule-cafe-aluminium", label: "Capsules café", img: "/images/hero/capsule-cafe.jpg" },
   { href: "/boutique?subcategory=Th%C3%A9", slug: "the", label: "Thé", img: "/images/produits/PHOTO-2026-02-03-14-59-07.jpg" },
-  { href: "/boutique?subcategory=%C3%89ponge+standard", slug: "eponge-standard", label: "Éponge standard", img: "/images/produits/eponge-simple.png" },
-  { href: "/boutique?subcategory=%C3%89ponge+emballage+individuel", slug: "eponge-emballage-individuel", label: "Éponge emballage", img: "/images/produits/eponge-emballage.png" },
+  { href: "/boutique?subcategory=%C3%89ponge+standard", slug: "eponge-standard", label: "Éponge", img: "/images/produits/eponge-simple.png" },
 ];
 
 export default function HomePage() {
