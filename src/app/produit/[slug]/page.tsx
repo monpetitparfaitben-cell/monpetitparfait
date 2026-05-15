@@ -60,6 +60,10 @@ export default function ProductPage({ params }: PageProps) {
     (p) => p.category === product.category && p.id !== product.id && p.is_active
   ).slice(0, 4);
 
+  const descParts = product.description.split("|||");
+  const descPart1 = descParts[0].trim();
+  const descPart2 = descParts[1]?.trim() ?? "";
+
   const categoryEmoji =
     product.category === "kits" ? "🎁" : product.category === "ouate" ? "🧻" : "☕";
 
@@ -197,10 +201,10 @@ export default function ProductPage({ params }: PageProps) {
               {product.name}
             </h1>
 
-            {/* Description en premier */}
+            {/* Description partie 1 (composition / contenu) */}
             <div className="mb-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
               <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
-                {product.description}
+                {descPart1}
               </p>
             </div>
 
@@ -315,6 +319,18 @@ export default function ProductPage({ params }: PageProps) {
 
           </div>
         </div>
+
+        {/* Description partie 2 — sous l'image, colonne gauche uniquement */}
+        {descPart2 && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="rounded-2xl p-5" style={{ backgroundColor: "white" }}>
+              <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
+                {descPart2}
+              </p>
+            </div>
+            <div />
+          </div>
+        )}
 
         {/* Produits similaires */}
         {related.length > 0 && (
