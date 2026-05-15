@@ -225,16 +225,6 @@ export default function ProductPage({ params }: PageProps) {
               </p>
             </div>
 
-            {/* Prix */}
-            <div className="mb-6">
-              <p className="text-3xl font-bold" style={{ color: "#18223b" }}>
-                {formatPrice(resolvedPrice)}
-              </p>
-              {contract && contractPrice && contractPrice < selectedVariant.price && (
-                <p className="text-sm opacity-50 line-through mt-1">{formatPrice(selectedVariant.price)}</p>
-              )}
-            </div>
-
             {/* Variants */}
             <div className="mb-6">
               <p className="text-sm font-semibold mb-3" style={{ color: "#18223b" }}>
@@ -273,6 +263,16 @@ export default function ProductPage({ params }: PageProps) {
                   );
                 })}
               </div>
+            </div>
+
+            {/* Prix */}
+            <div className="mb-6">
+              <p className="text-3xl font-bold" style={{ color: "#18223b" }}>
+                {formatPrice(resolvedPrice)}
+              </p>
+              {contract && contractPrice && contractPrice < selectedVariant.price && (
+                <p className="text-sm opacity-50 line-through mt-1">{formatPrice(selectedVariant.price)}</p>
+              )}
             </div>
 
             {/* Quantité + CTA */}
