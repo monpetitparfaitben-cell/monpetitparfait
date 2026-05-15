@@ -17,8 +17,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { getContractPrice } = useAuth();
 
   const contractPrice = getContractPrice(product.variants[0].id);
-  const displayPrice = contractPrice ?? product.price;
+  const lotPrice = contractPrice ?? product.price;
   const hasContractPrice = contractPrice !== null;
+  const firstQty = parseInt(product.variants[0].name) || 1;
+  const unitPrice = Math.round(lotPrice / firstQty);
+  const unitPriceBase = Math.round(product.price / firstQty);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -90,11 +93,11 @@ export default function ProductCard({ product }: ProductCardProps) {
               <p className="text-xs opacity-50 mb-0.5" style={{ color: "#18223b" }}>À partir de</p>
               <div className="flex items-baseline gap-1.5">
                 <p className="font-bold text-base" style={{ color: "#18223b" }}>
-                  {formatPrice(displayPrice)}
+                  {formatPrice(unitPrice)} / unité
                 </p>
-                {hasContractPrice && displayPrice < product.price && (
+                {hasContractPrice && unitPrice < unitPriceBase && (
                   <span className="text-xs line-through opacity-40" style={{ color: "#18223b" }}>
-                    {formatPrice(product.price)}
+                    {formatPrice(unitPriceBase)}
                   </span>
                 )}
               </div>
