@@ -230,32 +230,36 @@ export default function ProductPage({ params }: PageProps) {
               <p className="text-sm font-semibold mb-3" style={{ color: "#18223b" }}>
                 Choisir la quantité :
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-2">
                 {product.variants.map((variant) => {
                   const vContractPrice = getContractPrice(variant.id);
                   const vPrice = vContractPrice ?? variant.price;
                   const isSelected = selectedVariant.id === variant.id;
+                  const qty = parseInt(variant.name) || 1;
+                  const unitPriceCents = Math.round(vPrice / qty);
 
                   return (
                     <button
                       key={variant.id}
                       onClick={() => setSelectedVariant(variant)}
-                      className="relative px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 text-left"
+                      className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left w-full"
                       style={{
                         backgroundColor: isSelected ? "#18223b" : "white",
                         color: isSelected ? "white" : "#18223b",
                         border: `2px solid ${isSelected ? "#18223b" : "#ede9e0"}`,
                       }}
                     >
-                      <span className="block">{variant.name}</span>
-                      <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.7 : 0.5 }}>
-                        {formatPrice(vPrice)}
+                      <span className="block font-bold text-base">
+                        {formatPrice(unitPriceCents)} × {variant.name}
                         {vContractPrice && vContractPrice < variant.price && " 🤝"}
+                      </span>
+                      <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.65 : 0.45 }}>
+                        {formatPrice(vPrice)} HT
                       </span>
                       {isSelected && (
                         <Check
                           size={12}
-                          className="absolute -top-1.5 -right-1.5 text-white rounded-full p-0.5"
+                          className="absolute top-2 right-2 text-white rounded-full p-0.5"
                           style={{ backgroundColor: "#e67e22" }}
                         />
                       )}
