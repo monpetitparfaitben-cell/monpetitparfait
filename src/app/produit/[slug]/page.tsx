@@ -230,7 +230,7 @@ export default function ProductPage({ params }: PageProps) {
               <p className="text-sm font-semibold mb-3" style={{ color: "#18223b" }}>
                 Choisir la quantité :
               </p>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-3">
                 {product.variants.map((variant) => {
                   const vContractPrice = getContractPrice(variant.id);
                   const vPrice = vContractPrice ?? variant.price;
@@ -242,7 +242,7 @@ export default function ProductPage({ params }: PageProps) {
                     <button
                       key={variant.id}
                       onClick={() => setSelectedVariant(variant)}
-                      className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left w-full"
+                      className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left flex-1"
                       style={{
                         backgroundColor: isSelected ? "#18223b" : "white",
                         color: isSelected ? "white" : "#18223b",
