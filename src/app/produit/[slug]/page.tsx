@@ -89,7 +89,7 @@ export default function ProductPage({ params }: PageProps) {
         </div>
 
         {/* Product section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-6">
           {/* Image */}
           <div>
             {/* Thumbnails en haut */}
