@@ -56,9 +56,17 @@ export default function ProductPage({ params }: PageProps) {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const related = PRODUCTS.filter(
-    (p) => p.category === product.category && p.id !== product.id && p.is_active
-  ).slice(0, 4);
+  // Famille = id sans le suffixe numérique (ex: "kit-gourmand-1" → "kit-gourmand")
+  const familyMatch = product.id.match(/^(.+)-\d+$/);
+  const family = familyMatch ? familyMatch[1] : null;
+
+  const related = family
+    ? PRODUCTS.filter(
+        (p) => p.id !== product.id && p.is_active && p.id.startsWith(family + "-")
+      ).slice(0, 4)
+    : PRODUCTS.filter(
+        (p) => p.category === product.category && p.id !== product.id && p.is_active
+      ).slice(0, 4);
 
   const descParts = product.description.split("|||");
   const descPart1 = descParts[0].trim();
