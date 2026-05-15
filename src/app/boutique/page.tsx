@@ -63,7 +63,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
 
 // ── Carte produit style Beneki ──────────────────────────────────
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
-  const lowestPrice = Math.min(...product.variants.map((v) => v.price));
+  const lowestUnitPrice = Math.min(...product.variants.map((v) => Math.round(v.price / (parseInt(v.name) || 1))));
   const image = product.images[0];
   return (
     <Link href={`/produit/${product.slug}`} className="group block h-full">
@@ -95,7 +95,7 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
             {product.name}
           </p>
           <p className="text-sm font-semibold mt-auto" style={{ color: "#e67e22" }}>
-            à partir de {formatPrice(lowestPrice)}
+            à partir de {formatPrice(lowestUnitPrice)}
           </p>
         </div>
       </div>
@@ -245,9 +245,9 @@ function BoutiqueContent() {
                 const firstProduct = PRODUCTS.find(
                   (p) => p.is_active && p.subcategory === subcat
                 );
-                const lowestPrice = firstProduct
+                const lowestUnitPrice = firstProduct
                   ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
-                      .flatMap(p => p.variants.map(v => v.price)))
+                      .flatMap(p => p.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))
                   : 0;
                 return (
                   <Link
@@ -278,9 +278,9 @@ function BoutiqueContent() {
                       </div>
                       <div className="p-4">
                         <p className="font-bold text-sm" style={{ color: "#18223b" }}>{subcat}</p>
-                        {lowestPrice > 0 && (
+                        {lowestUnitPrice > 0 && (
                           <p className="text-xs mt-1 font-semibold" style={{ color: "#e67e22" }}>
-                            à partir de {formatPrice(lowestPrice)}
+                            à partir de {formatPrice(lowestUnitPrice)}
                           </p>
                         )}
                       </div>
@@ -360,9 +360,9 @@ function BoutiqueContent() {
                     const firstProduct = PRODUCTS.find(
                       (p) => p.is_active && p.subcategory === subcat
                     );
-                    const lowestPrice = firstProduct
+                    const lowestUnitPrice = firstProduct
                       ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
-                          .flatMap(p => p.variants.map(v => v.price)))
+                          .flatMap(p => p.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))
                       : 0;
                     const imgSrc = SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0];
                     return (
@@ -396,9 +396,9 @@ function BoutiqueContent() {
                             <p className="font-bold text-xs leading-snug" style={{ color: "#18223b" }}>
                               {subcat}
                             </p>
-                            {lowestPrice > 0 && (
+                            {lowestUnitPrice > 0 && (
                               <p className="text-xs mt-0.5 font-semibold" style={{ color: "#e67e22" }}>
-                                {formatPrice(lowestPrice)}
+                                À partir de {formatPrice(lowestUnitPrice)}
                               </p>
                             )}
                           </div>
