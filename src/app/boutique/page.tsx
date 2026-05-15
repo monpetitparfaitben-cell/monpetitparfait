@@ -63,7 +63,8 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
 
 // ── Carte produit style Beneki ──────────────────────────────────
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
-  const lowestUnitPrice = Math.min(...product.variants.map((v) => Math.round(v.price / (parseInt(v.name) || 1))));
+  const firstVariant = product.variants[0];
+  const lowestUnitPrice = Math.round(firstVariant.price / (parseInt(firstVariant.name) || 1));
   const image = product.images[0];
   return (
     <Link href={`/produit/${product.slug}`} className="group block h-full">
@@ -246,8 +247,7 @@ function BoutiqueContent() {
                   (p) => p.is_active && p.subcategory === subcat
                 );
                 const lowestUnitPrice = firstProduct
-                  ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
-                      .flatMap(p => p.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))
+                  ? Math.round(firstProduct.variants[0].price / (parseInt(firstProduct.variants[0].name) || 1))
                   : 0;
                 return (
                   <Link
@@ -361,8 +361,7 @@ function BoutiqueContent() {
                       (p) => p.is_active && p.subcategory === subcat
                     );
                     const lowestUnitPrice = firstProduct
-                      ? Math.min(...PRODUCTS.filter(p => p.is_active && p.subcategory === subcat)
-                          .flatMap(p => p.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))
+                      ? Math.round(firstProduct.variants[0].price / (parseInt(firstProduct.variants[0].name) || 1))
                       : 0;
                     const imgSrc = SUBCAT_HERO_IMAGES[subcat] ?? firstProduct?.images[0];
                     return (
