@@ -35,11 +35,10 @@ const MENU_DATA = [
     label: "Consommables",
     href: "/boutique?category=consommables",
     subcategories: [
-      { label: "Sac poubelle",  href: "/boutique?subcategory=Sac+poubelle" },
-      { label: "Tablette",      href: "/boutique?subcategory=Tablette" },
-      { label: "Pastille",      href: "/boutique?subcategory=Pastille" },
-      { label: "Capsule café",  href: "/boutique?subcategory=Capsule+café" },
-      { label: "Éponge",        href: "/boutique?subcategory=Éponge" },
+      { label: "Sac poubelle",        href: "/boutique?subcategory=Sac+poubelle" },
+      { label: "Tablette & Pastille", href: "/boutique?subcategory=Tablette+%26+Pastille" },
+      { label: "Capsule café",        href: "/boutique?subcategory=Capsule+caf%C3%A9" },
+      { label: "Thé",                 href: "/boutique?subcategory=Th%C3%A9" },
     ],
   },
 ];
