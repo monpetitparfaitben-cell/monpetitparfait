@@ -665,7 +665,7 @@ export const PRODUCTS: Product[] = [
     description: "Tablette lave-vaisselle tout-en-un. Action dégraissante puissante, compatible tous appareils. Parfaite pour les locations avec cuisine équipée.",
     short_description: "Tablette lave-vaisselle",
     category: "consommables",
-    subcategory: "Tablette",
+    subcategory: "Tablette & Pastille",
     images: [
       "/images/produits/tablette-lave-vaisselle.jpg",
     ],
@@ -689,7 +689,7 @@ export const PRODUCTS: Product[] = [
     description: "Tablette linge (lessive). Dosage précis, efficace dès 30°C, compatible tous types de linge. Idéale pour les appartements et hôtels avec lave-linge.",
     short_description: "Tablette linge (lessive)",
     category: "consommables",
-    subcategory: "Tablette",
+    subcategory: "Tablette & Pastille",
     images: [
       "/images/produits/tablette-linge.jpg",
     ],
@@ -717,7 +717,7 @@ export const PRODUCTS: Product[] = [
     description: "Pastille lave-vaisselle. Format compact, dissolution rapide, action dégraissante efficace. Compatible tous appareils.",
     short_description: "Pastille lave-vaisselle",
     category: "consommables",
-    subcategory: "Pastille",
+    subcategory: "Tablette & Pastille",
     images: [
       "/images/produits/tablette-lave-vaisselle.jpg",
     ],
@@ -741,7 +741,7 @@ export const PRODUCTS: Product[] = [
     description: "Pastille linge (lessive). Pratique, pré-dosée, efficace sur toutes les taches. Idéale pour les locations avec lave-linge.",
     short_description: "Pastille linge (lessive)",
     category: "consommables",
-    subcategory: "Pastille",
+    subcategory: "Tablette & Pastille",
     images: [
       "/images/produits/tablette-linge.jpg",
     ],

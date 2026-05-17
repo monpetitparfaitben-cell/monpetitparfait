@@ -29,7 +29,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Essuie-tout": "/images/hero/essuie-tout.jpg",
   "Papier toilette": "/images/hero/papier-toilette-hero.jpg",
   "Sac poubelle": "/images/produits/sac-poubelle-hero.jpeg",
-  "Tablette": "/images/produits/tablette-lave-vaisselle.jpg",
+  "Tablette & Pastille": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/hero/capsule-cafe.jpg",
   "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
   "Éponge standard": "/images/produits/eponge-simple.png",
@@ -51,7 +51,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette", "Pastille", "Capsule café", "Thé"],
+    subcategories: ["Sac poubelle", "Tablette & Pastille", "Capsule café", "Thé"],
   },
   {
     id: "eponge",
