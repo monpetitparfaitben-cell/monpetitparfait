@@ -601,9 +601,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "sac-110l-blanc",
     slug: "sac-poubelle-110l-blanc",
-    name: "Sac poubelle — 110 L — Blanc",
-    description: "110 L — Blanc. Grand format pour les containers et bacs collectifs.",
-    short_description: "110 L — Blanc",
+    name: "Sacs poubelle 110 L — Grande capacité et usage professionnel",
+    description: "Caractéristiques :\n• Capacité : 110 litres\n• Haute résistance à la perforation et aux déchirures\n• Étanchéité renforcée\n• Fermeture solide et pratique\n• Qualité professionnelle\n• Conditionnement : 200 sacs par carton\n• Présentation : 8 rouleaux de 25 sacs\n\nUtilisations recommandées :\n• Bureaux et locaux professionnels\n• Collectivités et espaces publics\n• Entrepôts et zones de stockage\n• Usage domestique et grands volumes de déchets\n\n|||\n\nConçus pour la collecte des déchets légers, nos sacs poubelle de 110 litres offrent une solution pratique, résistante et adaptée aux besoins des professionnels comme des particuliers. Leur grand format permet de gérer efficacement des volumes importants tout en garantissant une manipulation simple et sécurisée.\nFabriqués dans une qualité professionnelle, ces sacs disposent d'une excellente résistance aux déchirures et aux perforations afin de limiter les incidents lors du remplissage ou du transport. Leur conception étanche associée à un lien de fermeture robuste assure un maintien fiable des déchets au quotidien.\nPolyvalents, ils conviennent aussi bien aux environnements professionnels à forte utilisation qu'aux besoins domestiques nécessitant une grande capacité de stockage ou de collecte.\n\nDes sacs robustes et fiables pour une gestion des déchets efficace, même en utilisation intensive.",
+    short_description: "110 L · Blanc · 200 sacs/carton · 8 rouleaux de 25 · Qualité pro",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
@@ -625,9 +625,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "sac-130l-noir-44",
     slug: "sac-poubelle-130l-noir-44",
-    name: "Sac poubelle — 130 L — Noir, 44 microns",
-    description: "130 L — Noir, 44 microns. Le plus résistant de la gamme, pour les usages les plus exigeants.",
-    short_description: "130 L — Noir, 44 microns",
+    name: "Sacs poubelle 130 L — Ultra résistants pour usage intensif",
+    description: "Caractéristiques :\n• Capacité : 130 litres\n• Épaisseur : 44 microns\n• Haute résistance à la déchirure et à la perforation\n• Étanchéité renforcée\n• Fermeture solide et pratique\n• Qualité professionnelle\n• Conditionnement : 100 sacs par carton\n\nIdéal pour :\n• Sociétés de nettoyage\n• Restaurants et cuisines professionnelles\n• Entreprises et collectivités\n• Utilisation domestique intensive\n\n|||\n\nNos sacs poubelle de 130 litres sont conçus pour répondre aux besoins des professionnels recherchant une solution fiable, robuste et adaptée aux volumes importants de déchets. Avec leur épaisseur de 44 microns, ils assurent une excellente résistance pour une utilisation intensive au quotidien.\nParfaits pour les déchets courants et alimentaires, ces sacs offrent une grande capacité de contenance tout en résistant efficacement aux perforations, aux déchirures et aux contraintes liées au transport. Leur conception étanche permet de limiter les risques de fuite, tandis que leur lien de fermeture renforcé garantit une fermeture simple et sécurisée.\nAdaptés aussi bien aux entreprises, restaurants, sociétés de nettoyage qu'aux particuliers exigeants, ils représentent une solution durable et performante pour une gestion optimale des déchets.\n\nDes sacs poubelle robustes et fiables, conçus pour simplifier la collecte des déchets tout en offrant une résistance optimale.",
+    short_description: "130 L · Noir · 44 microns · 100 sacs/carton · Ultra résistant",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
@@ -649,9 +649,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "sac-130l-noir-33",
     slug: "sac-poubelle-130l-noir-33",
-    name: "Sac poubelle — 130 L — Noir, 33 microns",
-    description: "130 L — Noir, 33 microns. Grand format résistant pour containers et bacs professionnels.",
-    short_description: "130 L — Noir, 33 microns",
+    name: "Sacs poubelle 130 L — Résistance professionnelle et grande capacité",
+    description: "Caractéristiques :\n• Capacité : 130 litres\n• Épaisseur : 33 microns\n• Convient aux déchets courants et alimentaires\n• Excellente résistance à la perforation et à la déchirure\n• Soudure renforcée pour limiter les fuites\n• Lien de fermeture solide\n• Conditionnement : 200 sacs par carton\n• Présentation : 10 rouleaux de 20 sacs\n\n|||\n\nPensés pour les usages intensifs, nos sacs poubelle de 130 litres offrent un excellent équilibre entre robustesse, praticité et prix compétitif. Grâce à leur épaisseur de 33 microns, ils conviennent parfaitement à la collecte des déchets courants et alimentaires dans les environnements professionnels exigeants.\nFabriqués à partir d'un polyéthylène de qualité, ces sacs assurent une très bonne résistance aux déchirures, aux perforations et aux charges importantes. Leur fond renforcé limite les risques de fuite, même en présence de liquides ou de déchets humides, pour une utilisation plus propre et sécurisée.\nLeur format de 130 litres s'adapte facilement aux conteneurs et poubelles grand volume, ce qui en fait une solution idéale pour les restaurants, sociétés de nettoyage, cuisines collectives, entrepôts ou collectivités.",
+    short_description: "130 L · Noir · 33 microns · 200 sacs/carton · 10 rouleaux de 20",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
