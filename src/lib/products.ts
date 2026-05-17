@@ -506,8 +506,8 @@ export const PRODUCTS: Product[] = [
     id: "sac-30l-noir",
     slug: "sac-poubelle-30l-noir",
     name: "Sac poubelle — 30 L — Noir, 12 microns",
-    description: "30 L — Noir, 12 microns. Format pratique pour cuisine et séjour.",
-    short_description: "30 L — Noir, 12 microns",
+    description: "Caractéristiques :\n• Capacité : 30 litres\n• Couleur : noir\n• Épaisseur : 12 microns\n• Conditionnement : 500 sacs par colis\n• Présentation : 20 rouleaux de 25 sacs\n• Bonne résistance à la perforation et aux déchirures\n• Adaptés aux usages professionnels et domestiques\n\nIdéal pour :\n• Hôtels et établissements d'accueil\n• Bureaux et espaces professionnels\n• Sanitaires et espaces communs\n• Usage quotidien à domicile\n\n|||\n\nConçus pour une utilisation régulière, nos sacs poubelle noirs de 30 litres offrent une solution fiable pour la gestion des déchets en entreprise comme à la maison. Leur format polyvalent convient parfaitement aux bureaux, sanitaires, chambres d'hôtel ou espaces collectifs nécessitant un sac compact et robuste.\nFabriqués avec une épaisseur de 12 microns, ils assurent une bonne tenue face aux petits déchets du quotidien tout en limitant les risques de déchirure ou de fuite. Leur matière en polyéthylène garantit une excellente imperméabilité ainsi qu'une résistance renforcée lors de la manipulation et du transport.\nChaque carton contient 500 sacs conditionnés en rouleaux pratiques de 25 unités, pour une distribution simple et un stockage optimisé.",
+    short_description: "30 L · Noir · 12 microns · 500 sacs/colis · 20 rouleaux de 25",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
