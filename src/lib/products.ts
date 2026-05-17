@@ -553,9 +553,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "sac-50l-noir",
     slug: "sac-poubelle-50l-noir",
-    name: "Sac poubelle — 50 L — Noir, 27 microns",
-    description: "50 L — Noir, 27 microns. Résistant, idéal pour les déchets lourds.",
-    short_description: "50 L — Noir, 27 microns",
+    name: "Sacs poubelle noirs 50 L — Grande capacité et résistance renforcée",
+    description: "Caractéristiques :\n• Capacité : 50 litres\n• Couleur : noir\n• Conditionnement : 500 sacs par colis\n• Présentation en rouleaux pratiques\n• Haute résistance à la perforation et aux déchirures\n• Bonne étanchéité pour limiter les fuites\n• Fermeture solide pour une manipulation facilitée\n\nConvient parfaitement pour :\n• Bureaux et espaces professionnels\n• Lieux publics et collectivités\n• Usage domestique\n• Gestion des déchets courants\n\n|||\n\nPensés pour un usage quotidien intensif, nos sacs poubelle noirs de 50 litres offrent une solution pratique et fiable pour la collecte des déchets dans les espaces professionnels comme domestiques. Leur format standard s'adapte parfaitement aux poubelles de taille moyenne utilisées dans les bureaux, collectivités, lieux publics ou habitations.\nConçus pour supporter les déchets légers à moyennement lourds, ces sacs bénéficient d'une excellente résistance aux perforations, aux déchirures et aux risques de fuite. Leur matière robuste assure une étanchéité optimale, tandis que leur lien de fermeture solide facilite la manipulation et le transport des déchets en toute sécurité.\nConditionnés en rouleaux pour une utilisation simple et rapide, ils représentent une solution efficace pour maintenir vos espaces propres au quotidien.\n\nDes sacs poubelle fiables et résistants, conçus pour simplifier la gestion de vos déchets au quotidien.",
+    short_description: "50 L · Noir · 500 sacs/colis · Rouleaux · Haute résistance",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
@@ -577,9 +577,9 @@ export const PRODUCTS: Product[] = [
   {
     id: "sac-100l-noir",
     slug: "sac-poubelle-100l-noir",
-    name: "Sac poubelle — 100 L — Noir, 32 microns",
-    description: "100 L — Noir, 32 microns. Pour les grandes poubelles collectives et locaux professionnels.",
-    short_description: "100 L — Noir, 32 microns",
+    name: "Sacs poubelle 100 L — Usage professionnel et haute résistance",
+    description: "Caractéristiques :\n• Capacité : 100 litres\n• Épaisseur : 32 microns\n• Adaptés aux déchets ménagers et alimentaires\n• Grande résistance aux étirements et perforations\n• Qualité professionnelle\n• Conditionnement : 200 sacs par carton\n• Présentation : 8 rouleaux de 25 sacs\n\nUtilisations recommandées :\n• Collectivités et établissements publics\n• Entreprises de nettoyage\n• Restaurants et cuisines professionnelles\n• Locaux professionnels et espaces communs\n\n|||\n\nNos sacs poubelle de 100 litres sont spécialement conçus pour répondre aux besoins des professionnels exigeant solidité, praticité et grande capacité de stockage. Avec leur épaisseur de 32 microns, ils conviennent parfaitement à la collecte des déchets courants ainsi qu'aux déchets alimentaires.\nAppréciés dans les collectivités, entreprises de nettoyage, cuisines professionnelles ou espaces à fort passage, ces sacs offrent une excellente résistance aux chocs, aux étirements et aux manipulations répétées. Leur conception robuste permet de limiter les risques de déchirure tout en garantissant une bonne étanchéité pendant le transport des déchets.\nGrâce à leur grand format, ils facilitent la gestion quotidienne des volumes importants tout en assurant un excellent compromis entre performance et coût.\n\nUne solution fiable et économique pour optimiser la collecte et le transport de vos déchets au quotidien.",
+    short_description: "100 L · Noir · 32 microns · 200 sacs/carton · 8 rouleaux de 25",
     category: "consommables",
     subcategory: "Sac poubelle",
     images: [
