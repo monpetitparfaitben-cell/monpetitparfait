@@ -86,7 +86,7 @@ export default function HomePage() {
                     </h3>
                     {product && (
                       <p className="text-xs font-medium mt-auto" style={{ color: "#e67e22" }}>
-                        À partir de {formatPrice(Math.round(product.price / (parseInt(product.variants[0].name) || 1)))}
+                        À partir de {formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}
                       </p>
                     )}
                   </div>
@@ -126,7 +126,7 @@ export default function HomePage() {
                     </h3>
                     {product && (
                       <p className="text-xs font-medium" style={{ color: "#e67e22" }}>
-                        À partir de {formatPrice(Math.round(product.price / (parseInt(product.variants[0].name) || 1)))}
+                        À partir de {formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}
                       </p>
                     )}
                   </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
                     </h3>
                     {product && (
                       <p className="text-xs mt-0.5 font-medium" style={{ color: "#e67e22" }}>
-                        À partir de {formatPrice(Math.round(product.price / (parseInt(product.variants[0].name) || 1)))}
+                        À partir de {formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}
                       </p>
                     )}
                   </div>

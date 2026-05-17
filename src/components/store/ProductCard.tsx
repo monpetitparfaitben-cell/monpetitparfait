@@ -17,11 +17,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { getContractPrice } = useAuth();
 
   const contractPrice = getContractPrice(product.variants[0].id);
-  const lotPrice = contractPrice ?? product.price;
   const hasContractPrice = contractPrice !== null;
+  const minUnitPrice = Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1))));
   const firstQty = parseInt(product.variants[0].name) || 1;
-  const unitPrice = Math.round(lotPrice / firstQty);
-  const unitPriceBase = Math.round(product.price / firstQty);
+  const unitPrice = hasContractPrice
+    ? Math.round((contractPrice ?? product.price) / firstQty)
+    : minUnitPrice;
+  const unitPriceBase = minUnitPrice;
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
