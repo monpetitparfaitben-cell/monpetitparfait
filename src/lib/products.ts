@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
     variants: [
       { id: "kit-caf-100", name: "100 kits", price: 10900, stock: 500, sku: "KIT-CAF-100" },
       { id: "kit-caf-300", name: "300 kits", price: 28200, stock: 300, sku: "KIT-CAF-300" },
-      { id: "kit-caf-600", name: "600 kits", price: 47400, stock: 200, sku: "KIT-CAF-600" },
+      { id: "kit-caf-500", name: "500 kits", price: 39500, stock: 200, sku: "KIT-CAF-500" },
     ],
     price: 10900,
     tags: ["capsules", "café", "accueil", "boisson"],
