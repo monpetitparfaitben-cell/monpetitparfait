@@ -9,6 +9,8 @@ const SLIDES = [
   { img: "/images/hero/kit-sdb.jpg",       alt: "Kit Salle de Bains" },
   { img: "/images/hero/kit-cafe.jpg",      alt: "Kit Capsule Café" },
   { img: "/images/hero/kit-entretien.jpg", alt: "Kit Entretien" },
+  { img: "/images/hero/hero-slide-2.jpg",  alt: "Slide 2" },
+  { img: "/images/hero/hero-slide-3.jpg",  alt: "Slide 3" },
 ];
 
 export default function HeroCarousel() {
