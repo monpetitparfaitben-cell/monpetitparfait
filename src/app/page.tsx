@@ -28,13 +28,6 @@ const kits = [
     desc: "2 cafés solubles, 1 thé vert, 1 thé noir, 2 sucres, 2 touillettes, 2 biscuits Lotus",
     img: "/images/hero/kit-welcome.jpg",
   },
-  {
-    href: "/boutique?subcategory=Kit+Entretien",
-    slug: "kit-entretien-formule-1",
-    label: "Kit Entretien",
-    desc: "Liquide vaisselle, éponge, sacs poubelles petit et grand format",
-    img: "/images/hero/kit-entretien.jpg",
-  },
 ];
 
 const ouate = [

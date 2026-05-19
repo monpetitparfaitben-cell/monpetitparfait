@@ -41,7 +41,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "kits",
     label: "Kits",
-    subcategories: ["Kit Salle de Bains", "Kit Capsule Café", "Kit Gourmand", "Kit Entretien"],
+    subcategories: ["Kit Salle de Bains", "Kit Capsule Café", "Kit Gourmand"],
   },
   {
     id: "ouate",
