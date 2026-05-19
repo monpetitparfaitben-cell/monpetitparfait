@@ -771,7 +771,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Capsule café",
     images: [
-      "/images/hero/capsule-cafe.jpg",
+      "/images/produits/capsule-aluminium.png",
     ],
     variants: [
       { id: "con-cap-alu-500",  name: "500 capsules",  price: 9500,  stock: 9999, sku: "CON-CAP-ALU-500" },
