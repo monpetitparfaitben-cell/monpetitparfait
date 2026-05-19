@@ -15,13 +15,6 @@ const kits = [
     img: "/images/hero/kit-sdb.jpg",
   },
   {
-    href: "/produit/capsule-cafe-aluminium",
-    slug: "capsule-cafe-aluminium",
-    label: "Capsule café aluminium",
-    desc: "500, 1000 ou 5000 capsules aluminium compatibles machines standards",
-    img: "/images/produits/capsule-aluminium.png",
-  },
-  {
     href: "/boutique?subcategory=Kit+Gourmand",
     slug: "kit-gourmand-formule-1",
     label: "Kit Gourmand",
