@@ -260,6 +260,7 @@ export default function ProductPage({ params }: PageProps) {
                       <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.65 : 0.45 }}>
                         {formatPrice(vPrice)} HT
                       </span>
+
                       {isSelected && (
                         <Check
                           size={12}
@@ -276,7 +277,7 @@ export default function ProductPage({ params }: PageProps) {
             {/* Prix */}
             <div className="mb-6">
               <p className="text-3xl font-bold" style={{ color: "#18223b" }}>
-                {formatPrice(resolvedPrice)}
+                {formatPrice(resolvedPrice)} <span className="text-lg font-medium opacity-50">HT</span>
               </p>
               {contract && contractPrice && contractPrice < selectedVariant.price && (
                 <p className="text-sm opacity-50 line-through mt-1">{formatPrice(selectedVariant.price)}</p>
@@ -314,7 +315,7 @@ export default function ProductPage({ params }: PageProps) {
                 {added ? (
                   <><Check size={18} /> Ajouté !</>
                 ) : (
-                  <><ShoppingCart size={18} /> Ajouter — {formatPrice(totalPrice)}</>
+                  <><ShoppingCart size={18} /> Ajouter — {formatPrice(totalPrice)} HT</>
                 )}
               </button>
             </div>
