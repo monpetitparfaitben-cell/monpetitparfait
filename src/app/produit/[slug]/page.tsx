@@ -214,9 +214,13 @@ export default function ProductPage({ params }: PageProps) {
               {product.category === "kits" && "Kit"}{product.category === "ouate" && "100% Ouate"}{product.category === "consommables" && "Consommable"}
             </p>
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#18223b" }}>
+            <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: "#18223b" }}>
               {product.name}
             </h1>
+
+            <p className="text-xs mb-4 opacity-40 font-mono tracking-wide" style={{ color: "#18223b" }}>
+              Réf. {selectedVariant.sku}
+            </p>
 
             {/* Description partie 1 (composition / contenu) */}
             <div className="mb-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
