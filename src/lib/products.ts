@@ -903,10 +903,11 @@ export function getFeaturedProducts(): Product[] {
 }
 
 export function formatPrice(cents: number): string {
-  return new Intl.NumberFormat("fr-FR", {
+  const formatted = new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: "EUR",
   }).format(cents / 100);
+  return `${formatted} HT`;
 }
 
 export function formatUnitPrice(totalCents: number, quantity: number): string {

@@ -276,7 +276,7 @@ export default function ProductPage({ params }: PageProps) {
             {/* Prix */}
             <div className="mb-6">
               <p className="text-3xl font-bold" style={{ color: "#18223b" }}>
-                {formatPrice(resolvedPrice)} <span className="text-lg font-medium opacity-50">HT</span>
+                {formatPrice(resolvedPrice)}
               </p>
               {contract && contractPrice && contractPrice < selectedVariant.price && (
                 <p className="text-sm opacity-50 line-through mt-1">{formatPrice(selectedVariant.price)}</p>
