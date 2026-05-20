@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     category: "kits",
     subcategory: "Kit Gourmand",
     images: [
-      "/images/products/kit gourmand/Le Raffiné.jpg",
+      "/images/produits/kit-gourmand-2.jpg",
     ],
     variants: [
       { id: "kit-grm2-108", name: "108 kits", price: 13932, stock: 500, sku: "KIT-GRM2-108" },
