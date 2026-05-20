@@ -16,6 +16,7 @@ const SUBCAT_IMAGE_POSITION: Record<string, string> = {};
 // ── Lien direct vers produit (sous-catégories avec 1 seul produit) ──
 const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Kit Capsule Café": "/produit/kit-capsule-cafe",
+  "Éponge": "/boutique?category=eponge",
   "Éponge standard": "/produit/eponge-standard",
   "Éponge emballage individuel": "/produit/eponge-emballage-individuel",
 };
@@ -32,6 +33,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Tablette & Pastille": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/produits/capsule-aluminium.png",
   "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
+  "Éponge": "/images/produits/eponge-simple.png",
   "Éponge standard": "/images/produits/eponge-simple.png",
   "Éponge emballage individuel": "/images/produits/eponge-emballage.png",
 };
@@ -51,7 +53,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette & Pastille", "Capsule café", "Thé"],
+    subcategories: ["Sac poubelle", "Tablette & Pastille", "Capsule café", "Thé", "Éponge"],
   },
   {
     id: "eponge",
