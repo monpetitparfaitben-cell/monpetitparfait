@@ -361,7 +361,7 @@ export const PRODUCTS: Product[] = [
     price: 4200,
     tags: ["essuie-tout", "pli en V", "distributeur", "professionnel"],
     is_featured: false,
-    is_active: false,
+    is_active: true,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
