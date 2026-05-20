@@ -6,11 +6,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const SLIDES = [
-  { img: "/images/hero/kit-sdb.jpg",       alt: "Kit Salle de Bains" },
-  { img: "/images/hero/kit-cafe.jpg",      alt: "Kit Capsule Café" },
-  { img: "/images/hero/kit-entretien.jpg", alt: "Kit Entretien" },
-  { img: "/images/hero/hero-slide-2.png",  alt: "Slide 2" },
-  { img: "/images/hero/hero-slide-3.png",  alt: "Slide 3" },
+  { img: "/images/hero/kit-sdb.jpg",              alt: "Kit Salle de Bains" },
+  { img: "/images/produits/capsule-aluminium.png", alt: "Capsule Aluminium" },
+  { img: "/images/hero/hero-slide-3.png",          alt: "Slide 3" },
+  { img: "/images/hero/hero-slide-2.png",          alt: "Slide 2" },
 ];
 
 export default function HeroCarousel() {
