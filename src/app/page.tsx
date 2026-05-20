@@ -28,6 +28,13 @@ const kits = [
     desc: "Éponge, liquide vaisselle, sacs poubelle — prêt à déposer",
     img: "/images/hero/kit-entretien.jpg",
   },
+  {
+    href: "/boutique?subcategory=Kit+Capsule+Caf%C3%A9",
+    slug: "kit-capsule-cafe",
+    label: "Kit Capsule Café",
+    desc: "3 capsules compatibles machines standards — prêt à déposer",
+    img: "/images/hero/kit-cafe.jpg",
+  },
 ];
 
 const ouate = [
