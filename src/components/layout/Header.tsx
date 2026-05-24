@@ -15,7 +15,7 @@ const MENU_DATA = [
     label: "Kits",
     href: "/boutique?category=kits",
     subcategories: [
-      { label: "Kit Salle de Bains", href: "/boutique?subcategory=Kit+Salle+de+Bains" },
+      { label: "Kit Salle de Bain", href: "/boutique?subcategory=Kit+Salle+de+Bain" },
       { label: "Kit Gourmand",       href: "/boutique?subcategory=Kit+Gourmand" },
       { label: "Kit Entretien",      href: "/boutique?subcategory=Kit+Entretien" },
       { label: "Kit Capsule Café",   href: "/boutique?subcategory=Kit+Capsule+Caf%C3%A9" },

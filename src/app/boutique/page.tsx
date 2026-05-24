@@ -23,7 +23,7 @@ const SUBCAT_DIRECT_LINK: Record<string, string> = {
 
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
 const SUBCAT_HERO_IMAGES: Record<string, string> = {
-  "Kit Salle de Bains": "/images/hero/kit-sdb.jpg",
+  "Kit Salle de Bain": "/images/hero/kit-sdb.jpg",
   "Kit Capsule Café": "/images/hero/kit-cafe.jpg",
   "Kit Gourmand": "/images/hero/kit-welcome.jpg",
   "Kit Entretien": "/images/hero/kit-entretien.jpg",
@@ -43,7 +43,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "kits",
     label: "Kits",
-    subcategories: ["Kit Salle de Bains", "Kit Gourmand", "Kit Entretien", "Kit Capsule Café"],
+    subcategories: ["Kit Salle de Bain", "Kit Gourmand", "Kit Entretien", "Kit Capsule Café"],
   },
   {
     id: "ouate",

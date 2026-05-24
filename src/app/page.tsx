@@ -8,9 +8,9 @@ const IMG = "/images/products";
 
 const kits = [
   {
-    href: "/boutique?subcategory=Kit+Salle+de+Bains",
+    href: "/boutique?subcategory=Kit+Salle+de+Bain",
     slug: "kit-salle-de-bains",
-    label: "Kit Salle de Bains",
+    label: "Kit Salle de Bain",
     desc: "Savon 30ml, shampoing 30ml, vanity kit, savonnette — prêt à déposer",
     img: "/images/hero/kit-sdb.jpg",
   },

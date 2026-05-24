@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const SLIDES = [
-  { img: "/images/hero/kit-sdb.jpg",              alt: "Kit Salle de Bains" },
+  { img: "/images/hero/kit-sdb.jpg",              alt: "Kit Salle de Bain" },
   { img: "/images/produits/capsule-aluminium.png", alt: "Capsule Aluminium" },
   { img: "/images/hero/hero-slide-3.png",          alt: "Slide 3" },
   { img: "/images/hero/hero-slide-2.png",          alt: "Slide 2" },
