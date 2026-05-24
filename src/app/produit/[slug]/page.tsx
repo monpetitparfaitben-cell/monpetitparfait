@@ -224,7 +224,7 @@ export default function ProductPage({ params }: PageProps) {
 
             {/* Description partie 1 (composition / contenu) */}
             <div className="mb-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
-              <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
+              <p className="text-base leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
                 {descPart1}
               </p>
             </div>
