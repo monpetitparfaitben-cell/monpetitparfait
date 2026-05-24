@@ -241,7 +241,7 @@ function BoutiqueContent() {
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(165px, 200px))", gap: "12px" }}>
               {catInfo.subcategories.map((subcat) => {
                 // Premier produit de la sous-catégorie pour l'image
                 const firstProduct = PRODUCTS.find(
@@ -357,7 +357,7 @@ function BoutiqueContent() {
                 </div>
 
                 {/* Cartes sous-catégories — grille uniforme auto-fill */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 180px))", gap: "12px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(165px, 200px))", gap: "12px" }}>
                   {cat.subcategories.map((subcat) => {
                     const firstProduct = PRODUCTS.find(
                       (p) => p.is_active && p.subcategory === subcat
@@ -394,7 +394,7 @@ function BoutiqueContent() {
                             )}
                           </div>
                           <div className="p-3 flex flex-col flex-1 justify-between">
-                            <p className="font-bold text-xs leading-snug" style={{ color: "#18223b" }}>
+                            <p className="font-bold text-sm leading-snug" style={{ color: "#18223b" }}>
                               {subcat}
                             </p>
                             {lowestUnitPrice > 0 && (
