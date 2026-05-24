@@ -79,10 +79,10 @@ export default function ProductPage({ params }: PageProps) {
 
   return (
     <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+        {/* Breadcrumb — masqué sur mobile */}
         <nav
-          className="flex items-center gap-2 text-sm mb-8 opacity-60"
+          className="hidden sm:flex items-center gap-2 text-sm mb-6 opacity-60"
           style={{ color: "#18223b" }}
         >
           <Link href="/" className="hover:opacity-100">Accueil</Link>
@@ -92,7 +92,7 @@ export default function ProductPage({ params }: PageProps) {
           <span className="opacity-100 font-medium">{product.name}</span>
         </nav>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-6">
           <BackButton
             href={product.subcategory ? `/boutique?subcategory=${encodeURIComponent(product.subcategory)}` : "/boutique"}
             label={product.subcategory ?? "Retour à la boutique"}
@@ -100,7 +100,7 @@ export default function ProductPage({ params }: PageProps) {
         </div>
 
         {/* Product section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-8 sm:mb-16">
           {/* Image */}
           <div>
             {/* Thumbnails en haut */}
@@ -248,7 +248,7 @@ export default function ProductPage({ params }: PageProps) {
               <p className="text-sm font-semibold mb-3" style={{ color: "#18223b" }}>
                 Choisir la quantité :
               </p>
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                 {(() => {
                   // Prix unitaire de la 1ère variante = référence pour le prix barré
                   const firstVariant = product.variants[0];
@@ -344,7 +344,7 @@ export default function ProductPage({ params }: PageProps) {
                 {added ? (
                   <><Check size={18} /> Ajouté !</>
                 ) : (
-                  <><ShoppingCart size={18} /> Ajouter — {formatPrice(totalPrice)} HT</>
+                  <><ShoppingCart size={18} /><span className="hidden sm:inline">Ajouter — {formatPrice(totalPrice)} HT</span><span className="sm:hidden">Ajouter au panier</span></>
                 )}
               </button>
             </div>

@@ -97,7 +97,7 @@ export default function Header() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between" style={{ height: "110px", paddingTop: "12px", paddingBottom: "12px" }}>
+          <div className="flex items-center justify-between h-[65px] md:h-[110px] py-2 md:py-3">
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
@@ -106,7 +106,7 @@ export default function Header() {
                 alt="Mon Petit Parfait"
                 width={140}
                 height={86}
-                className="object-contain"
+                className="object-contain w-24 h-auto md:w-36"
                 priority
               />
             </Link>

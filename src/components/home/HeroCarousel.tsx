@@ -62,7 +62,7 @@ export default function HeroCarousel() {
           <div className="lg:col-span-2 flex flex-col justify-center py-16">
             <h1
               className="font-extrabold leading-tight mb-8"
-              style={{ color: "#18223b", fontSize: "clamp(2.8rem, 6vw, 4.5rem)" }}
+              style={{ color: "#18223b", fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
             >
               L&apos;Essentiel<br />au Quotidien.
             </h1>
