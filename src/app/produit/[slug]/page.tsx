@@ -232,7 +232,7 @@ export default function ProductPage({ params }: PageProps) {
                   <p key={i} className={line.startsWith("•") ? "my-0.5" : ""}>
                     {line.startsWith("•") ? (
                       <>
-                        <span style={{ fontSize: "1.15em", fontWeight: 600 }}>•</span>
+                        <span style={{ fontSize: "1.5em", fontWeight: 700, lineHeight: 1 }}>•</span>
                         {line.slice(1)}
                       </>
                     ) : (
