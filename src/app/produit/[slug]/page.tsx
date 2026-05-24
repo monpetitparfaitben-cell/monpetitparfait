@@ -94,8 +94,8 @@ export default function ProductPage({ params }: PageProps) {
 
         <div className="mb-8">
           <BackButton
-            href={`/boutique?subcategory=${encodeURIComponent(product.subcategory)}`}
-            label={product.subcategory}
+            href={product.subcategory ? `/boutique?subcategory=${encodeURIComponent(product.subcategory)}` : "/boutique"}
+            label={product.subcategory ?? "Retour à la boutique"}
           />
         </div>
 
