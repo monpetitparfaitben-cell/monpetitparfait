@@ -74,7 +74,7 @@ export default function PanierPage() {
               return (
                 <div
                   key={`${item.product.id}-${item.variant.id}`}
-                  className="flex gap-4 p-6 rounded-2xl"
+                  className="flex gap-3 sm:gap-4 p-4 sm:p-6 rounded-2xl"
                   style={{ backgroundColor: "white" }}
                 >
                   {/* Image */}

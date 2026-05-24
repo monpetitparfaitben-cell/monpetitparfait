@@ -61,7 +61,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl p-8" style={{ backgroundColor: "white" }}>
+        <div className="rounded-2xl p-5 sm:p-8" style={{ backgroundColor: "white" }}>
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div>

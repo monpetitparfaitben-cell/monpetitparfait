@@ -226,7 +226,7 @@ function BoutiqueContent() {
     if (catInfo) {
       return (
         <div style={{ backgroundColor: "#F7F5F0", minHeight: "100vh" }}>
-          <div className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
+          <div className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
             <div className="max-w-7xl mx-auto">
               <div className="mb-3">
                 <BackButton href="/boutique" label="Retour à la boutique" />
@@ -241,7 +241,7 @@ function BoutiqueContent() {
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(165px, 200px))", gap: "12px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 200px))", gap: "12px" }}>
               {catInfo.subcategories.map((subcat) => {
                 // Premier produit de la sous-catégorie pour l'image
                 const firstProduct = PRODUCTS.find(
@@ -357,7 +357,7 @@ function BoutiqueContent() {
                 </div>
 
                 {/* Cartes sous-catégories — grille uniforme auto-fill */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(165px, 200px))", gap: "12px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 200px))", gap: "12px" }}>
                   {cat.subcategories.map((subcat) => {
                     const firstProduct = PRODUCTS.find(
                       (p) => p.is_active && p.subcategory === subcat

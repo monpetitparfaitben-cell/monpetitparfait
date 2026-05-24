@@ -155,7 +155,7 @@ export default function ComptePage() {
       <div className="max-w-3xl mx-auto space-y-6">
         <BackButton href="/" label="Retour à l'accueil" />
         {/* Header compte */}
-        <div className="rounded-2xl p-6 flex items-center justify-between" style={{ backgroundColor: "#18223b" }}>
+        <div className="rounded-2xl p-5 sm:p-6 flex items-center justify-between flex-wrap gap-3" style={{ backgroundColor: "#18223b" }}>
           <div className="flex items-center gap-4">
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white"

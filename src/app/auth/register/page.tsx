@@ -171,7 +171,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16" style={{ backgroundColor: "#F7F5F0" }}>
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 sm:py-16" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="w-full max-w-2xl">
         <BackButton href="/" />
         <div className="text-center mb-8">
@@ -188,7 +188,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl p-8" style={{ backgroundColor: "white" }}>
+        <div className="rounded-2xl p-5 sm:p-8" style={{ backgroundColor: "white" }}>
           <form onSubmit={handleSubmit} className="space-y-6">
 
             {/* Section identité */}

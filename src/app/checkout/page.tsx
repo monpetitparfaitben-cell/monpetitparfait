@@ -126,7 +126,7 @@ export default function CheckoutPage() {
             {/* Formulaire */}
             <div className="lg:col-span-2 space-y-6">
               {/* Coordonnées */}
-              <div className="rounded-2xl p-6" style={{ backgroundColor: "white" }}>
+              <div className="rounded-2xl p-4 sm:p-6" style={{ backgroundColor: "white" }}>
                 <div className="flex items-center gap-2 mb-5">
                   <User size={18} style={{ color: "#e67e22" }} />
                   <h2 className="font-bold" style={{ color: "#18223b" }}>Vos coordonnées</h2>
@@ -170,7 +170,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Adresse */}
-              <div className="rounded-2xl p-6" style={{ backgroundColor: "white" }}>
+              <div className="rounded-2xl p-4 sm:p-6" style={{ backgroundColor: "white" }}>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-2">
                     <Truck size={18} style={{ color: "#e67e22" }} />
