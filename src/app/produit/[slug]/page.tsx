@@ -235,42 +235,57 @@ export default function ProductPage({ params }: PageProps) {
                 Choisir la quantité :
               </p>
               <div className="flex flex-row gap-3">
-                {product.variants.map((variant) => {
-                  const vContractPrice = getContractPrice(variant.id);
-                  const vPrice = vContractPrice ?? variant.price;
-                  const isSelected = selectedVariant.id === variant.id;
-                  const qty = parseInt(variant.name) || 1;
-                  const unitPriceCents = Math.round(vPrice / qty);
+                {(() => {
+                  // Prix unitaire de la 1ère variante = référence pour le prix barré
+                  const firstVariant = product.variants[0];
+                  const firstQty = parseInt(firstVariant.name) || 1;
+                  const firstContractPrice = getContractPrice(firstVariant.id);
+                  const firstUnitPrice = Math.round((firstContractPrice ?? firstVariant.price) / firstQty);
 
-                  return (
-                    <button
-                      key={variant.id}
-                      onClick={() => setSelectedVariant(variant)}
-                      className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left flex-1"
-                      style={{
-                        backgroundColor: isSelected ? "#18223b" : "white",
-                        color: isSelected ? "white" : "#18223b",
-                        border: `2px solid ${isSelected ? "#18223b" : "#ede9e0"}`,
-                      }}
-                    >
-                      <span className="block font-bold text-base">
-                        {formatPrice(unitPriceCents)} × {variant.name}
-                        {vContractPrice && vContractPrice < variant.price && " 🤝"}
-                      </span>
-                      <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.65 : 0.45 }}>
-                        {formatPrice(vPrice)} HT
-                      </span>
+                  return product.variants.map((variant) => {
+                    const vContractPrice = getContractPrice(variant.id);
+                    const vPrice = vContractPrice ?? variant.price;
+                    const isSelected = selectedVariant.id === variant.id;
+                    const qty = parseInt(variant.name) || 1;
+                    const unitPriceCents = Math.round(vPrice / qty);
+                    const isFirst = variant.id === firstVariant.id;
+                    const showStrikethrough = !isFirst && unitPriceCents < firstUnitPrice;
 
-                      {isSelected && (
-                        <Check
-                          size={12}
-                          className="absolute top-2 right-2 text-white rounded-full p-0.5"
-                          style={{ backgroundColor: "#e67e22" }}
-                        />
-                      )}
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={variant.id}
+                        onClick={() => setSelectedVariant(variant)}
+                        className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left flex-1"
+                        style={{
+                          backgroundColor: isSelected ? "#18223b" : "white",
+                          color: isSelected ? "white" : "#18223b",
+                          border: `2px solid ${isSelected ? "#18223b" : "#ede9e0"}`,
+                        }}
+                      >
+                        <span className="block font-bold text-base">
+                          {showStrikethrough && (
+                            <span className="line-through mr-1" style={{ opacity: 0.4, fontSize: "0.8em" }}>
+                              {formatPrice(firstUnitPrice)}
+                            </span>
+                          )}
+                          {formatPrice(unitPriceCents)} × {variant.name}
+                          {vContractPrice && vContractPrice < variant.price && " 🤝"}
+                        </span>
+                        <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.65 : 0.45 }}>
+                          {formatPrice(vPrice)} HT
+                        </span>
+
+                        {isSelected && (
+                          <Check
+                            size={12}
+                            className="absolute top-2 right-2 text-white rounded-full p-0.5"
+                            style={{ backgroundColor: "#e67e22" }}
+                          />
+                        )}
+                      </button>
+                    );
+                  });
+                })()}
               </div>
             </div>
 
