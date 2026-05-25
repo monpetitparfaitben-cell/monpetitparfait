@@ -234,7 +234,11 @@ export default function ProductPage({ params }: PageProps) {
                     {line.startsWith("•") ? (
                       <>
                         <span style={{ fontSize: "1.5em", fontWeight: 700, lineHeight: 1 }}>•</span>
-                        {line.slice(1)}
+                        {line.slice(1).split(/\*\*/).map((part, idx) =>
+                          idx % 2 === 1
+                            ? <strong key={idx}>{part}</strong>
+                            : <span key={idx}>{part}</span>
+                        )}
                       </>
                     ) : (
                       line || <br />
