@@ -54,7 +54,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablette & Pastille", "Capsule café", "Thé", "Éponge"],
+    subcategories: ["Sac poubelle", "Tablette & Pastille", "Capsule café", "Éponge"],
   },
   {
     id: "eponge",

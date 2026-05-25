@@ -46,7 +46,6 @@ const consommables = [
   { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle-hero.jpeg" },
   { href: "/boutique?subcategory=Tablette+%26+Pastille", slug: "tablette-lave-vaisselle", label: "Tablettes & Pastilles", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/produit/capsule-cafe-aluminium", slug: "capsule-cafe-aluminium", label: "Capsules café", img: "/images/produits/capsule.jpg" },
-  { href: "/boutique?subcategory=Th%C3%A9", slug: "selection-thes", label: "Thé", img: "/images/produits/PHOTO-2026-02-03-14-59-07.jpg" },
   { href: "/boutique?category=eponge", slug: "eponge-standard", label: "Éponge", img: "/images/produits/eponge-simple.png" },
 ];
 

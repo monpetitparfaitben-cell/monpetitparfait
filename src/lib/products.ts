@@ -879,7 +879,7 @@ export const PRODUCTS: Product[] = [
     price: 2000,
     tags: ["thé", "boisson", "accueil"],
     is_featured: false,
-    is_active: true,
+    is_active: false,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
