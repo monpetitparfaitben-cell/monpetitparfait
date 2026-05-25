@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Truck, Shield } from "lucide-react";
 import { PRODUCTS, formatPrice } from "@/lib/products";
 import HeroCarousel from "@/components/home/HeroCarousel";
 
@@ -222,11 +222,13 @@ export default function HomePage() {
               <h3 className="text-base font-bold text-white mb-5">Livraison et service</h3>
               <ul className="space-y-4">
                 {[
-                  { bold: "Livraison offerte", rest: " sans minimum d'achat*." },
-                  { bold: "Paiement sécurisé", rest: " et processus simple." },
+                  { icon: <Truck size={16} />, bold: "Livraison offerte", rest: " sans minimum d'achat*." },
+                  { icon: <Shield size={16} />, bold: "Paiement sécurisé", rest: " et processus simple." },
                 ].map((item) => (
-                  <li key={item.bold} className="flex items-start gap-3 text-sm leading-relaxed text-white">
-                    <span className="flex-shrink-0 font-bold leading-none mt-0.5" style={{ color: "#e67e22" }}>•</span>
+                  <li key={item.bold} className="flex items-center gap-3 text-sm leading-relaxed text-white">
+                    <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ backgroundColor: "#e67e22", width: 32, height: 32 }}>
+                      {item.icon}
+                    </span>
                     <span><strong className="text-white">{item.bold}</strong>{item.rest}</span>
                   </li>
                 ))}
