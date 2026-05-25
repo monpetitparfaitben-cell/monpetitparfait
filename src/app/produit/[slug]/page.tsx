@@ -289,7 +289,7 @@ export default function ProductPage({ params }: PageProps) {
                             className="text-xs font-semibold uppercase tracking-wider"
                             style={{ color: isSelected ? "rgba(255,255,255,0.5)" : "rgba(24,34,59,0.4)" }}
                           >
-                            unités
+                            pcs
                           </span>
                           {vContractPrice && vContractPrice < variant.price && (
                             <span className="text-sm">🤝</span>
