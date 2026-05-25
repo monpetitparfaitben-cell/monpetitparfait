@@ -145,8 +145,8 @@ function BoutiqueContent() {
           <div className="max-w-7xl mx-auto">
             <div className="mb-3">
               <BackButton
-                href={parentCat ? `/boutique?category=${parentCat.id}` : "/boutique"}
-                label={parentCat ? `Retour à ${parentCat.label}` : "Retour à la boutique"}
+                href="/boutique"
+                label="Retour à la boutique"
               />
             </div>
             {/* Breadcrumb */}
