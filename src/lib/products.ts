@@ -274,7 +274,7 @@ export const PRODUCTS: Product[] = [
     slug: "essuie-tout-gamme-1",
     name: "Essuie-tout — Gamme 1",
     description:
-      "PAMP x4 — Qualité domestique, 2 plis, 39 g, 220 mm x 210 mm. Un essuie-tout solide et absorbant pour la cuisine et la salle de bain. Livré par lot prêt à l'emploi.",
+      "L'essuie-tout PP x4 est conçu pour répondre efficacement aux besoins du quotidien grâce à sa texture 2 plis alliant résistance et pouvoir absorbant. Pratique et polyvalent, il convient aussi bien à un usage domestique qu'aux espaces professionnels nécessitant un nettoyage rapide et efficace.\n\nAvec son format de 220 mm x 210 mm et sa qualité de fabrication soignée, il permet d'absorber facilement liquides, éclaboussures et salissures tout en offrant une bonne tenue à l'utilisation.",
     short_description: "PAMP x4 — Qualité domestique, 2 plis, 39 g, 220 mm x 210 mm",
     category: "ouate",
     subcategory: "Essuie-tout",
@@ -300,7 +300,7 @@ export const PRODUCTS: Product[] = [
     slug: "essuie-tout-gamme-2",
     name: "Essuie-tout — Gamme 2",
     description:
-      "Essuie-main bobine — 2 plis, 200 m. La bobine professionnelle pour un usage intensif. Idéale pour les cuisines et salles de bain à fort passage. Économique et pratique.",
+      "Conçue pour les environnements exigeants, cette bobine d'essuie-main 2 plis offre une solution fiable et économique pour un usage professionnel intensif. Grâce à sa grande longueur de 200 mètres, elle garantit une excellente autonomie et réduit la fréquence de remplacement dans les espaces à forte utilisation.\n\nAvec son grammage de 400 g, elle assure une bonne résistance ainsi qu'un pouvoir absorbant efficace pour le séchage des mains et le nettoyage rapide des surfaces. Idéale pour les ateliers, cuisines professionnelles, collectivités, sanitaires ou espaces industriels.",
     short_description: "Essuie-main bobine — 2 plis, 200 m",
     category: "ouate",
     subcategory: "Essuie-tout",
@@ -323,7 +323,7 @@ export const PRODUCTS: Product[] = [
     slug: "essuie-tout-gamme-3",
     name: "Essuie-tout — Gamme 3",
     description:
-      "Bobine individuelle à dévidage central — 200 m. Format compact, distributeur propre, zéro gaspillage. Idéale pour les espaces professionnels.",
+      "Cette bobine individuelle à dévidage central est conçue pour offrir une distribution rapide et efficace dans les environnements professionnels à forte fréquentation. Son système de dévidage central facilite l'utilisation tout en améliorant l'hygiène et la praticité au quotidien.\n\nAvec une longueur de 200 mètres, un grammage de 410 g et une conception 2 plis, elle garantit une excellente capacité d'absorption ainsi qu'une bonne résistance à l'usage. Composée de 280 feuilles, elle convient parfaitement aux cuisines professionnelles, ateliers, sanitaires, collectivités et espaces nécessitant un essuyage fréquent.",
     short_description: "Bobine individuelle à dévidage central — 200 m",
     category: "ouate",
     subcategory: "Essuie-tout",
@@ -361,7 +361,7 @@ export const PRODUCTS: Product[] = [
     price: 4200,
     tags: ["essuie-tout", "pli en V", "distributeur", "professionnel"],
     is_featured: false,
-    is_active: true,
+    is_active: false,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
