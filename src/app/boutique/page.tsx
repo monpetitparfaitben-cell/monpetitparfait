@@ -19,7 +19,6 @@ const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Capsule café": "/produit/capsule-cafe-aluminium",
   "Éponge": "/boutique?category=eponge",
   "Éponge standard": "/produit/eponge-standard",
-  "Éponge emballage individuel": "/produit/eponge-emballage-individuel",
 };
 
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
@@ -59,7 +58,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "eponge",
     label: "Éponge",
-    subcategories: ["Éponge standard", "Éponge emballage individuel"],
+    subcategories: ["Éponge standard"],
     hidden: true, // Accessible via /boutique?category=eponge mais pas affiché dans la vue générale
   },
 ];
