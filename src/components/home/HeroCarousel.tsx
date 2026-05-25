@@ -26,13 +26,13 @@ export default function HeroCarousel() {
     setTimeout(() => {
       setPrev(null);
       setFading(false);
-    }, 700);
+    }, 600);
   }, [fading, current]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       goTo((current + 1) % SLIDES.length);
-    }, 5000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [current, goTo]);
 
@@ -53,16 +53,6 @@ export default function HeroCarousel() {
       className="relative overflow-hidden"
       style={{ backgroundColor: "#F7F5F0", minHeight: "85vh" }}
     >
-      <style>{`
-        @keyframes kenBurns {
-          from { transform: scale(1.0); }
-          to   { transform: scale(1.08); }
-        }
-        @keyframes fadeInSlide {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div
           className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-stretch"
@@ -113,36 +103,23 @@ export default function HeroCarousel() {
               className="relative overflow-hidden w-full"
               style={{ borderRadius: "32px", aspectRatio: "16 / 10" }}
             >
-              {/* Image précédente (fond, disparaît) */}
-              {prev !== null && (
+              {/* Toutes les images empilées, fondu entre elles */}
+              {SLIDES.map((slide, i) => (
                 <Image
-                  key={`prev-${prev}`}
-                  src={SLIDES[prev].img}
-                  alt={SLIDES[prev].alt}
+                  key={slide.img}
+                  src={slide.img}
+                  alt={slide.alt}
                   fill
                   className="object-cover"
                   sizes="60vw"
+                  priority={i === 0}
                   style={{
-                    opacity: fading ? 0 : 1,
-                    transition: "opacity 700ms ease",
-                    transformOrigin: "center center",
+                    opacity: i === current ? 1 : 0,
+                    transition: "opacity 600ms ease-in-out",
+                    zIndex: i === current ? 1 : 0,
                   }}
                 />
-              )}
-              {/* Image courante (Ken Burns + fade in) */}
-              <Image
-                key={`curr-${current}`}
-                src={SLIDES[current].img}
-                alt={SLIDES[current].alt}
-                fill
-                className="object-cover"
-                sizes="60vw"
-                priority
-                style={{
-                  animation: "kenBurns 6s ease-out forwards, fadeInSlide 700ms ease forwards",
-                  transformOrigin: "center center",
-                }}
-              />
+              ))}
             </div>
           </div>
 
@@ -156,34 +133,22 @@ export default function HeroCarousel() {
               className="relative overflow-hidden w-full"
               style={{ borderRadius: "24px", aspectRatio: "4 / 3" }}
             >
-              {prev !== null && (
+              {SLIDES.map((slide, i) => (
                 <Image
-                  key={`mob-prev-${prev}`}
-                  src={SLIDES[prev].img}
-                  alt={SLIDES[prev].alt}
+                  key={slide.img}
+                  src={slide.img}
+                  alt={slide.alt}
                   fill
                   className="object-cover"
                   sizes="100vw"
+                  priority={i === 0}
                   style={{
-                    opacity: fading ? 0 : 1,
-                    transition: "opacity 700ms ease",
-                    transformOrigin: "center center",
+                    opacity: i === current ? 1 : 0,
+                    transition: "opacity 600ms ease-in-out",
+                    zIndex: i === current ? 1 : 0,
                   }}
                 />
-              )}
-              <Image
-                key={`mob-curr-${current}`}
-                src={SLIDES[current].img}
-                alt={SLIDES[current].alt}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-                style={{
-                  animation: "kenBurns 6s ease-out forwards, fadeInSlide 700ms ease forwards",
-                  transformOrigin: "center center",
-                }}
-              />
+              ))}
             </div>
           </div>
 
