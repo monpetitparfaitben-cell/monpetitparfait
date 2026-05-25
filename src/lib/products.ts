@@ -770,7 +770,6 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Capsule café",
     images: [
-      "/images/produits/capsule-aluminium.png",
       "/images/produits/capsule.jpg",
     ],
     variants: [
