@@ -304,9 +304,6 @@ function BoutiqueContent() {
       {/* Header */}
       <div className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F7F5F0" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="mb-4">
-            <BackButton href="/" label="Retour à l'accueil" />
-          </div>
           <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: "#18223b", opacity: 0.4 }}>
             Notre sélection
           </p>
