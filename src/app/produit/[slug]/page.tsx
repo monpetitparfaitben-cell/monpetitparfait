@@ -249,9 +249,8 @@ export default function ProductPage({ params }: PageProps) {
               <p className="text-sm font-semibold mb-3" style={{ color: "#18223b" }}>
                 Choisir la quantité :
               </p>
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+              <div className="flex flex-col gap-2">
                 {(() => {
-                  // Prix unitaire de la 1ère variante = référence pour le prix barré
                   const firstVariant = product.variants[0];
                   const firstQty = parseInt(firstVariant.name) || 1;
                   const firstContractPrice = getContractPrice(firstVariant.id);
@@ -264,34 +263,92 @@ export default function ProductPage({ params }: PageProps) {
                     const qty = parseInt(variant.name) || 1;
                     const unitPriceCents = Math.round(vPrice / qty);
                     const isFirst = variant.id === firstVariant.id;
-                    const showStrikethrough = !isFirst && unitPriceCents < firstUnitPrice;
+                    const discount = !isFirst && unitPriceCents < firstUnitPrice
+                      ? Math.round((1 - unitPriceCents / firstUnitPrice) * 100)
+                      : null;
 
                     return (
                       <button
                         key={variant.id}
                         onClick={() => setSelectedVariant(variant)}
-                        className="relative px-4 py-3 rounded-xl text-sm transition-all duration-200 text-left flex-1"
+                        className="relative w-full flex items-center justify-between px-5 py-4 rounded-2xl transition-all duration-200 text-left"
                         style={{
                           backgroundColor: isSelected ? "#18223b" : "white",
-                          color: isSelected ? "white" : "#18223b",
                           border: `2px solid ${isSelected ? "#18223b" : "#ede9e0"}`,
                         }}
                       >
-                        <span className="block font-bold text-base">
-                          {showStrikethrough && (
-                            <span className="line-through mr-1" style={{ opacity: 0.4, fontSize: "0.8em" }}>
-                              {formatPrice(firstUnitPrice)}
-                            </span>
+                        {/* Gauche : quantité */}
+                        <div className="flex items-baseline gap-2">
+                          <span
+                            className="text-2xl font-extrabold leading-none"
+                            style={{ color: isSelected ? "white" : "#18223b" }}
+                          >
+                            {variant.name}
+                          </span>
+                          <span
+                            className="text-xs font-semibold uppercase tracking-wider"
+                            style={{ color: isSelected ? "rgba(255,255,255,0.5)" : "rgba(24,34,59,0.4)" }}
+                          >
+                            unités
+                          </span>
+                          {vContractPrice && vContractPrice < variant.price && (
+                            <span className="text-sm">🤝</span>
                           )}
-                          {formatPrice(unitPriceCents)} × {variant.name}
-                          {vContractPrice && vContractPrice < variant.price && " 🤝"}
-                        </span>
+                        </div>
+
+                        {/* Droite : prix + réduction */}
+                        <div className="flex items-center gap-3">
+                          {discount && (
+                            <div className="flex flex-col items-center">
+                              <span
+                                className="text-xs line-through"
+                                style={{ color: isSelected ? "rgba(255,255,255,0.4)" : "rgba(24,34,59,0.35)" }}
+                              >
+                                {formatPrice(firstUnitPrice)}
+                              </span>
+                              <span
+                                className="text-xs font-bold px-2 py-0.5 rounded-full"
+                                style={{
+                                  backgroundColor: isSelected ? "rgba(230,126,34,0.25)" : "#fff3e8",
+                                  color: "#e67e22",
+                                }}
+                              >
+                                − {discount} %
+                              </span>
+                            </div>
+                          )}
+                          <div className="text-right">
+                            <div className="flex items-start leading-none">
+                              <span
+                                className="text-xs font-semibold mt-0.5 mr-0.5"
+                                style={{ color: isSelected ? "rgba(255,255,255,0.7)" : "rgba(24,34,59,0.5)" }}
+                              >
+                                €
+                              </span>
+                              <span
+                                className="text-2xl font-extrabold"
+                                style={{ color: isSelected ? "white" : "#18223b" }}
+                              >
+                                {(unitPriceCents / 100).toFixed(2).replace(".", ",")}
+                              </span>
+                            </div>
+                            <p
+                              className="text-xs uppercase tracking-wide"
+                              style={{ color: isSelected ? "rgba(255,255,255,0.5)" : "rgba(24,34,59,0.4)" }}
+                            >
+                              / unité HT
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Check sélectionné */}
                         {isSelected && (
-                          <Check
-                            size={12}
-                            className="absolute top-2 right-2 text-white rounded-full p-0.5"
+                          <span
+                            className="absolute top-2 right-2 w-4 h-4 rounded-full flex items-center justify-center"
                             style={{ backgroundColor: "#e67e22" }}
-                          />
+                          >
+                            <Check size={9} className="text-white" />
+                          </span>
                         )}
                       </button>
                     );
