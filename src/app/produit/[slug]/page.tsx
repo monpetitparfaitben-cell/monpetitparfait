@@ -413,7 +413,7 @@ export default function ProductPage({ params }: PageProps) {
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e67e22" }}>
                   <Shield size={14} className="text-white" />
                 </div>
-                <span><strong>Paiement sécurisé</strong> — CB, Visa, Mastercard</span>
+                <span><strong>Paiement 100% sécurisé</strong> — CB, Visa, Mastercard</span>
               </div>
               <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e67e22" }}>
