@@ -218,21 +218,18 @@ function BoutiqueContent() {
           )}
 
           {/* Livraison & Paiement */}
-          <div className="mt-12 rounded-2xl p-6" style={{ backgroundColor: "#18223b" }}>
-            <h3 className="text-base font-bold text-white mb-4">Livraison et service</h3>
-            <ul className="space-y-4">
-              {[
-                { icon: <Truck size={16} />, bold: "Livraison offerte", rest: " sans minimum d'achat*." },
-                { icon: <Shield size={16} />, bold: "Paiement sécurisé", rest: " et processus simple." },
-              ].map((item) => (
-                <li key={item.bold} className="flex items-center gap-3 text-sm leading-relaxed text-white">
-                  <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ backgroundColor: "#e67e22", width: 32, height: 32 }}>
-                    {item.icon}
-                  </span>
-                  <span><strong className="text-white">{item.bold}</strong>{item.rest}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-10 rounded-2xl px-6 py-4 flex flex-wrap items-center gap-6" style={{ backgroundColor: "#18223b" }}>
+            {[
+              { icon: <Truck size={15} />, bold: "Livraison offerte", rest: " sans minimum d'achat*." },
+              { icon: <Shield size={15} />, bold: "Paiement sécurisé", rest: " et processus simple." },
+            ].map((item) => (
+              <div key={item.bold} className="flex items-center gap-3 text-sm text-white">
+                <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ backgroundColor: "#e67e22", width: 30, height: 30 }}>
+                  {item.icon}
+                </span>
+                <span><strong className="text-white">{item.bold}</strong>{item.rest}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
