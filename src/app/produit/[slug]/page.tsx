@@ -283,7 +283,7 @@ export default function ProductPage({ params }: PageProps) {
                             className="text-2xl font-extrabold leading-none"
                             style={{ color: isSelected ? "white" : "#18223b" }}
                           >
-                            {variant.name}
+                            {qty}
                           </span>
                           <span
                             className="text-xs font-semibold uppercase tracking-wider"
