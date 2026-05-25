@@ -32,7 +32,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Papier toilette": "/images/hero/papier-toilette-hero.jpg",
   "Sac poubelle": "/images/produits/sac-poubelle-hero.jpeg",
   "Tablette & Pastille": "/images/produits/tablette-lave-vaisselle.jpg",
-  "Capsule café": "/images/produits/capsule-aluminium.png",
+  "Capsule café": "/images/produits/capsule.jpg",
   "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
   "Éponge": "/images/produits/eponge-simple.png",
   "Éponge standard": "/images/produits/eponge-simple.png",
