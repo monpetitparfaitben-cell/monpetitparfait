@@ -376,7 +376,7 @@ export const PRODUCTS: Product[] = [
     name: "Papier toilette — Gamme 1",
 
     description:
-      "|||Offrez à vos espaces sanitaires une solution fiable et agréable avec le papier toilette JL+ 2 plis. Conçu pour un usage régulier, il associe douceur, résistance et praticité afin de répondre aux besoins des professionnels comme des collectivités.\n\nGrâce à son format économique de 120 mm x 87 m et sa conception de qualité, il convient parfaitement aux établissements accueillant du public, aux bureaux, hôtels, restaurants ou espaces communs recherchant confort et performance au quotidien.",
+      "Offrez à vos espaces sanitaires une solution fiable et agréable avec le papier toilette JL+ 2 plis. Conçu pour un usage régulier, il associe douceur, résistance et praticité afin de répondre aux besoins des professionnels comme des collectivités.\n\nGrâce à son format économique de 120 mm x 87 m et sa conception de qualité, il convient parfaitement aux établissements accueillant du public, aux bureaux, hôtels, restaurants ou espaces communs recherchant confort et performance au quotidien.",
     short_description: "Papier toilette JL+ — 2 plis, 120 mm x 87 m, 11,4 m/rouleau",
     category: "ouate",
     subcategory: "Papier toilette",
@@ -402,7 +402,7 @@ export const PRODUCTS: Product[] = [
     slug: "papier-toilette-gamme-2",
     name: "Papier toilette — Gamme 2",
     description:
-      "|||Le papier toilette S24 2 plis a été conçu pour les environnements à forte fréquentation nécessitant une solution pratique et durable. Avec son rouleau longue durée de 120 mm x 87 m et ses 13,4 mètres par rouleau, il permet de limiter les remplacements fréquents et d'optimiser la gestion des consommables.\n\nÀ la fois doux et résistant, il convient parfaitement aux hébergements touristiques, locations saisonnières, hôtels, bureaux ou établissements recevant un grand nombre d'utilisateurs au quotidien.",
+      "Le papier toilette S24 2 plis a été conçu pour les environnements à forte fréquentation nécessitant une solution pratique et durable. Avec son rouleau longue durée de 120 mm x 87 m et ses 13,4 mètres par rouleau, il permet de limiter les remplacements fréquents et d'optimiser la gestion des consommables.\n\nÀ la fois doux et résistant, il convient parfaitement aux hébergements touristiques, locations saisonnières, hôtels, bureaux ou établissements recevant un grand nombre d'utilisateurs au quotidien.",
     short_description: "Papier toilette S24 — 2 plis, 120 mm x 87 m, 13,4 m/rouleau",
     category: "ouate",
     subcategory: "Papier toilette",
@@ -428,7 +428,7 @@ export const PRODUCTS: Product[] = [
     slug: "papier-toilette-gamme-3",
     name: "Papier toilette — Gamme 3",
     description:
-      "|||Le papier toilette XXL+ 2 plis est spécialement conçu pour les établissements nécessitant une grande autonomie et une gestion simplifiée des consommables. Avec ses rouleaux de 30 mètres, il réduit considérablement la fréquence de remplacement tout en garantissant confort et résistance au quotidien.\n\nIdéal pour les hôtels, résidences, conciergeries et structures disposant de nombreux logements, ce format économique permet d'optimiser l'entretien des sanitaires tout en assurant une expérience agréable aux utilisateurs.",
+      "Le papier toilette XXL+ 2 plis est spécialement conçu pour les établissements nécessitant une grande autonomie et une gestion simplifiée des consommables. Avec ses rouleaux de 30 mètres, il réduit considérablement la fréquence de remplacement tout en garantissant confort et résistance au quotidien.\n\nIdéal pour les hôtels, résidences, conciergeries et structures disposant de nombreux logements, ce format économique permet d'optimiser l'entretien des sanitaires tout en assurant une expérience agréable aux utilisateurs.",
     short_description: "Papier toilette XXL+ — 2 plis, 120 mm x 87 m, 30 m/rouleau",
     category: "ouate",
     subcategory: "Papier toilette",
@@ -451,7 +451,7 @@ export const PRODUCTS: Product[] = [
     slug: "papier-toilette-gamme-4",
     name: "Papier toilette — Gamme 4",
     description:
-      "|||Apportez une touche de confort supplémentaire à vos espaces sanitaires avec le papier toilette Aloe Vera 3 plis. Conçu pour offrir une sensation de douceur exceptionnelle, il est enrichi à l'Aloe Vera afin d'assurer une utilisation agréable et plus délicate au quotidien.\n\nAvec son format de 136 mm x 90 et ses rouleaux de 23 mètres, il convient parfaitement aux établissements souhaitant proposer une expérience plus qualitative à leurs clients, notamment les hôtels, locations haut de gamme, maisons d'hôtes ou espaces premium.",
+      "Apportez une touche de confort supplémentaire à vos espaces sanitaires avec le papier toilette Aloe Vera 3 plis. Conçu pour offrir une sensation de douceur exceptionnelle, il est enrichi à l'Aloe Vera afin d'assurer une utilisation agréable et plus délicate au quotidien.\n\nAvec son format de 136 mm x 90 et ses rouleaux de 23 mètres, il convient parfaitement aux établissements souhaitant proposer une expérience plus qualitative à leurs clients, notamment les hôtels, locations haut de gamme, maisons d'hôtes ou espaces premium.",
     short_description: "Papier toilette Aloe Vera — 3 plis, 136 mm x 90, 23 m/rouleau",
     category: "ouate",
     subcategory: "Papier toilette",
