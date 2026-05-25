@@ -355,7 +355,7 @@ export default function ProductPage({ params }: PageProps) {
                 <span><strong>Paiement sécurisé</strong> — CB, Visa, Mastercard</span>
               </div>
               <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#18223b" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e67e22" }}>
                   <Truck size={14} className="text-white" />
                 </div>
                 <span><strong>Livraison gratuite</strong> — 24-48h jours ouvrés</span>

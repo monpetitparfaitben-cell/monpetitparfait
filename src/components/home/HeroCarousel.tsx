@@ -26,7 +26,7 @@ export default function HeroCarousel() {
     setTimeout(() => {
       setPrev(null);
       setFading(false);
-    }, 500);
+    }, 700);
   }, [fading, current]);
 
   useEffect(() => {
@@ -53,6 +53,16 @@ export default function HeroCarousel() {
       className="relative overflow-hidden"
       style={{ backgroundColor: "#F7F5F0", minHeight: "85vh" }}
     >
+      <style>{`
+        @keyframes kenBurns {
+          from { transform: scale(1.0); }
+          to   { transform: scale(1.08); }
+        }
+        @keyframes fadeInSlide {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div
           className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-stretch"
@@ -112,10 +122,14 @@ export default function HeroCarousel() {
                   fill
                   className="object-cover"
                   sizes="60vw"
-                  style={{ opacity: fading ? 0 : 1, transition: "opacity 500ms ease" }}
+                  style={{
+                    opacity: fading ? 0 : 1,
+                    transition: "opacity 700ms ease",
+                    transformOrigin: "center center",
+                  }}
                 />
               )}
-              {/* Image courante (dessus, apparaît) */}
+              {/* Image courante (Ken Burns + fade in) */}
               <Image
                 key={`curr-${current}`}
                 src={SLIDES[current].img}
@@ -124,7 +138,10 @@ export default function HeroCarousel() {
                 className="object-cover"
                 sizes="60vw"
                 priority
-                style={{ opacity: fading ? 1 : 1, transition: "opacity 500ms ease" }}
+                style={{
+                  animation: "kenBurns 6s ease-out forwards, fadeInSlide 700ms ease forwards",
+                  transformOrigin: "center center",
+                }}
               />
             </div>
           </div>
@@ -147,7 +164,11 @@ export default function HeroCarousel() {
                   fill
                   className="object-cover"
                   sizes="100vw"
-                  style={{ opacity: fading ? 0 : 1, transition: "opacity 500ms ease" }}
+                  style={{
+                    opacity: fading ? 0 : 1,
+                    transition: "opacity 700ms ease",
+                    transformOrigin: "center center",
+                  }}
                 />
               )}
               <Image
@@ -158,7 +179,10 @@ export default function HeroCarousel() {
                 className="object-cover"
                 sizes="100vw"
                 priority
-                style={{ opacity: 1 }}
+                style={{
+                  animation: "kenBurns 6s ease-out forwards, fadeInSlide 700ms ease forwards",
+                  transformOrigin: "center center",
+                }}
               />
             </div>
           </div>
