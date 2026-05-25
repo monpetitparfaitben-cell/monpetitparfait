@@ -4,7 +4,7 @@ import { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, X, ChevronRight } from "lucide-react";
+import { Search, X, ChevronRight, Truck, Shield } from "lucide-react";
 import { PRODUCTS, formatPrice } from "@/lib/products";
 import { ProductCategory, CATEGORY_LABELS } from "@/types";
 import ProductCard from "@/components/store/ProductCard";
@@ -216,6 +216,24 @@ function BoutiqueContent() {
               </div>
             </div>
           )}
+
+          {/* Livraison & Paiement */}
+          <div className="mt-12 rounded-2xl p-6" style={{ backgroundColor: "#18223b" }}>
+            <h3 className="text-base font-bold text-white mb-4">Livraison et service</h3>
+            <ul className="space-y-4">
+              {[
+                { icon: <Truck size={16} />, bold: "Livraison offerte", rest: " sans minimum d'achat*." },
+                { icon: <Shield size={16} />, bold: "Paiement sécurisé", rest: " et processus simple." },
+              ].map((item) => (
+                <li key={item.bold} className="flex items-center gap-3 text-sm leading-relaxed text-white">
+                  <span className="flex-shrink-0 flex items-center justify-center rounded-full" style={{ backgroundColor: "#e67e22", width: 32, height: 32 }}>
+                    {item.icon}
+                  </span>
+                  <span><strong className="text-white">{item.bold}</strong>{item.rest}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     );

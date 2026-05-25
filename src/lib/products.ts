@@ -840,6 +840,7 @@ export const PRODUCTS: Product[] = [
     name: "Éponge avec emballage individuel",
     description: "Éponge avec emballage individuel. Hygiénique, propre à la pose, idéale pour les locations courte durée où l'hygiène est primordiale.",
     short_description: "Éponge avec emballage individuel",
+
     category: "consommables",
     subcategory: "Éponge emballage individuel",
     images: [
@@ -853,7 +854,7 @@ export const PRODUCTS: Product[] = [
     price: 3500,
     tags: ["éponges", "individuel", "hygiénique", "vaisselle"],
     is_featured: false,
-    is_active: true,
+    is_active: false,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
