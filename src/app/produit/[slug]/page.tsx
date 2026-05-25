@@ -12,6 +12,7 @@ import {
   Shield,
   Check,
   ShoppingCart,
+  Truck,
 } from "lucide-react";
 import BackButton from "@/components/ui/BackButton";
 import { getProductBySlug, formatPrice, PRODUCTS } from "@/lib/products";
@@ -348,10 +349,16 @@ export default function ProductPage({ params }: PageProps) {
             {/* Garanties */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#e67e22" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e67e22" }}>
                   <Shield size={14} className="text-white" />
                 </div>
                 <span><strong>Paiement sécurisé</strong> — CB, Visa, Mastercard</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm" style={{ color: "#18223b" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#18223b" }}>
+                  <Truck size={14} className="text-white" />
+                </div>
+                <span><strong>Livraison gratuite</strong> — 24-48h jours ouvrés</span>
               </div>
             </div>
 
