@@ -17,7 +17,7 @@ const SUBCAT_IMAGE_POSITION: Record<string, string> = {};
 const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Kit Capsule Café": "/produit/kit-capsule-cafe",
   "Capsule café": "/produit/capsule-cafe-aluminium",
-  "Éponge": "/boutique?category=eponge",
+  "Éponge": "/produit/eponge-standard",
   "Éponge standard": "/produit/eponge-standard",
 };
 
