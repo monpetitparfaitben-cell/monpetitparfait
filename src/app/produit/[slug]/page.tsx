@@ -285,10 +285,6 @@ export default function ProductPage({ params }: PageProps) {
                           {formatPrice(unitPriceCents)} × {variant.name}
                           {vContractPrice && vContractPrice < variant.price && " 🤝"}
                         </span>
-                        <span className="block text-xs mt-0.5" style={{ opacity: isSelected ? 0.65 : 0.45 }}>
-                          {formatPrice(vPrice)} HT
-                        </span>
-
                         {isSelected && (
                           <Check
                             size={12}
