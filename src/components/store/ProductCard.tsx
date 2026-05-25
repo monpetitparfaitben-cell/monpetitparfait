@@ -92,17 +92,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Prix */}
           <div className="flex items-center justify-between mt-auto">
             <div>
-              <p className="text-xs opacity-50 mb-0.5" style={{ color: "#18223b" }}>À partir de</p>
-              <div className="flex items-baseline gap-1.5">
-                <p className="font-bold text-base" style={{ color: "#18223b" }}>
-                  {formatPrice(unitPrice)}
-                </p>
+              <p className="text-xs mb-0.5" style={{ color: "#18223b" }}>
+                <span className="opacity-50">À partir de </span><strong>{formatPrice(unitPrice)}</strong>
                 {hasContractPrice && unitPrice < unitPriceBase && (
-                  <span className="text-xs line-through opacity-40" style={{ color: "#18223b" }}>
-                    {formatPrice(unitPriceBase)}
-                  </span>
+                  <span className="text-xs line-through opacity-40 ml-1.5">{formatPrice(unitPriceBase)}</span>
                 )}
-              </div>
+              </p>
               {hasContractPrice && (
                 <span className="text-xs font-semibold" style={{ color: "#e67e22" }}>
                   Votre prix contractuel

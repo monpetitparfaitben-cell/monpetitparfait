@@ -125,8 +125,8 @@ export default function HomePage() {
                       {item.label}
                     </h3>
                     {product && (
-                      <p className="text-xs font-medium" style={{ color: "#e67e22" }}>
-                        À partir de {formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}
+                      <p className="text-xs" style={{ color: "#e67e22" }}>
+                        À partir de <strong>{formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}</strong>
                       </p>
                     )}
                   </div>
@@ -165,8 +165,8 @@ export default function HomePage() {
                       {item.label}
                     </h3>
                     {product && (
-                      <p className="text-xs mt-0.5 font-medium" style={{ color: "#e67e22" }}>
-                        À partir de {formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}
+                      <p className="text-xs mt-0.5" style={{ color: "#e67e22" }}>
+                        À partir de <strong>{formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}</strong>
                       </p>
                     )}
                   </div>
