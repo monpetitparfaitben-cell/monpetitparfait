@@ -96,8 +96,8 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
           <p className="font-bold text-sm leading-snug mb-1" style={{ color: "#18223b" }}>
             {product.name}
           </p>
-          <p className="text-sm font-semibold mt-auto" style={{ color: "#e67e22" }}>
-            à partir de {formatPrice(lowestUnitPrice)}
+          <p className="text-sm mt-auto" style={{ color: "#e67e22" }}>
+            à partir de <strong>{formatPrice(lowestUnitPrice)}</strong>
           </p>
         </div>
       </div>
@@ -281,8 +281,8 @@ function BoutiqueContent() {
                       <div className="p-4">
                         <p className="font-bold text-sm" style={{ color: "#18223b" }}>{subcat}</p>
                         {lowestUnitPrice > 0 && (
-                          <p className="text-xs mt-1 font-semibold" style={{ color: "#e67e22" }}>
-                            à partir de {formatPrice(lowestUnitPrice)}
+                          <p className="text-xs mt-1" style={{ color: "#e67e22" }}>
+                            à partir de <strong>{formatPrice(lowestUnitPrice)}</strong>
                           </p>
                         )}
                       </div>
@@ -398,8 +398,8 @@ function BoutiqueContent() {
                               {subcat}
                             </p>
                             {lowestUnitPrice > 0 && (
-                              <p className="text-xs mt-0.5 font-semibold" style={{ color: "#e67e22" }}>
-                                À partir de {formatPrice(lowestUnitPrice)}
+                              <p className="text-xs mt-0.5" style={{ color: "#e67e22" }}>
+                                À partir de <strong>{formatPrice(lowestUnitPrice)}</strong>
                               </p>
                             )}
                           </div>
