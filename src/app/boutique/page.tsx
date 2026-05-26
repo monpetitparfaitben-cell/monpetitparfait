@@ -132,6 +132,9 @@ function BoutiqueContent() {
     const products = PRODUCTS.filter(
       (p) => p.is_active && p.subcategory === subcatParam
     );
+    const comingSoonProducts = PRODUCTS.filter(
+      (p) => p.coming_soon && p.subcategory === subcatParam
+    );
 
     // Trouver la catégorie parente
     const parentCat = NAV_STRUCTURE.find((c) =>
@@ -188,6 +191,21 @@ function BoutiqueContent() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {products.map((product) => (
                 <ProductGridCard key={product.id} product={product} />
+              ))}
+              {comingSoonProducts.map((product) => (
+                <div key={product.id} className="rounded-2xl overflow-hidden h-full flex flex-col" style={{ backgroundColor: "white", border: "1.5px solid #ede9e0", opacity: 0.7 }}>
+                  <div className="relative aspect-square w-full flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ backgroundColor: "#F7F5F0" }}>
+                    {product.images[0] ? (
+                      <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                    ) : (
+                      <span className="text-4xl opacity-20">📦</span>
+                    )}
+                  </div>
+                  <div className="p-4 flex flex-col flex-1">
+                    <p className="font-bold text-sm leading-snug mb-1" style={{ color: "#18223b" }}>{product.name}</p>
+                    <p className="text-sm mt-auto font-semibold" style={{ color: "#e67e22" }}>Prochainement</p>
+                  </div>
+                </div>
               ))}
             </div>
           )}

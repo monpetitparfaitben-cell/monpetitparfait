@@ -26,6 +26,7 @@ export interface Product {
   tags: string[];
   is_featured: boolean;
   is_active: boolean;
+  coming_soon?: boolean;
   created_at: string;
   updated_at: string;
 }
