@@ -193,7 +193,7 @@ function BoutiqueContent() {
                 <ProductGridCard key={product.id} product={product} />
               ))}
               {comingSoonProducts.map((product) => (
-                <div key={product.id} className="rounded-2xl overflow-hidden h-full flex flex-col" style={{ backgroundColor: "white", border: "1.5px solid #ede9e0", opacity: 0.7 }}>
+                <div key={product.id} className="rounded-2xl overflow-hidden h-full flex flex-col" style={{ backgroundColor: "white", border: "1.5px solid #ede9e0" }}>
                   <div className="relative aspect-square w-full flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ backgroundColor: "#F7F5F0" }}>
                     {product.images[0] ? (
                       <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
