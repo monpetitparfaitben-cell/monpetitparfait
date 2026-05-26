@@ -6,10 +6,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const SLIDES = [
-  { img: "/images/hero/kit-sdb.jpg",              alt: "Kit Salle de Bain" },
-  { img: "/images/produits/capsule-aluminium.png", alt: "Capsule Aluminium" },
-  { img: "/images/hero/hero-slide-3.png",          alt: "Slide 3" },
-  { img: "/images/hero/hero-slide-2.png",          alt: "Slide 2" },
+  { img: "/images/hero/kit-sdb.jpg",              alt: "Kit Salle de Bain",   href: "/produit/kit-salle-de-bains" },
+  { img: "/images/produits/capsule-aluminium.png", alt: "Capsule Aluminium",   href: "/produit/capsule-cafe-aluminium" },
+  { img: "/images/hero/hero-slide-3.png",          alt: "Kit SdB Gamme 3",     href: "/boutique?subcategory=Kit+Salle+de+Bain" },
+  { img: "/images/hero/hero-slide-2.png",          alt: "Kit SdB Gamme 2",     href: "/boutique?subcategory=Kit+Salle+de+Bain" },
 ];
 
 export default function HeroCarousel() {
@@ -103,22 +103,26 @@ export default function HeroCarousel() {
               className="relative overflow-hidden w-full"
               style={{ borderRadius: "32px", aspectRatio: "16 / 10" }}
             >
-              {/* Toutes les images empilées, fondu entre elles */}
               {SLIDES.map((slide, i) => (
-                <Image
+                <Link
                   key={slide.img}
-                  src={slide.img}
-                  alt={slide.alt}
-                  fill
-                  className="object-cover"
-                  sizes="60vw"
-                  priority={i === 0}
+                  href={slide.href}
                   style={{
+                    position: "absolute", inset: 0,
                     opacity: i === current ? 1 : 0,
                     transition: "opacity 600ms ease-in-out",
                     zIndex: i === current ? 1 : 0,
                   }}
-                />
+                >
+                  <Image
+                    src={slide.img}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover"
+                    sizes="60vw"
+                    priority={i === 0}
+                  />
+                </Link>
               ))}
             </div>
           </div>
@@ -134,20 +138,25 @@ export default function HeroCarousel() {
               style={{ borderRadius: "24px", aspectRatio: "4 / 3" }}
             >
               {SLIDES.map((slide, i) => (
-                <Image
+                <Link
                   key={slide.img}
-                  src={slide.img}
-                  alt={slide.alt}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                  priority={i === 0}
+                  href={slide.href}
                   style={{
+                    position: "absolute", inset: 0,
                     opacity: i === current ? 1 : 0,
                     transition: "opacity 600ms ease-in-out",
                     zIndex: i === current ? 1 : 0,
                   }}
-                />
+                >
+                  <Image
+                    src={slide.img}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority={i === 0}
+                  />
+                </Link>
               ))}
             </div>
           </div>
