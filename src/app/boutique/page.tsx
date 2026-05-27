@@ -203,7 +203,7 @@ function BoutiqueContent() {
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <p className="font-bold text-sm leading-snug mb-1" style={{ color: "#18223b" }}>{product.name}</p>
-                    <p className="text-sm mt-auto font-semibold" style={{ color: "#e67e22" }}>Prochainement</p>
+                    <p className="text-sm mt-auto font-semibold" style={{ color: "#e67e22" }}>Bientôt disponible</p>
                   </div>
                 </div>
               ))}
