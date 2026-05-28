@@ -700,7 +700,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette & Pastille",
     images: [
-      "/images/produits/tablette-lave-vaisselle.jpg",
+      "/images/produits/tablette-lave-vaisselle-new.png",
     ],
     variants: [
       { id: "con-tab-lv-500", name: "500 tablettes", price: 1900, stock: 500, sku: "CON-TAB-LV-500" },
@@ -722,7 +722,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette & Pastille",
     images: [
-      "/images/produits/tablette-linge.jpg",
+      "/images/produits/tablette-linge-lessive.png",
     ],
     variants: [
       { id: "con-tab-lin-500", name: "500 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-500" },
@@ -748,7 +748,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette & Pastille",
     images: [
-      "/images/produits/tablette-lave-vaisselle.jpg",
+      "/images/produits/pods-linge.png",
     ],
     variants: [
       { id: "con-pas-lv-500", name: "500 pastilles", price: 1800, stock: 500, sku: "CON-PAS-LV-500" },
@@ -770,7 +770,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Tablette & Pastille",
     images: [
-      "/images/produits/tablette-linge.jpg",
+      "/images/produits/double-tablettes-linge.png",
     ],
     variants: [
       { id: "con-pas-lin-500", name: "500 pastilles", price: 2000, stock: 500, sku: "CON-PAS-LIN-500" },
