@@ -714,28 +714,6 @@ export const PRODUCTS: Product[] = [
   },
 
   {
-    id: "tablette-linge-lessive",
-    slug: "tablette-linge-lessive",
-    name: "Tablette linge lessive",
-    description: "Tablette linge lessive. Dosage précis, efficace dès 30°C, compatible tous types de linge. Idéale pour les appartements et hôtels avec lave-linge.",
-    short_description: "Tablette linge lessive",
-    category: "consommables",
-    subcategory: "Tablette & Pastille",
-    images: [
-      "/images/produits/tablette-linge-lessive.png",
-    ],
-    variants: [
-      { id: "con-tab-lin-500", name: "500 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-500" },
-    ],
-    price: 2100,
-    tags: ["tablettes", "linge", "lessive", "entretien"],
-    is_featured: false,
-    is_active: true,
-    created_at: "2024-01-01T00:00:00Z",
-    updated_at: "2024-01-01T00:00:00Z",
-  },
-
-  {
     id: "pods-linge",
     slug: "pods-linge",
     name: "Pods linge",
@@ -751,6 +729,28 @@ export const PRODUCTS: Product[] = [
     ],
     price: 1800,
     tags: ["pods", "linge", "entretien"],
+    is_featured: false,
+    is_active: true,
+    created_at: "2024-01-01T00:00:00Z",
+    updated_at: "2024-01-01T00:00:00Z",
+  },
+
+  {
+    id: "tablette-linge-lessive",
+    slug: "tablette-linge-lessive",
+    name: "Tablette linge lessive",
+    description: "Tablette linge lessive. Dosage précis, efficace dès 30°C, compatible tous types de linge. Idéale pour les appartements et hôtels avec lave-linge.",
+    short_description: "Tablette linge lessive",
+    category: "consommables",
+    subcategory: "Tablette & Pastille",
+    images: [
+      "/images/produits/tablette-linge-lessive.png",
+    ],
+    variants: [
+      { id: "con-tab-lin-500", name: "500 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-500" },
+    ],
+    price: 2100,
+    tags: ["tablettes", "linge", "lessive", "entretien"],
     is_featured: false,
     is_active: true,
     created_at: "2024-01-01T00:00:00Z",
