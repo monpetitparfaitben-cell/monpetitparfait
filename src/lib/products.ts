@@ -703,9 +703,7 @@ export const PRODUCTS: Product[] = [
       "/images/produits/tablette-lave-vaisselle.jpg",
     ],
     variants: [
-      { id: "con-tab-lv-100", name: "100 tablettes", price: 1900, stock: 500, sku: "CON-TAB-LV-100" },
-      { id: "con-tab-lv-300", name: "300 tablettes", price: 4900, stock: 300, sku: "CON-TAB-LV-300" },
-      { id: "con-tab-lv-600", name: "600 tablettes", price: 8900, stock: 200, sku: "CON-TAB-LV-600" },
+      { id: "con-tab-lv-500", name: "500 tablettes", price: 1900, stock: 500, sku: "CON-TAB-LV-500" },
     ],
     price: 1900,
     tags: ["tablettes", "lave-vaisselle", "entretien"],
@@ -727,9 +725,7 @@ export const PRODUCTS: Product[] = [
       "/images/produits/tablette-linge.jpg",
     ],
     variants: [
-      { id: "con-tab-lin-100", name: "100 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-100" },
-      { id: "con-tab-lin-300", name: "300 tablettes", price: 5500, stock: 300, sku: "CON-TAB-LIN-300" },
-      { id: "con-tab-lin-600", name: "600 tablettes", price: 9900, stock: 200, sku: "CON-TAB-LIN-600" },
+      { id: "con-tab-lin-500", name: "500 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-500" },
     ],
     price: 2100,
     tags: ["tablettes", "linge", "lessive", "entretien"],
@@ -755,9 +751,7 @@ export const PRODUCTS: Product[] = [
       "/images/produits/tablette-lave-vaisselle.jpg",
     ],
     variants: [
-      { id: "con-pas-lv-100", name: "100 pastilles", price: 1800, stock: 500, sku: "CON-PAS-LV-100" },
-      { id: "con-pas-lv-300", name: "300 pastilles", price: 4700, stock: 300, sku: "CON-PAS-LV-300" },
-      { id: "con-pas-lv-600", name: "600 pastilles", price: 8500, stock: 200, sku: "CON-PAS-LV-600" },
+      { id: "con-pas-lv-500", name: "500 pastilles", price: 1800, stock: 500, sku: "CON-PAS-LV-500" },
     ],
     price: 1800,
     tags: ["pastilles", "lave-vaisselle", "entretien"],
@@ -779,9 +773,7 @@ export const PRODUCTS: Product[] = [
       "/images/produits/tablette-linge.jpg",
     ],
     variants: [
-      { id: "con-pas-lin-100", name: "100 pastilles", price: 2000, stock: 500, sku: "CON-PAS-LIN-100" },
-      { id: "con-pas-lin-300", name: "300 pastilles", price: 5200, stock: 300, sku: "CON-PAS-LIN-300" },
-      { id: "con-pas-lin-600", name: "600 pastilles", price: 9500, stock: 200, sku: "CON-PAS-LIN-600" },
+      { id: "con-pas-lin-500", name: "500 pastilles", price: 2000, stock: 500, sku: "CON-PAS-LIN-500" },
     ],
     price: 2000,
     tags: ["pastilles", "linge", "lessive", "entretien"],
