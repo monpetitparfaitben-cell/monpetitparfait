@@ -124,7 +124,7 @@ export default function CheckoutPage() {
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Formulaire */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6 order-2 lg:order-1">
               {/* Coordonnées */}
               <div className="rounded-2xl p-4 sm:p-6" style={{ backgroundColor: "white" }}>
                 <div className="flex items-center gap-2 mb-5">
@@ -287,8 +287,8 @@ export default function CheckoutPage() {
             </div>
 
             {/* Récap */}
-            <div className="lg:col-span-1">
-              <div className="rounded-2xl p-6 sticky top-24" style={{ backgroundColor: "white" }}>
+            <div className="lg:col-span-1 order-1 lg:order-2">
+              <div className="rounded-2xl p-6 lg:sticky lg:top-24" style={{ backgroundColor: "white" }}>
                 <h2 className="font-bold text-lg mb-4" style={{ color: "#18223b" }}>Votre commande</h2>
 
                 <div className="space-y-3 mb-4">

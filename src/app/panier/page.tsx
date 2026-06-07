@@ -63,7 +63,7 @@ export default function PanierPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-4 order-2 lg:order-1">
             {items.map((item) => {
               const contractPrice = getContractPrice(item.variant.id);
               const catalogPrice = item.variant.price;
@@ -174,9 +174,9 @@ export default function PanierPage() {
           </div>
 
           {/* Récap commande */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-1 lg:order-2">
             <div
-              className="rounded-2xl p-6 sticky top-24"
+              className="rounded-2xl p-6 lg:sticky lg:top-24"
               style={{ backgroundColor: "white" }}
             >
               <h2 className="font-bold text-lg mb-6" style={{ color: "#18223b" }}>
