@@ -103,7 +103,7 @@ export default function ProductPage({ params }: PageProps) {
         {/* Product section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 mb-8 sm:mb-16">
           {/* Image */}
-          <div>
+          <div className="order-1">
             {/* Thumbnails en haut */}
             {images && images.length > 1 && (
               <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
@@ -202,9 +202,9 @@ export default function ProductPage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Description partie 2 — sous l'image */}
+            {/* Description partie 2 — sous l'image sur desktop uniquement */}
             {descPart2 && (
-              <div className="mt-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
+              <div className="hidden lg:block mt-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
                 <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
                   {descPart2}
                 </p>
@@ -213,7 +213,7 @@ export default function ProductPage({ params }: PageProps) {
           </div>
 
           {/* Infos produit */}
-          <div>
+          <div className="order-2">
             <p className="text-xs font-bold uppercase tracking-widest mb-2 opacity-50" style={{ color: "#18223b" }}>
               {product.category === "kits" && "Kit"}{product.category === "ouate" && "100% Ouate"}{product.category === "consommables" && "Consommable"}
             </p>
@@ -433,6 +433,15 @@ export default function ProductPage({ params }: PageProps) {
                 <span style={{ color: "#18223b" }}>
                   Vous bénéficiez des prix du <strong>{contract.name}</strong>
                 </span>
+              </div>
+            )}
+
+            {/* Description partie 2 — mobile uniquement, en bas */}
+            {descPart2 && (
+              <div className="lg:hidden mt-6 rounded-2xl p-5" style={{ backgroundColor: "white" }}>
+                <p className="text-sm leading-relaxed opacity-80 whitespace-pre-line" style={{ color: "#18223b" }}>
+                  {descPart2}
+                </p>
               </div>
             )}
 

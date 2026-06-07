@@ -61,7 +61,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Nos kits
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 200px))", gap: "12px" }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: "12px" }}>
           {kits.map((kit) => {
             const product = PRODUCTS.find((p) => p.slug === kit.slug);
             return (
@@ -101,7 +101,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Produits 100% Ouate
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 200px))", gap: "12px" }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: "12px" }}>
           {ouate.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (
@@ -141,7 +141,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold mb-5" style={{ color: "#18223b" }}>
           Nos consommables
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 200px))", gap: "12px" }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: "12px" }}>
           {consommables.map((item) => {
             const product = PRODUCTS.find((p) => p.slug === item.slug);
             return (
