@@ -1,20 +1,21 @@
+import Image from "next/image";
+
 export default function MaintenancePage() {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-6 text-center"
       style={{ backgroundColor: "#F7F5F0" }}
     >
-      {/* Logo MP */}
-      <div
-        className="w-20 h-20 rounded-2xl flex items-center justify-center mb-8"
-        style={{ backgroundColor: "#18223b" }}
-      >
-        <span
-          className="font-black text-2xl tracking-tight"
-          style={{ color: "#e67e22" }}
-        >
-          MP
-        </span>
+      {/* Logo */}
+      <div className="mb-8">
+        <Image
+          src="/logo.png"
+          alt="Mon Petit Parfait"
+          width={200}
+          height={80}
+          className="object-contain"
+          priority
+        />
       </div>
 
       <h1
