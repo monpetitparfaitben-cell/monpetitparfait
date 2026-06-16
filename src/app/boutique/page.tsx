@@ -17,7 +17,7 @@ const SUBCAT_IMAGE_POSITION: Record<string, string> = {};
 const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Kit Capsule Café": "/produit/kit-capsule-cafe",
   "Capsule café": "/produit/capsule-cafe-aluminium",
-  "Éponge": "/produit/eponge-standard",
+  "Éponge": "/boutique?category=eponge",
   "Éponge standard": "/produit/eponge-standard",
 };
 
@@ -54,12 +54,12 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablettes & Pods", "Capsule café", "Éponge standard", "Éponge magique"],
+    subcategories: ["Sac poubelle", "Tablettes & Pods", "Capsule café", "Éponge"],
   },
   {
     id: "eponge",
     label: "Éponge",
-    subcategories: ["Éponge standard"],
+    subcategories: ["Éponge standard", "Éponge magique"],
     hidden: true, // Accessible via /boutique?category=eponge mais pas affiché dans la vue générale
   },
 ];
