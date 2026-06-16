@@ -36,6 +36,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Éponge": "/images/produits/eponge-simple.png",
   "Éponge standard": "/images/produits/eponge-simple.png",
   "Éponge emballage individuel": "/images/produits/eponge-emballage.png",
+  "Éponge magique": "/images/produits/eponge-simple.png",
 };
 
 // ── Structure de navigation ─────────────────────────────────────
@@ -53,7 +54,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   {
     id: "consommables",
     label: "Consommables",
-    subcategories: ["Sac poubelle", "Tablettes & Pods", "Capsule café", "Éponge"],
+    subcategories: ["Sac poubelle", "Tablettes & Pods", "Capsule café", "Éponge standard", "Éponge magique"],
   },
   {
     id: "eponge",

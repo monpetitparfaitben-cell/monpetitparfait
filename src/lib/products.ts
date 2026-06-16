@@ -885,6 +885,29 @@ export const PRODUCTS: Product[] = [
     updated_at: "2024-01-01T00:00:00Z",
   },
 
+  {
+    id: "eponge-magique",
+    slug: "eponge-magique",
+    name: "Éponge magique",
+    description: "Gomme magique pour éliminer les taches et les saletés tenaces sans produits chimiques. En mélamine blanc, elle nettoie en profondeur avec juste de l'eau — sans effort, sans résidu.",
+    short_description: "Éponge magique en mélamine",
+    category: "consommables",
+    subcategory: "Éponge magique",
+    images: [
+      "/images/produits/eponge-simple.png",
+    ],
+    variants: [
+      { id: "con-epo-mag-100", name: "100 pcs", price: 7900, stock: 500, sku: "CON-EPO-MAG-100" },
+      { id: "con-epo-mag-300", name: "300 pcs", price: 17700, stock: 300, sku: "CON-EPO-MAG-300" },
+    ],
+    price: 7900,
+    tags: ["éponge", "magique", "mélamine", "nettoyage", "sans produit"],
+    is_featured: false,
+    is_active: true,
+    created_at: "2024-01-01T00:00:00Z",
+    updated_at: "2024-01-01T00:00:00Z",
+  },
+
   // CONSOMMABLES — Thé (placeholder)
   {
     id: "con-the-001",
