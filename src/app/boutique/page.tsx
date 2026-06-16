@@ -64,6 +64,11 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
   },
 ];
 
+// ── Position image par produit ──────────────────────────────────
+const PRODUCT_IMAGE_POSITION: Record<string, string> = {
+  "eponge-magique": "left center",
+};
+
 // ── Carte produit style Beneki ──────────────────────────────────
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
   const lowestUnitPrice = Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1))));
@@ -86,6 +91,7 @@ function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+              style={{ objectPosition: PRODUCT_IMAGE_POSITION[product.slug] ?? "center" }}
             />
           ) : (
             <span className="absolute inset-0 flex items-center justify-center text-5xl opacity-20">📦</span>
