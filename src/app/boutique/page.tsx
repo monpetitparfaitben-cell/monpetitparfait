@@ -19,6 +19,7 @@ const SUBCAT_DIRECT_LINK: Record<string, string> = {
   "Capsule café": "/produit/capsule-cafe-aluminium",
   "Éponge": "/boutique?category=eponge",
   "Éponge standard": "/produit/eponge-standard",
+  "Éponge magique": "/produit/eponge-magique",
 };
 
 // ── Images hero par sous-catégorie (pour les cartes de navigation) ──
