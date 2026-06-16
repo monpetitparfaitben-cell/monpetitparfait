@@ -688,7 +688,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // =========================================================
-  // CONSOMMABLES — Tablette & Pastille
+  // CONSOMMABLES — Tablettes & Pods
   // =========================================================
 
   {
@@ -698,14 +698,14 @@ export const PRODUCTS: Product[] = [
     description: "Tablette lave-vaisselle tout-en-un. Action dégraissante puissante, compatible tous appareils. Parfaite pour les locations avec cuisine équipée.",
     short_description: "Tablette lave-vaisselle",
     category: "consommables",
-    subcategory: "Tablette & Pastille",
+    subcategory: "Tablettes & Pods",
     images: [
       "/images/produits/tablette-lave-vaisselle-new.png",
     ],
     variants: [
-      { id: "con-tab-lv-500", name: "500 tablettes", price: 1900, stock: 500, sku: "CON-TAB-LV-500" },
+      { id: "con-tab-lv-500", name: "500 tablettes", price: 4500, stock: 500, sku: "CON-TAB-LV-500" },
     ],
-    price: 1900,
+    price: 4500,
     tags: ["tablettes", "lave-vaisselle", "entretien"],
     is_featured: false,
     is_active: true,
@@ -716,19 +716,19 @@ export const PRODUCTS: Product[] = [
   {
     id: "pods-linge",
     slug: "pods-linge",
-    name: "Pods linge",
-    description: "Pods linge tout-en-un. Dosé avec précision, dissoluble à froid, efficace sur toutes les taches. Pratique et économique pour les locations avec lave-linge.",
-    short_description: "Pods linge",
+    name: "Pods lessive",
+    description: "Pods lessive tout-en-un. Dosé avec précision, dissoluble à froid, efficace sur toutes les taches. Pratique et économique pour les locations avec lave-linge.",
+    short_description: "Pods lessive",
     category: "consommables",
-    subcategory: "Tablette & Pastille",
+    subcategory: "Tablettes & Pods",
     images: [
       "/images/produits/pods-linge.png",
     ],
     variants: [
-      { id: "con-pods-lin-500", name: "500 pods", price: 1800, stock: 500, sku: "CON-PODS-LIN-500" },
+      { id: "con-pods-lin-500", name: "500 pods", price: 11000, stock: 500, sku: "CON-PODS-LIN-500" },
     ],
-    price: 1800,
-    tags: ["pods", "linge", "entretien"],
+    price: 11000,
+    tags: ["pods", "lessive", "entretien"],
     is_featured: false,
     is_active: true,
     created_at: "2024-01-01T00:00:00Z",
@@ -738,19 +738,19 @@ export const PRODUCTS: Product[] = [
   {
     id: "tablette-linge-lessive",
     slug: "tablette-linge-lessive",
-    name: "Tablette linge lessive",
-    description: "Tablette linge lessive. Dosage précis, efficace dès 30°C, compatible tous types de linge. Idéale pour les appartements et hôtels avec lave-linge.",
-    short_description: "Tablette linge lessive",
+    name: "Tablette lessive",
+    description: "Tablette lessive. Dosage précis, efficace dès 30°C, compatible tous types de linge. Idéale pour les appartements et hôtels avec lave-linge.",
+    short_description: "Tablette lessive",
     category: "consommables",
-    subcategory: "Tablette & Pastille",
+    subcategory: "Tablettes & Pods",
     images: [
       "/images/produits/tablette-linge-lessive.png",
     ],
     variants: [
-      { id: "con-tab-lin-500", name: "500 tablettes", price: 2100, stock: 500, sku: "CON-TAB-LIN-500" },
+      { id: "con-tab-lin-500", name: "500 tablettes", price: 9500, stock: 500, sku: "CON-TAB-LIN-500" },
     ],
-    price: 2100,
-    tags: ["tablettes", "linge", "lessive", "entretien"],
+    price: 9500,
+    tags: ["tablettes", "lessive", "entretien"],
     is_featured: false,
     is_active: true,
     created_at: "2024-01-01T00:00:00Z",
@@ -760,19 +760,19 @@ export const PRODUCTS: Product[] = [
   {
     id: "double-tablette-linge",
     slug: "double-tablette-linge",
-    name: "Double Tablette Linge",
-    description: "Double Tablette Linge — formule concentrée 2-en-1 lavage + adoucissant. Efficace dès 20°C, compatible tous types de linge. Idéale pour les locations avec lave-linge.",
-    short_description: "Double Tablette Linge",
+    name: "Double Tablette Lessive",
+    description: "Double Tablette Lessive — formule concentrée 2-en-1 lavage + adoucissant. Efficace dès 20°C, compatible tous types de linge. Idéale pour les locations avec lave-linge.",
+    short_description: "Double Tablette Lessive",
     category: "consommables",
-    subcategory: "Tablette & Pastille",
+    subcategory: "Tablettes & Pods",
     images: [
       "/images/produits/double-tablettes-linge.png",
     ],
     variants: [
-      { id: "con-dbl-tab-500", name: "500 tablettes", price: 2000, stock: 500, sku: "CON-DBL-TAB-500" },
+      { id: "con-dbl-tab-500", name: "500 tablettes", price: 17500, stock: 500, sku: "CON-DBL-TAB-500" },
     ],
-    price: 2000,
-    tags: ["tablettes", "linge", "double", "entretien"],
+    price: 17500,
+    tags: ["tablettes", "lessive", "double", "entretien"],
     is_featured: false,
     is_active: true,
     created_at: "2024-01-01T00:00:00Z",

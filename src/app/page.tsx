@@ -44,7 +44,7 @@ const ouate = [
 
 const consommables = [
   { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle-hero.jpeg" },
-  { href: "/boutique?subcategory=Tablette+%26+Pastille", slug: "tablette-lave-vaisselle", label: "Tablettes & Pastilles", img: "/images/produits/tablette-lave-vaisselle.jpg" },
+  { href: "/boutique?subcategory=Tablettes+%26+Pods", slug: "tablette-lave-vaisselle", label: "Tablettes & Pods", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/produit/capsule-cafe-aluminium", slug: "capsule-cafe-aluminium", label: "Capsules café", img: "/images/produits/capsule.jpg" },
   { href: "/produit/eponge-standard", slug: "eponge-standard", label: "Éponge", img: "/images/produits/eponge-simple.png" },
 ];

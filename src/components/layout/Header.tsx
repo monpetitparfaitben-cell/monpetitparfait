@@ -36,7 +36,7 @@ const MENU_DATA = [
     href: "/boutique?category=consommables",
     subcategories: [
       { label: "Sac poubelle",        href: "/boutique?subcategory=Sac+poubelle" },
-      { label: "Tablette & Pastille", href: "/boutique?subcategory=Tablette+%26+Pastille" },
+      { label: "Tablettes & Pods", href: "/boutique?subcategory=Tablettes+%26+Pods" },
       { label: "Capsule café",        href: "/boutique?subcategory=Capsule+caf%C3%A9" },
       { label: "Thé",                 href: "/boutique?subcategory=Th%C3%A9" },
     ],
