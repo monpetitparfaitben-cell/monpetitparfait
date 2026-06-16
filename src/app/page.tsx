@@ -46,7 +46,7 @@ const consommables = [
   { href: "/boutique?subcategory=Sac+poubelle", slug: "sac-poubelle-10l-blanc", label: "Sacs poubelles", img: "/images/produits/sac-poubelle-hero.jpeg" },
   { href: "/boutique?subcategory=Tablettes+%26+Pods", slug: "tablette-lave-vaisselle", label: "Tablettes & Pods", img: "/images/produits/tablette-lave-vaisselle.jpg" },
   { href: "/produit/capsule-cafe-aluminium", slug: "capsule-cafe-aluminium", label: "Capsules café", img: "/images/produits/capsule.jpg" },
-  { href: "/boutique?category=eponge", slug: "eponge-standard", label: "Éponge", img: "/images/produits/eponge-simple.png" },
+  { href: "/boutique?category=eponge", slug: "eponge-standard", label: "Éponge", img: "/images/produits/eponge-simple.png", slugs: ["eponge-standard", "eponge-magique"] },
 ];
 
 export default function HomePage() {
@@ -143,7 +143,11 @@ export default function HomePage() {
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: "12px" }}>
           {consommables.map((item) => {
-            const product = PRODUCTS.find((p) => p.slug === item.slug);
+            const slugList = (item as { slugs?: string[] }).slugs ?? [item.slug];
+            const products = PRODUCTS.filter((p) => slugList.includes(p.slug));
+            const lowestPrice = products.length > 0
+              ? Math.min(...products.flatMap(p => p.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))
+              : null;
             return (
               <Link key={item.slug} href={item.href} className="group">
                 <div
@@ -163,9 +167,9 @@ export default function HomePage() {
                     <h3 className="font-semibold text-sm" style={{ color: "#18223b" }}>
                       {item.label}
                     </h3>
-                    {product && (
+                    {lowestPrice !== null && (
                       <p className="text-xs mt-0.5" style={{ color: "#e67e22" }}>
-                        À partir de <strong>{formatPrice(Math.min(...product.variants.map(v => Math.round(v.price / (parseInt(v.name) || 1)))))}</strong>
+                        À partir de <strong>{formatPrice(lowestPrice)}</strong>
                       </p>
                     )}
                   </div>
