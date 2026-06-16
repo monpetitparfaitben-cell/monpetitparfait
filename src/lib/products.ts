@@ -894,7 +894,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Éponge magique",
     images: [
-      "/images/produits/eponge-simple.png",
+      "/images/produits/eponge-magique.jpg",
     ],
     variants: [
       { id: "con-epo-mag-100", name: "100 pcs", price: 7900, stock: 500, sku: "CON-EPO-MAG-100" },

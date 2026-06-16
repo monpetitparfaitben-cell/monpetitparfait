@@ -36,7 +36,7 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Éponge": "/images/produits/eponge-simple.png",
   "Éponge standard": "/images/produits/eponge-simple.png",
   "Éponge emballage individuel": "/images/produits/eponge-emballage.png",
-  "Éponge magique": "/images/produits/eponge-simple.png",
+  "Éponge magique": "/images/produits/eponge-magique.jpg",
 };
 
 // ── Structure de navigation ─────────────────────────────────────
