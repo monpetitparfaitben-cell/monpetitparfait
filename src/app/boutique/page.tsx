@@ -66,9 +66,7 @@ const NAV_STRUCTURE: { id: string; label: string; subcategories: string[]; hidde
 ];
 
 // ── Position image par produit ──────────────────────────────────
-const PRODUCT_IMAGE_POSITION: Record<string, string> = {
-  "eponge-magique": "left center",
-};
+const PRODUCT_IMAGE_POSITION: Record<string, string> = {};
 
 // ── Carte produit style Beneki ──────────────────────────────────
 function ProductGridCard({ product }: { product: typeof PRODUCTS[0] }) {
