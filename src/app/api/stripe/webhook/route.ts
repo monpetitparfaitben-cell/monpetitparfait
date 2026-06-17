@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase";
+import { sendOrderConfirmation, sendNewOrderAlert } from "@/lib/emails";
 
 export async function POST(req: NextRequest) {
   if (!process.env.STRIPE_SECRET_KEY || process.env.STRIPE_SECRET_KEY === "sk_test_...") {
@@ -105,6 +106,37 @@ export async function POST(req: NextRequest) {
       }
 
       console.log("✅ Commande enregistrée:", order.id);
+
+      // ── Emails ────────────────────────────────────────────────
+      const customerName = `${metadata.firstName || ""} ${metadata.lastName || ""}`.trim() || "Client";
+      const emailItems = orderItems.map((item) => ({
+        name: item.product_name,
+        variant: item.variant_name,
+        quantity: item.quantity,
+        unitPrice: item.unit_price,
+      }));
+
+      // Email confirmation au client
+      if (session.customer_email) {
+        sendOrderConfirmation({
+          to: session.customer_email,
+          customerName,
+          orderId: order.id,
+          items: emailItems,
+          total,
+        }).catch((e) => console.error("Erreur email client:", e));
+      }
+
+      // Email alerte au gérant
+      sendNewOrderAlert({
+        to: "ouazanab@gmail.com",
+        orderId: order.id,
+        customerName,
+        company: metadata.company || "—",
+        total,
+        items: emailItems,
+      }).catch((e) => console.error("Erreur email admin:", e));
+
     } catch (err) {
       console.error("Erreur traitement webhook:", err);
     }
