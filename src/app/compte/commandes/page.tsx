@@ -13,6 +13,7 @@ import {
   Clock,
   CheckCircle,
   XCircle,
+  FileText,
 } from "lucide-react";
 import { formatPrice } from "@/lib/products";
 import { useAuth } from "@/contexts/AuthContext";
@@ -36,6 +37,8 @@ interface Order {
   created_at: string;
   status: string;
   total: number;
+  invoice_url?: string;
+  invoice_hosted_url?: string;
   items: OrderItem[];
   shipping_address?: {
     company?: string;
@@ -120,6 +123,8 @@ export default function CommandesPage() {
         created_at,
         status,
         total,
+        invoice_url,
+        invoice_hosted_url,
         shipping_address,
         order_items(
           product_id,
@@ -386,6 +391,20 @@ export default function CommandesPage() {
                             </div>
                           </div>
                         </div>
+                      )}
+
+                      {/* Bouton Facture */}
+                      {order.invoice_url && (
+                        <a
+                          href={order.invoice_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex items-center justify-center gap-2 py-3 rounded-lg font-semibold transition-opacity hover:opacity-80"
+                          style={{ backgroundColor: "#F7F5F0", color: "#18223b", border: "1.5px solid #ede9e0" }}
+                        >
+                          <FileText size={16} />
+                          Télécharger ma facture
+                        </a>
                       )}
 
                       {/* Bouton Re-commander */}

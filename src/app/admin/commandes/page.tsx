@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Search, ChevronDown, ChevronUp, Package } from "lucide-react";
+import { ArrowLeft, Search, ChevronDown, ChevronUp, Package, FileText } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
 import { formatPrice } from "@/lib/products";
@@ -32,6 +32,8 @@ interface Order {
   shipping_postal_code: string;
   shipping_country: string;
   notes: string | null;
+  invoice_url: string | null;
+  invoice_hosted_url: string | null;
   order_items: OrderItem[];
 }
 
@@ -237,6 +239,33 @@ export default function AdminCommandesPage() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Facture */}
+                    {order.invoice_url && (
+                      <div className="mt-4 pt-4 border-t flex gap-3" style={{ borderColor: "#F7F5F0" }}>
+                        <a
+                          href={order.invoice_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-opacity hover:opacity-80"
+                          style={{ backgroundColor: "#18223b", color: "white" }}
+                        >
+                          <FileText size={14} />
+                          Télécharger la facture PDF
+                        </a>
+                        {order.invoice_hosted_url && (
+                          <a
+                            href={order.invoice_hosted_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-opacity hover:opacity-80"
+                            style={{ backgroundColor: "#F7F5F0", color: "#18223b", border: "1.5px solid #ede9e0" }}
+                          >
+                            Voir la facture en ligne
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
