@@ -34,8 +34,8 @@ const SUBCAT_HERO_IMAGES: Record<string, string> = {
   "Tablettes & Pods": "/images/produits/tablette-lave-vaisselle.jpg",
   "Capsule café": "/images/produits/capsule.jpg",
   "Thé": "/images/produits/PHOTO-2026-02-03-14-59-07.jpg",
-  "Éponge": "/images/produits/eponge-simple.png",
-  "Éponge standard": "/images/produits/eponge-simple.png",
+  "Éponge": "/images/produits/eponge-simple.jpg",
+  "Éponge standard": "/images/produits/eponge-simple.jpg",
   "Éponge emballage individuel": "/images/produits/eponge-emballage.png",
   "Éponge magique": "/images/produits/eponge-magique.jpg",
 };

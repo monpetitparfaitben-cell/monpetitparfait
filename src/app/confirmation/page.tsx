@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle, Package, Mail, Phone, ArrowRight } from "lucide-react";
+import { CheckCircle, Package, Mail, ArrowRight } from "lucide-react";
 
 function formatEur(cents: number) {
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(cents / 100);

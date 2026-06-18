@@ -845,7 +845,7 @@ export const PRODUCTS: Product[] = [
     category: "consommables",
     subcategory: "Éponge standard",
     images: [
-      "/images/produits/eponge-simple.png",
+      "/images/produits/eponge-simple.jpg",
     ],
     variants: [
       { id: "con-epo-std-100", name: "100 éponges", price: 2900, stock: 500, sku: "CON-EPO-STD-100" },
