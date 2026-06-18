@@ -1,17 +1,49 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle, Package, Mail, Phone, ArrowRight } from "lucide-react";
 
+function formatEur(cents: number) {
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(cents / 100);
+}
+
+interface OrderItem {
+  name: string;
+  variant: string;
+  quantity: number;
+  unitPrice: number;
+  total: number;
+}
+
+interface OrderData {
+  customerName: string;
+  email: string;
+  total: number;
+  items: OrderItem[];
+}
+
 function ConfirmationContent() {
   const searchParams = useSearchParams();
-  const orderId = searchParams.get("orderId");
+  const sessionId = searchParams.get("session_id");
+  const [order, setOrder] = useState<OrderData | null>(null);
+  const [loading, setLoading] = useState(!!sessionId);
+
+  useEffect(() => {
+    if (!sessionId) return;
+    fetch(`/api/stripe/session?session_id=${sessionId}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (!data.error) setOrder(data);
+      })
+      .finally(() => setLoading(false));
+  }, [sessionId]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16" style={{ backgroundColor: "#F7F5F0" }}>
       <div className="max-w-lg w-full text-center">
+
         {/* Icône succès */}
         <div className="flex justify-center mb-8">
           <div className="w-24 h-24 rounded-full flex items-center justify-center" style={{ backgroundColor: "#27ae6015" }}>
@@ -20,18 +52,52 @@ function ConfirmationContent() {
         </div>
 
         <h1 className="text-3xl font-bold mb-3" style={{ color: "#18223b" }}>
-          Commande confirmée ! 🎉
+          Merci pour votre commande ! 🎉
         </h1>
 
-        {orderId && (
-          <p className="text-sm opacity-50 mb-4 font-mono" style={{ color: "#18223b" }}>
-            Référence : {orderId.slice(0, 8).toUpperCase()}
+        {order && (
+          <p className="text-base opacity-70 mb-2" style={{ color: "#18223b" }}>
+            Bonjour {order.customerName}, votre commande a bien été enregistrée.
           </p>
         )}
 
-        <p className="opacity-70 mb-10 leading-relaxed" style={{ color: "#18223b" }}>
-          Votre commande a bien été enregistrée. Notre équipe va prendre contact avec vous pour finaliser les modalités de livraison et de paiement.
+        <p className="opacity-60 mb-8 leading-relaxed text-sm" style={{ color: "#18223b" }}>
+          Un email de confirmation vous a été envoyé avec le récapitulatif de votre commande.
         </p>
+
+        {/* Récap produits */}
+        {loading && (
+          <div className="rounded-2xl p-6 mb-6 text-center" style={{ backgroundColor: "white" }}>
+            <p className="text-sm opacity-50" style={{ color: "#18223b" }}>Chargement de votre commande…</p>
+          </div>
+        )}
+
+        {order && order.items.length > 0 && (
+          <div className="rounded-2xl p-6 mb-6 text-left" style={{ backgroundColor: "white" }}>
+            <h2 className="font-bold text-sm mb-4 uppercase tracking-wider opacity-50" style={{ color: "#18223b" }}>
+              Récapitulatif
+            </h2>
+            <div className="space-y-3">
+              {order.items.map((item, i) => (
+                <div key={i} className="flex justify-between items-start gap-4">
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm" style={{ color: "#18223b" }}>{item.name}</p>
+                    {item.variant && (
+                      <p className="text-xs opacity-50" style={{ color: "#18223b" }}>{item.variant} × {item.quantity}</p>
+                    )}
+                  </div>
+                  <p className="font-bold text-sm flex-shrink-0" style={{ color: "#18223b" }}>
+                    {formatEur(item.total)}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 pt-4 border-t flex justify-between items-center" style={{ borderColor: "#ede9e0" }}>
+              <span className="font-bold" style={{ color: "#18223b" }}>Total TTC</span>
+              <span className="text-xl font-bold" style={{ color: "#e67e22" }}>{formatEur(order.total)}</span>
+            </div>
+          </div>
+        )}
 
         {/* Info cards */}
         <div className="rounded-2xl p-6 mb-8 text-left space-y-5" style={{ backgroundColor: "white" }}>
@@ -41,16 +107,9 @@ function ConfirmationContent() {
             </div>
             <div>
               <p className="font-bold text-sm mb-1" style={{ color: "#18223b" }}>Confirmation par email</p>
-              <p className="text-sm opacity-70" style={{ color: "#18223b" }}>Un email récapitulatif vous a été envoyé avec les détails de votre commande.</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e67e22" }}>
-              <Phone size={18} className="text-white" />
-            </div>
-            <div>
-              <p className="font-bold text-sm mb-1" style={{ color: "#18223b" }}>Nous vous contactons</p>
-              <p className="text-sm opacity-70" style={{ color: "#18223b" }}>Notre équipe vous contactera sous 24h pour confirmer la livraison.</p>
+              <p className="text-sm opacity-70" style={{ color: "#18223b" }}>
+                Un email récapitulatif{order?.email ? ` a été envoyé à ${order.email}` : " vous a été envoyé"}.
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
