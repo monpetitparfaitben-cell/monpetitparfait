@@ -142,6 +142,34 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  if (event.type === "invoice.payment_succeeded") {
+    const invoice = event.data.object as any;
+    const paymentIntentId = invoice.payment_intent;
+    const invoicePdfUrl = invoice.invoice_pdf;
+    const invoiceHostedUrl = invoice.hosted_invoice_url;
+
+    if (paymentIntentId && invoicePdfUrl) {
+      try {
+        const supabase = createSupabaseAdmin();
+        const { error } = await supabase
+          .from("orders")
+          .update({
+            invoice_url: invoicePdfUrl,
+            invoice_hosted_url: invoiceHostedUrl,
+          })
+          .eq("stripe_payment_intent_id", paymentIntentId);
+
+        if (error) {
+          console.error("Erreur mise à jour facture:", error);
+        } else {
+          console.log("✅ Facture enregistrée:", invoicePdfUrl);
+        }
+      } catch (err) {
+        console.error("Erreur traitement invoice webhook:", err);
+      }
+    }
+  }
+
   if (event.type === "payment_intent.payment_failed") {
     console.log("❌ Paiement échoué:", event.data.object.id);
   }

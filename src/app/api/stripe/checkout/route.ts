@@ -96,6 +96,9 @@ export async function POST(req: NextRequest) {
       shipping_address_collection: {
         allowed_countries: ["FR", "BE", "CH", "LU", "MC"],
       },
+      invoice_creation: {
+        enabled: true,
+      },
       metadata: {
         user_id: userId ?? "",
         firstName: customerInfo.firstName,
