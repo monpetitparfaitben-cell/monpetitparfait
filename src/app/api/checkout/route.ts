@@ -13,8 +13,7 @@
 //  serveur à partir du catalogue + des prix contractuels du client.
 
 import Stripe from 'stripe'
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createClient } from '@supabase/supabase-js'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { PRODUCTS } from '@/lib/products'
 
@@ -66,38 +65,32 @@ function getCatalogVariant(variantId: string): CatalogVariant | null {
 }
 
 export async function POST(request: Request) {
-  // --- Auth : qui est le client connecté ? (client SSR Supabase) ---
-  const cookieStore = await cookies()
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll()
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            )
-          } catch {
-            // appelé hors d'un contexte modifiable — ignorable
-          }
-        },
-      },
-    }
-  )
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) {
+  // --- Auth par token Bearer (fiable, sans dépendre des cookies) ---
+  // Le navigateur envoie le jeton de session dans l'en-tête Authorization ;
+  // on le valide côté serveur. Plus robuste que la lecture des cookies.
+  const authHeader = request.headers.get('authorization')
+  const token = authHeader?.replace(/^Bearer\s+/i, '').trim()
+  if (!token) {
     return Response.json({ error: 'Non authentifié' }, { status: 401 })
   }
 
+  const supabaseAuth = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+  const {
+    data: { user },
+    error: authError,
+  } = await supabaseAuth.auth.getUser(token)
+  if (authError || !user) {
+    return Response.json({ error: 'Non authentifié' }, { status: 401 })
+  }
+
+  // Client admin (service role) : lecture du profil + écriture de la commande.
+  const admin = createAdminClient()
+
   // Modèle B2B : on n'autorise que les comptes approuvés.
-  const { data: profile } = await supabase
+  const { data: profile } = await admin
     .from('profiles')
     .select('account_status, company, first_name, last_name')
     .eq('id', user.id)
@@ -116,7 +109,7 @@ export async function POST(request: Request) {
   }
 
   // --- Prix contractuels du client (priment sur le catalogue) ---
-  const { data: contractRows } = await supabase.rpc('get_user_contract_prices', {
+  const { data: contractRows } = await admin.rpc('get_user_contract_prices', {
     p_user_id: user.id,
   })
   const contractPrices = new Map<string, number>()
@@ -178,9 +171,8 @@ export async function POST(request: Request) {
   const total = subtotal + shippingCost
 
   // --- Commande "pending" créée AVANT le paiement ---
-  // On écrit avec le client ADMIN : tes policies RLS interdisent volontairement
-  // à un user d'insérer une commande lui-même (sinon il choisirait son prix).
-  const admin = createAdminClient()
+  // On écrit avec le client ADMIN (déjà créé plus haut) : tes policies RLS
+  // interdisent volontairement à un user d'insérer une commande lui-même.
   const s = body.shipping ?? {}
 
   const { data: order, error: orderError } = await admin
