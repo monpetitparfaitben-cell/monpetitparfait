@@ -231,7 +231,7 @@ export async function POST(request: Request) {
     },
 
     metadata: { order_id: order.id, user_id: user.id },
-    success_url: `${baseUrl}/commande/confirmation?session_id={CHECKOUT_SESSION_ID}`,
+    success_url: `${baseUrl}/confirmation?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${baseUrl}/panier`,
   })
 
