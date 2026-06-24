@@ -20,6 +20,12 @@ import { PRODUCTS } from '@/lib/products'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
+// Type d'une ligne Checkout, dérivé directement de la méthode create.
+// (On évite Stripe.Checkout.SessionCreateParams, absent des types en stripe 22.0.1.)
+type StripeLineItem = NonNullable<
+  NonNullable<Parameters<typeof stripe.checkout.sessions.create>[0]>['line_items']
+>[number]
+
 // Taux de TVA créés dans le Dashboard Stripe (exclusifs = ajoutés au HT)
 const TVA_STANDARD = process.env.STRIPE_TAX_RATE_STANDARD! // 20 %  -> txr_...
 const TVA_REDUITE = process.env.STRIPE_TAX_RATE_REDUCED! //  5,5 % -> txr_...
@@ -119,7 +125,7 @@ export async function POST(request: Request) {
   }
 
   // --- Calcul serveur : line items Stripe + lignes de commande ---
-  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = []
+  const lineItems: StripeLineItem[] = []
   const orderItems: Record<string, unknown>[] = []
   let subtotal = 0
 
