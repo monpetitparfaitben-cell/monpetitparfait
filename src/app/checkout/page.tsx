@@ -26,7 +26,7 @@ interface FormData {
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, getSubtotal, clearCart } = useCartStore();
-  const { user, profile, getContractPrice } = useAuth();
+  const { user, profile, getContractPrice, session } = useAuth();
   const subtotal = getSubtotal();
 
   const [form, setForm] = useState<FormData>({
@@ -76,7 +76,10 @@ export default function CheckoutPage() {
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
+        },
         body: JSON.stringify({
           items: items.map((item) => ({
             variantId: item.variant.id,
