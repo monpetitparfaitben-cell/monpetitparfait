@@ -52,7 +52,7 @@ function getCatalogVariant(variantId: string): CatalogVariant | null {
         variantName: variant.name,
         sku: variant.sku ?? null,
         standardPrice: variant.price, // déjà en centimes dans ton catalogue
-        vatRate: SOUS_CATEGORIES_TVA_REDUITE.has(product.subcategory) ? 5.5 : 20,
+        vatRate: SOUS_CATEGORIES_TVA_REDUITE.has(product.subcategory ?? '') ? 5.5 : 20,
       }
     }
   }
