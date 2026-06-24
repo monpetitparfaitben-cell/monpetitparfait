@@ -65,6 +65,7 @@ function getCatalogVariant(variantId: string): CatalogVariant | null {
 }
 
 export async function POST(request: Request) {
+  try {
   // --- Auth par token Bearer (fiable, sans dépendre des cookies) ---
   // Le navigateur envoie le jeton de session dans l'en-tête Authorization ;
   // on le valide côté serveur. Plus robuste que la lecture des cookies.
@@ -236,4 +237,10 @@ export async function POST(request: Request) {
   await admin.from('orders').update({ stripe_session_id: session.id }).eq('id', order.id)
 
   return Response.json({ url: session.url })
+  } catch (err) {
+    // Renvoie la VRAIE erreur (au lieu d'une réponse vide → "Unexpected end of JSON input")
+    console.error('Erreur checkout:', err)
+    const message = err instanceof Error ? err.message : 'Erreur inconnue'
+    return Response.json({ error: message }, { status: 500 })
+  }
 }
