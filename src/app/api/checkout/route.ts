@@ -1,9 +1,11 @@
 // =====================================================================
 //  À PLACER DANS :  src/app/api/checkout/route.ts
+//  (remplace entièrement le contenu actuel de ce fichier)
 // =====================================================================
 //
 //  Stripe Checkout (paiement immédiat) + facture auto (invoice_creation)
 //  + TVA mixte (20 % standard / 5,5 % réduit) via taux de TVA manuels.
+//  getCatalogVariant() est branché sur ton catalogue src/lib/products.ts.
 //  Compatible Next.js 16 (App Router).
 //
 //  ⚠️ SÉCURITÉ : les PRIX et la TVA ne viennent JAMAIS du navigateur. On
@@ -14,6 +16,7 @@ import Stripe from 'stripe'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { PRODUCTS } from '@/lib/products'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
@@ -21,40 +24,39 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 const TVA_STANDARD = process.env.STRIPE_TAX_RATE_STANDARD! // 20 %  -> txr_...
 const TVA_REDUITE = process.env.STRIPE_TAX_RATE_REDUCED! //  5,5 % -> txr_...
 
-// ---------------------------------------------------------------------
-// TODO — BRANCHE CECI SUR TON CATALOGUE (défini dans ton code).
-//   Renvoie le prix STANDARD en centimes, les libellés, ET le taux de TVA
-//   (5.5 pour Kit Gourmand / Capsule Café, 20 pour le reste).
-//   Le mieux : stocke vatRate directement sur chaque produit du catalogue.
-// ---------------------------------------------------------------------
+// Sous-catégories de ton catalogue à TVA réduite 5,5 % (café / gourmand).
+// Pour ajuster un taux : ajoute/retire une sous-catégorie ici (rien d'autre).
+const SOUS_CATEGORIES_TVA_REDUITE = new Set<string>([
+  'Kit Gourmand',
+  'Kit Capsule Café',
+  'Capsule café',
+])
+
 type CatalogVariant = {
   productId: string
   productName: string
   variantName: string
   sku: string | null
-  standardPrice: number // en CENTIMES (ex : 79 = 0,79 €)
+  standardPrice: number // en CENTIMES
   vatRate: number // 20 ou 5.5
 }
 
+// Cherche une variante dans ton catalogue (src/lib/products.ts) par son id.
 function getCatalogVariant(variantId: string): CatalogVariant | null {
-  // TODO : remplace par un vrai lookup dans ton catalogue, ex :
-  //   import { findVariant } from '@/lib/products'
-  //   const v = findVariant(variantId)
-  //   if (!v) return null
-  //   return {
-  //     productId: v.productId, productName: v.product.name,
-  //     variantName: v.name, sku: v.sku ?? null,
-  //     standardPrice: v.price,                 // déjà en centimes
-  //     vatRate: vatRateForSubcategory(v.subcategory),
-  //   }
+  for (const product of PRODUCTS) {
+    const variant = product.variants?.find((v) => v.id === variantId)
+    if (variant) {
+      return {
+        productId: product.id,
+        productName: product.name,
+        variantName: variant.name,
+        sku: variant.sku ?? null,
+        standardPrice: variant.price, // déjà en centimes dans ton catalogue
+        vatRate: SOUS_CATEGORIES_TVA_REDUITE.has(product.subcategory) ? 5.5 : 20,
+      }
+    }
+  }
   return null
-}
-
-// Optionnel : décider la TVA par sous-catégorie si tu ne stockes pas vatRate.
-// ⚠️ Adapte les libellés à ceux EXACTS de ton catalogue.
-function vatRateForSubcategory(subcategory: string): number {
-  const reduit = ['Kit Gourmand', 'Kit Capsule Café', 'Capsules café']
-  return reduit.includes(subcategory) ? 5.5 : 20
 }
 
 export async function POST(request: Request) {
@@ -221,7 +223,7 @@ export async function POST(request: Request) {
     invoice_creation: {
       enabled: true,
       invoice_data: {
-        // Mentions de TA société (bas de facture) — TODO : vraies valeurs
+        // ⚠️ TODO : mets le vrai SIRET / n° de TVA de la société
         footer: 'Mon Petit Parfait — SIRET 000 000 000 00000 — TVA FR00 000000000',
         metadata: { order_id: order.id, user_id: user.id },
         custom_fields: [{ name: 'Commande', value: order.id.slice(0, 8) }],
