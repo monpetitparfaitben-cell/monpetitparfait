@@ -74,18 +74,15 @@ export default function CheckoutPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/stripe/checkout", {
+      const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items: items.map((item) => ({
-            productId: item.product.id,
             variantId: item.variant.id,
-            name: `${item.product.name} — ${item.variant.name}`,
             quantity: item.quantity,
           })),
-          customerInfo: form,
-          userId: user?.id ?? null,
+          shipping: form,
         }),
       });
 
